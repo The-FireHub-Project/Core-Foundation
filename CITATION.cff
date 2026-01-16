@@ -5,7 +5,7 @@ abstract: The essential PHP core for clean, domain-driven architecture.
 type: software
 license: Apache-2.0
 
-url: "https://the-firehub-project.github.io/core-foundation/"
+url: "https://the-firehub-project.github.io/core-foundation"
 repository-code: "https://github.com/The-FireHub-Project/Core-Foundation"
 repository-artifact: "https://packagist.org/packages/firehub/core-foundation"
 
@@ -14,7 +14,7 @@ authors:
     given-names: Danijel
     alias: dieselxxx
     orcid: "https://orcid.org/0000-0002-4447-1352"
-    website: "https://the-firehub-project.github.io/"
+    website: "https://github.com/dieselxxx"
 
   - name: The FireHub Project
     address: "Privalj b.b. Kočerin"
@@ -24,7 +24,7 @@ authors:
     country: "BA"
     email: "danijel.galic@outlook.com"
     tel: +38763407111
-    website: "https://the-firehub-project.github.io/"
+    website: "https://the-firehub-project.github.io"
 
 keywords:
   - php
