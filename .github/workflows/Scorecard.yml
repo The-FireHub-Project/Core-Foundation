@@ -1,0 +1,11 @@
+name: Scorecard analysis
+
+on:
+  branch_protection_rule:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    uses: The-FireHub-Project/.github/.github/workflows/Scorecard.yml@master
