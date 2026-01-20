@@ -155,6 +155,6 @@ Please refer to [TRADEMARK.md](https://github.com/The-FireHub-Project/.github/bl
 
 ## <img src="https://raw.githubusercontent.com/The-FireHub-Project/the-firehub-project.github.io/master/resources/graphics/icons/firehub.svg" width="15" alt="FireHub Icon"> License
 
-This software is licensed under the MIT License.
+This software is licensed under the Apache-2.0 License.
 
 For more details, read the full license [here](./LICENSE).
