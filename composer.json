@@ -1,0 +1,68 @@
+{
+  "name": "firehub/core-foundation",
+  "description": "The essential PHP core for clean, domain-driven architecture",
+  "type": "library",
+  "keywords": ["php", "framework", "core", "firehub", "foundation"],
+  "homepage": "https://the-firehub-project.github.io/Core-Foundation",
+  "license": "Apache-2.0",
+  "require": {
+    "php": "^8.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "FireHub\\Core\\": "src/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "authors": [
+    {
+      "name": "Danijel Galić",
+      "email": "danijel.galic@outlook.com",
+      "homepage": "https://github.com/dieselxxx",
+      "role": "Owner"
+    }
+  ],
+  "support": {
+    "email": "danijel.galic@outlook.com",
+    "issues": "https://github.com/The-FireHub-Project/Core-Foundation/issues",
+    "forum": "https://github.com/orgs/The-FireHub-Project/discussions",
+    "wiki": "https://github.com/The-FireHub-Project/Core-Foundation/wiki",
+    "source": "https://github.com/The-FireHub-Project/Core-Foundation",
+    "docs": "https://the-firehub-project.github.io/Core-Foundation",
+    "security": "https://github.com/The-FireHub-Project/Core-Foundation/security/policy"
+  },
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/The-FireHub-Project"
+    }
+  ],
+  "config": {
+    "process-timeout": 900,
+    "preferred-install": {
+      "*": "dist"
+    },
+    "notify-on-install": true,
+    "github-protocols": ["https", "ssh", "git"],
+    "disable-tls": false,
+    "secure-http": true,
+    "vendor-dir": "vendor",
+    "archive-format": "tar",
+    "archive-dir": ".",
+    "bin-dir": "vendor/bin",
+    "bin-compat": "auto",
+    "prepend-autoloader": false,
+    "autoloader-suffix": "null",
+    "optimize-autoloader": false,
+    "classmap-authoritative": false,
+    "apcu-autoloader": false,
+    "htaccess-protect": true,
+    "lock": true,
+    "platform-check": true,
+    "sort-packages": true,
+    "allow-missing-requirements": false,
+    "store-auths": "prompt",
+    "use-parent-dir": "prompt"
+  }
+}
