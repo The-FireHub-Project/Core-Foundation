@@ -1,0 +1,13 @@
+name: Add to Triage
+
+on:
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened]
+
+jobs:
+  build:
+    uses: The-FireHub-Project/.github/.github/workflows/AddToProject.yml@master
+    secrets:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
