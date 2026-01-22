@@ -115,7 +115,7 @@ For security reporting and guidelines, please refer to our [SECURITY.md](https:/
 ## <img src="https://raw.githubusercontent.com/The-FireHub-Project/the-firehub-project.github.io/master/resources/graphics/icons/firehub.svg" width="15" alt="FireHub Icon"> Support
 
 <p>
-  <a href="https://github.com/The-FireHub-Project/Core-Foundation/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22priority%3A%20Critical%22">
+  <a href="https://github.com/The-FireHub-Project/Core-Foundation/issues?q=is%3Aissue%20state%3Aopen">
     <img
       src="https://img.shields.io/github/issues/The-FireHub-Project/Core-Foundation/status%3A%20In%20Progress?style=flat&logo=github&logoColor=959da5&label=in%20progress%20issues&labelColor=31373e"
       alt="GitHub in-progress issues"
