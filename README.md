@@ -31,7 +31,7 @@ Foundation provides the base classes, kernel, domain layer, and minimal runtime 
   /></a>
   <a href="https://github.com/The-FireHub-Project/Core-Foundation">
     <img
-      src="https://img.shields.io/github/v/release/The-FireHub-Project/Core-Foundation?style=flat&logo=github&logoColor=959da5&label=release%20date&labelColor=31373e"
+      src="https://img.shields.io/github/release-date-pre/The-FireHub-Project/Core-Foundation?display_date=published_at&style=flat&logo=github&logoColor=959da5&label=release%20date&labelColor=31373e"
       alt="GitHub release date"
   /></a>
   <a href="https://github.com/The-FireHub-Project/Core-Foundation/commits/master/">
