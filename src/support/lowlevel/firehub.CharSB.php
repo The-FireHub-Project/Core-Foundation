@@ -38,12 +38,12 @@ final class CharSB {
      * This function complements {@see CharSB::ord() ord}.
      * @since 1.0.0
      *
+     * @link https://www.man7.org/linux/man-pages/man7/ascii.7.html List of codepoint values
+     *
      * @param int $codepoint <p>
      * An integer between 0 and 255.<br>
      * Values outside the range 0–255 are clamped to the nearest boundary.
      * </p>
-     *
-     * @link https://www.man7.org/linux/man-pages/man7/ascii.7.html List of codepoint values
      *
      * @return string A single-character string containing the specified byte.
      *
@@ -65,6 +65,8 @@ final class CharSB {
      * Unicode code point in a multibyte encoding such as UTF-8 or UTF-16.<br>
      * This function complements {@see CharSB::chr() chr}.
      * @since 1.0.0
+     *
+     * @link https://www.man7.org/linux/man-pages/man7/ascii.7.html List of codepoint values
      *
      * @param string $character <p>
      * A character.
