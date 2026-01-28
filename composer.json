@@ -8,10 +8,9 @@
   "require": {
     "php": "^8.5"
   },
-  "autoload": {
-    "psr-4": {
-      "FireHub\\Core\\": "src/"
-    }
+  "require-dev": {
+    "phpstan/phpstan": "^2.0",
+    "phpstan/phpstan-strict-rules": "^2.0"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
