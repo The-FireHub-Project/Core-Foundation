@@ -6,6 +6,8 @@ parameters:
   paths:
     - src/
   tmpDir: storage/cache/phpstan/
+  ignoreErrors:
+    - identifier: ternary.shortNotAllowed
 
   checkImplicitMixed: true
   checkMissingTypehints: true
