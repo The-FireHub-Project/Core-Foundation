@@ -42,16 +42,14 @@ final class CharSB {
      *
      * @param int $codepoint <p>
      * An integer between 0 and 255.<br>
-     * Values outside the range 0–255 are clamped to the nearest boundary.
+     * Values outside the valid range (0..255) is wrapped into range using modulo arithmetic.
      * </p>
      *
      * @return string A single-character string containing the specified byte.
-     *
-     * @todo Replace max and min with low-level equivalents when available.
      */
     public static function chr (int $codepoint):string {
 
-        return chr(max(0, min(255, $codepoint)));
+        return chr($codepoint & 0xFF);
 
     }
 
