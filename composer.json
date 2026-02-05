@@ -13,6 +13,11 @@
     "phpstan/phpstan": "^2.0",
     "phpstan/phpstan-strict-rules": "^2.0"
   },
+  "autoload-dev": {
+    "psr-4": {
+      "FireHub\\PHPStan\\": "phpstan/"
+    }
+  },
   "minimum-stability": "dev",
   "prefer-stable": true,
   "authors": [
