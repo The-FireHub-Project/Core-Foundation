@@ -11,8 +11,8 @@ jobs:
     uses: The-FireHub-Project/.github/.github/workflows/RunCommandOnMatrix.yml@master
     with:
       title: "Run PHPStan"
-      phpVersions: '["8.5"]'
-      phpExtensions: "zip, curl, openssl, mbstring"
+      phpVersions: ${{ vars.PHP_VERSIONS }}
+      phpExtensions: ${{ vars.PHP_EXTENSIONS }}
       tools: "phpstan:2.x"
       command: "phpstan analyse"
     secrets:
