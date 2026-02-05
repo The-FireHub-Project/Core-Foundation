@@ -1,10 +1,16 @@
 includes:
   - phar://phpstan.phar/conf/bleedingEdge.neon
   - vendor/phpstan/phpstan-strict-rules/rules.neon
+services:
+    - class: FireHub\PHPStan\Extensions\MathMaxReturnTypeExtension
+      tags:
+        - phpstan.broker.dynamicStaticMethodReturnTypeExtension
+
 parameters:
   level: max
   paths:
     - src/
+    - phpstan/
   tmpDir: storage/cache/phpstan/
   ignoreErrors:
     - identifier: ternary.shortNotAllowed
@@ -21,3 +27,4 @@ parameters:
   reportPossiblyNonexistentConstantArrayOffset: true
   reportStaticMethodSignatures: true
   reportUnmatchedIgnoredErrors: false
+  treatPhpDocTypesAsCertain: false
