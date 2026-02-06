@@ -54,7 +54,7 @@ final class CharSB {
     public static function chr (int $codepoint):string {
 
         return $codepoint < 0 || $codepoint > 255
-            ? throw new CodepointOutsideValidRangeError()
+            ? throw new CodepointOutsideValidRangeError
             : chr($codepoint);
 
     }

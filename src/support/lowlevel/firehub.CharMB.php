@@ -116,7 +116,7 @@ final class CharMB {
     private static function validateEncoding (Encoding $encoding):void {
 
         Arr::inArray(StrMB::listEncodings(), $encoding->value)
-            ?: throw new InvalidStringEncodingError();
+            ?: throw new InvalidStringEncodingError;
 
     }
 
