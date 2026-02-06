@@ -13,7 +13,7 @@
  * @version GIT: $Id$ Blob checksum.
  */
 
-namespace FireHub\PHPStan\Extensions;
+namespace FireHub\PHPStan\Type;
 
 use FireHub\Core\Support\LowLevel\Math;
 use PhpParser\Node\ {

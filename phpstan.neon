@@ -1,10 +1,7 @@
 includes:
   - phar://phpstan.phar/conf/bleedingEdge.neon
   - vendor/phpstan/phpstan-strict-rules/rules.neon
-services:
-    - class: FireHub\PHPStan\Extensions\MathMaxReturnTypeExtension
-      tags:
-        - phpstan.broker.dynamicStaticMethodReturnTypeExtension
+  - phpstan/type.neon
 
 parameters:
   level: max
