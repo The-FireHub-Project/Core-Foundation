@@ -13,21 +13,21 @@
  * @version GIT: $Id$ Blob checksum.
  */
 
-namespace FireHub\Core\Throwable\Error\LowLevel;
+namespace FireHub\Core\Throwable\Error\LowLevel\String;
 
 use FireHub\Core\Throwable\Error;
 
 /**
- * ### Codepoint outside valid range error
+ * ### Encoding type invalid
  * @since 1.0.0
  */
-class CodepointOutsideValidRangeError extends Error {
+class InvalidStringEncodingError extends Error {
 
     /**
      * @inheritdoc
      *
      * @since 1.0.0
      */
-    protected const string DEFAULT_MESSAGE = 'Codepoint is outside a valid range.';
+    protected const string DEFAULT_MESSAGE = 'Encoding type is invalid.';
 
 }

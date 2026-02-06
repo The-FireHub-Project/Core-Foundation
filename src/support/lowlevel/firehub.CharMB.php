@@ -16,7 +16,7 @@
 namespace FireHub\Core\Support\LowLevel;
 
 use FireHub\Core\Shared\Enums\String\Encoding;
-use FireHub\Core\Throwable\Error\LowLevel\InvalidStringEncodingError;
+use FireHub\Core\Throwable\Error\LowLevel\String\InvalidStringEncodingError;
 
 use function mb_chr;
 use function mb_ord;
@@ -49,7 +49,7 @@ final class CharMB {
      * If it is null, the internal character encoding value will be used.
      * </p>
      *
-     * @throws \FireHub\Core\Throwable\Error\LowLevel\InvalidStringEncodingError If the encoding is not valid.
+     * @throws \FireHub\Core\Throwable\Error\LowLevel\String\InvalidStringEncodingError If the encoding is not valid.
      *
      * @return string|false A string containing the requested character if it can be represented in the specified
      * encoding or false on failure.
@@ -83,7 +83,7 @@ final class CharMB {
      * If it is null, the internal character encoding value will be used.
      * </p>
      *
-     * @throws \FireHub\Core\Throwable\Error\LowLevel\InvalidStringEncodingError If the encoding is not valid.
+     * @throws \FireHub\Core\Throwable\Error\LowLevel\String\InvalidStringEncodingError If the encoding is not valid.
      *
      * @return non-negative-int|false The Unicode code point for the first character of string.
      */
@@ -109,7 +109,7 @@ final class CharMB {
      * Character encoding.
      * </p>
      *
-     * @throws \FireHub\Core\Throwable\Error\LowLevel\InvalidStringEncodingError If the encoding is not valid.
+     * @throws \FireHub\Core\Throwable\Error\LowLevel\String\InvalidStringEncodingError If the encoding is not valid.
      *
      * @return void
      */

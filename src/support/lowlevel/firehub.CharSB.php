@@ -15,7 +15,7 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
-use FireHub\Core\Throwable\Error\LowLevel\CodepointOutsideValidRangeError;
+use FireHub\Core\Throwable\Error\LowLevel\String\CodepointOutsideValidRangeError;
 
 use function chr;
 use function ord;
@@ -46,8 +46,8 @@ final class CharSB {
      * An integer between 0 and 255.
      * </p>
      *
-     * @throws \FireHub\Core\Throwable\Error\LowLevel\CodepointOutsideValidRangeError If the codepoint value is outside
-     * the valid range (0..255).
+     * @throws \FireHub\Core\Throwable\Error\LowLevel\String\CodepointOutsideValidRangeError If the codepoint value is
+     * outside the valid range (0..255).
      *
      * @return string A single-character string containing the specified byte.
      */
