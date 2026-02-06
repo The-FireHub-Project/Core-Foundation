@@ -21,7 +21,7 @@ use FireHub\Core\Throwable\Error;
  * ### Encoding type invalid
  * @since 1.0.0
  */
-class InvalidStringEncodingError extends Error {
+class InvalidEncodingError extends Error {
 
     /**
      * @inheritdoc
