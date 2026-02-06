@@ -1,0 +1,4 @@
+services:
+  - class: FireHub\PHPStan\Type\MathMaxReturnTypeExtension
+    tags:
+      - phpstan.broker.dynamicStaticMethodReturnTypeExtension
