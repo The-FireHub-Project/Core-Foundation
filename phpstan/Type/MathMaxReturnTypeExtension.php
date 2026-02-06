@@ -8,7 +8,7 @@
  * @license https://opensource.org/license/Apache-2-0 Apache License, Version 2.0
  *
  * @php-version 7.4
- * @package Core\Support
+ * @package Core\PHPStan
  *
  * @version GIT: $Id$ Blob checksum.
  */
