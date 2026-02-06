@@ -15,6 +15,8 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
+use FireHub\Core\Throwable\Error\LowLevel\CodepointOutsideValidRangeError;
+
 use function chr;
 use function ord;
 
@@ -40,16 +42,20 @@ final class CharSB {
      *
      * @link https://www.man7.org/linux/man-pages/man7/ascii.7.html List of codepoint values
      *
-     * @param int $codepoint <p>
-     * An integer between 0 and 255.<br>
-     * Values outside the valid range (0..255) is wrapped into range using modulo arithmetic.
+     * @param int<0, 255> $codepoint <p>
+     * An integer between 0 and 255.
      * </p>
+     *
+     * @throws \FireHub\Core\Throwable\Error\LowLevel\CodepointOutsideValidRangeError If the codepoint value is outside
+     * the valid range (0..255).
      *
      * @return string A single-character string containing the specified byte.
      */
     public static function chr (int $codepoint):string {
 
-        return chr($codepoint & 0xFF);
+        return $codepoint < 0 || $codepoint > 255
+            ? throw new CodepointOutsideValidRangeError()
+            : chr($codepoint);
 
     }
 
