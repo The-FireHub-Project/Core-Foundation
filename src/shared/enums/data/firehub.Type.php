@@ -22,6 +22,8 @@ namespace FireHub\Core\Shared\Enums\Data;
  * kind that a variable can store. The enum provides a consistent way to reference and inspect data types in
  * FireHub code.
  * @since 1.0.0
+ *
+ * @api
  */
 enum Type {
 

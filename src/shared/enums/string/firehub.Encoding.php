@@ -22,6 +22,8 @@ namespace FireHub\Core\Shared\Enums\String;
  * It ensures type safety, avoids magic strings, and maintains consistent encoding usage in low-level and high-level
  * classes.
  * @since 1.0.0
+ *
+ * @api
  */
 enum Encoding:string {
 

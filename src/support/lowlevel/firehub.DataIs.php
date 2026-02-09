@@ -36,6 +36,8 @@ use function is_string;
  * Provides a minimal, low-level abstraction over PHP’s native is_* functions. It exposes a consistent, static API
  * for inspecting runtime data types without adding interpretation, validation rules, or domain-specific behavior.
  * @since 1.0.0
+ *
+ * @internal
  */
 final class DataIs {
 

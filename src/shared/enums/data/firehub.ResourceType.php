@@ -20,6 +20,8 @@ namespace FireHub\Core\Shared\Enums\Data;
  *
  * Enumerates all known PHP resource types. Useful for identifying, handling, and validating resources.
  * @since 1.0.0
+ *
+ * @api
  */
 enum ResourceType:string {
 

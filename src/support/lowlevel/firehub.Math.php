@@ -20,8 +20,10 @@ use function max;
 /**
  * ### Math low-level proxy class
  *
- * Math utilities acting as thin proxies over native PHP numeric and mathematical functions.
+ * Math utilities act as thin proxies over native PHP numeric and mathematical functions.
  * @since 1.0.0
+ *
+ * @internal
  */
 final class Math {
 

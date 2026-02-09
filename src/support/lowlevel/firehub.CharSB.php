@@ -25,6 +25,8 @@ use function ord;
  *
  * Class provides lightweight, low-level utility methods for handling single-byte character operations.
  * @since 1.0.0
+ *
+ * @internal
  */
 final class CharSB {
 

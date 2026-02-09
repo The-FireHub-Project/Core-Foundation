@@ -34,6 +34,8 @@ use function unserialize;
  * Provides thin static wrappers over PHP's basic data introspection and manipulation functions.  This class is
  * low-level: no domain logic or validation rules, only raw data operations.
  * @since 1.0.0
+ *
+ * @internal
  */
 final class Data {
 

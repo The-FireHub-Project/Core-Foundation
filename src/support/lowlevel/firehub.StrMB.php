@@ -23,6 +23,8 @@ use function mb_list_encodings;
  * Low-level multibyte string proxy; provides defensive, deterministic, JIT-friendly access to PHP mbstring functions
  * without throwing exceptions.
  * @since 1.0.0
+ *
+ * @internal
  */
 final class StrMB {
 

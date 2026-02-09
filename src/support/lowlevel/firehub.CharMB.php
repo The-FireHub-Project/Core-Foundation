@@ -26,6 +26,8 @@ use function mb_ord;
  *
  * Class provides lightweight, low-level utility methods for handling multibyte character operations.
  * @since 1.0.0
+ *
+ * @internal
  */
 final class CharMB {
 

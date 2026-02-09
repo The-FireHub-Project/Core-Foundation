@@ -22,6 +22,8 @@ namespace FireHub\Core\Shared\Enums\Data;
  * compound (multi-value), and special (system-specific) types, helping standardize type handling across
  * the FireHub ecosystem.
  * @since 1.0.0
+ *
+ * @api
  */
 enum Category {
 
