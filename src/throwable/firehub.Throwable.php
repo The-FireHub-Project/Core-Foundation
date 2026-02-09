@@ -15,8 +15,8 @@
 
 namespace FireHub\Core\Throwable;
 
-use FireHub\Core\Shared\Contracts\Throwable as ThrowableContract;
 use FireHub\Core\Throwable\ValueObject\Code;
+use Throwable as InternalThrowable;
 
 /**
  * ### Throwable trait
@@ -38,7 +38,6 @@ trait Throwable {
      * ### Constructor
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Shared\Contracts\Throwable As parameter.
      * @uses \FireHub\Core\Throwable\ValueObject\Code::value() To get the code raw value.
      * @uses static::DEFAULT_MESSAGE As a default throwable message.
      * @uses \FireHub\Core\Throwable\Throwable::DEFAULT_CODE As a default throwable error code.
@@ -50,7 +49,7 @@ trait Throwable {
      * @param null|\FireHub\Core\Throwable\ValueObject\Code<covariant non-negative-int> $code [optional] <p>
      * The throwable code.
      * </p>
-     * @param null|\FireHub\Core\Shared\Contracts\Throwable $previous [optional] <p>
+     * @param null|InternalThrowable $previous [optional] <p>
      * The previous throwable used for the throwable chaining.
      * </p>
      *
@@ -59,7 +58,7 @@ trait Throwable {
     final public function __construct (
         string $message = '',
         ?Code $code = null,
-        ?ThrowableContract $previous = null
+        ?InternalThrowable $previous = null
     ) {
 
         parent::__construct(
