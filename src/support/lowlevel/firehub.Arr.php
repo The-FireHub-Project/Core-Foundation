@@ -7,7 +7,7 @@
  * @copyright 2026 The FireHub Project - All rights reserved
  * @license https://opensource.org/license/Apache-2-0 Apache License, Version 2.0
  *
- * @php-version 8.4
+ * @php-version 8.5
  * @package Core\Support
  *
  * @version GIT: $Id$ Blob checksum.
@@ -15,7 +15,9 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
-use FireHub\Core\Shared\Enums\String\CaseFolding;
+use FireHub\Core\Shared\Enums\ {
+    Order, String\CaseFolding, String\Compare, String\Sort
+};
 use FireHub\Core\Throwable\Error\LowLevel\Arr\ {
     ChunkLengthTooSmallError, FailedToSortMultiArrayError, KeysAndValuesDiffNumberOfElemsError, OutOfRangeError,
     SizeInconsistentError
@@ -23,6 +25,9 @@ use FireHub\Core\Throwable\Error\LowLevel\Arr\ {
 use ValueError;
 
 use const FireHub\Core\Shared\Constants\Number\MAX_32_BIT;
+use const ARRAY_FILTER_USE_BOTH;
+use const CASE_LOWER;
+use const CASE_UPPER;
 
 use function array_all;
 use function array_any;
@@ -1084,6 +1089,1013 @@ final class Arr {
 
         /** @var TArray */
         return array_uintersect_uassoc($array, $excludes, $callback_value, $callback_key);
+
+    }
+
+    /**
+     * ### Filter elements in an array
+     *
+     * Iterates over each value in the $array, passing them to the $callback function.<br>
+     * If the $callback function returns true, the current value from an $array is returned into the result array.<br>
+     * Array keys are preserved and may result in gaps if the $array was indexed.<br>
+     * The result array can be re-indexed using the {@see Arr#values()} function.
+     * @since 1.0.0
+     *
+     * @template TKey of array-key
+     * @template TValue
+     *
+     * @param array<TKey, TValue> $array <p>
+     * The array to iterate.
+     * </p>
+     * @param null|callable(TValue, TKey):bool $callback [optional] <p>
+     * The callback function to use.<br>
+     * If no callback is supplied, all empty and false entries of an array will be removed.
+     * </p>
+     *
+     * @return array<TKey, TValue> Filtered array.
+     *
+     * @caution If the array is changed from the callback function (for example, an element added, deleted, or unset),
+     * then the behavior of this function is undefined.
+     */
+    public static function filter (array $array, ?callable $callback = null):array {
+
+        return !isset($callback)
+            ? array_filter($array) // @phpstan-ignore arrayFilter.strict
+            : array_filter($array, $callback, ARRAY_FILTER_USE_BOTH);
+
+    }
+
+    /**
+     * ### Exchanges all keys with their associated values in an array
+     *
+     * Returns an array in flip order; in other words, keys from an $array become values, and values from an $array
+     * become keys.<br>
+     * Note that the values of $array need to be valid keys; in other words, they need to be either int or string.<br>
+     * A warning will be emitted if a value has the wrong type, and the key/value pair in question will not be
+     * included in the result.<br>
+     * If a value has several occurrences, the latest key will be used as its value, and all others will be lost.
+     * @since 1.0.0
+     *
+     * @template TKey of array-key
+     * @template TValue of array-key
+     *
+     * @param array<TKey, TValue> $array <p>
+     * The array to flip.
+     * </p>
+     *
+     * @return array<TValue, TKey> The flipped array.
+     */
+    public static function flip (array $array):array {
+
+        return array_flip($array);
+
+    }
+
+    /**
+     * ### Return all the keys or a subset of the keys for an array
+     *
+     * Returns the keys, numeric, and string, from the $array.<br>
+     * If a $filter is specified, then only the keys for that value are returned.<br>
+     * Otherwise, all the keys from the array are returned.
+     * @since 1.0.0
+     *
+     * @template TKey of array-key
+     *
+     * @param array<TKey, mixed> $array <p>
+     * An array containing keys to return.
+     * </p>
+     * @param mixed $filter [optional] <p>
+     * If specified, then only keys containing these values are returned.
+     * </p>
+     *
+     * @return list<TKey> An array of all the keys in the input.
+     */
+    public static function keys (array $array, mixed $filter = null):array {
+
+        return func_num_args() >= 2
+            ? array_keys($array, $filter, true)
+            : array_keys($array);
+
+    }
+
+    /**
+     * ### Return all the values from an array
+     *
+     * Returns all the values from the array and indexes the array numerically.
+     * @since 1.0.0
+     *
+     * @template TValue
+     *
+     * @param array<array-key, TValue> $array <p>
+     * The array.
+     * </p>
+     *
+     * @return list<TValue> An indexed array of values.
+     */
+    public static function values (array $array):array {
+
+        return array_values($array);
+
+    }
+
+    /**
+     * ### Applies the callback to the elements of the given array
+     *
+     * Returns an array containing the results of applying the $callback to the corresponding value of an $array
+     * used as arguments for the callback.<br>
+     * The number of parameters that the $callback function accepts should match the number of arrays passed to
+     * {@see Arr#map()}. Excess input arrays are ignored.<br>
+     * An ArgumentCountError is thrown if an insufficient number of arguments is provided.
+     * @since 1.0.0
+     *
+     * @template TKey of array-key
+     * @template TValue
+     * @template TReturn
+     *
+     * @param array<TKey, TValue> $array <p>
+     * Array to run through the callback function.
+     * </p>
+     * @param callable(TValue):TReturn $callback <p>
+     * Callback function to run for each element in each array.<br>
+     * Null can be passed as a value to $callback to perform a zip operation on multiple arrays.<br>
+     * If only an array is provided, {@see Arr#map()} will return the input array.
+     * </p>
+     *
+     * @return ($array is list
+     *  ? list<TReturn>
+     *  : array<TKey, TReturn>
+     * ) Array containing all the elements of arr1 after applying the callback function.
+     */
+    public static function map (array $array, callable $callback):array {
+
+        return array_map($callback, $array);
+
+    }
+
+    /**
+     * ### Merges the elements of one or more arrays
+     *
+     * Merges the elements of one or more arrays so that the values of one are appended to the end of
+     * the previous one.<br>
+     * It returns the resulting array.<br>
+     * If the input arrays have the same string keys, then the later value for that key will overwrite the previous one.<br>
+     * If, however, the arrays contain numeric keys, the later value will not overwrite the original value but will
+     * be appended.<br>
+     * Values in the input arrays with numeric keys will be renumbered with incrementing keys starting from zero in
+     * the result array.
+     * @since 1.0.0
+     *
+     * @template TKey of array-key
+     * @template TValue
+     *
+     * @param array<TKey, TValue> ...$arrays [optional] <p>
+     * Variable list of arrays to merge.
+     * </p>
+     *
+     * @return array<TKey, TValue> The resulting array.
+     *
+     * @note If the input arrays have the same string keys, then the later value for that key will overwrite
+     * the previous one.<br>
+     * @note If the arrays contain numeric keys, the later value will be appended.
+     * @note Numeric keys will be renumbered.
+     */
+    public static function merge (array ...$arrays):array {
+
+        return array_merge(...$arrays);
+
+    }
+
+    /**
+     * ### Merge two or more arrays recursively
+     *
+     * Merges the elements of one or more arrays so that the values of one are appended to the end of the
+     * previous one.<br>
+     * It returns the resulting array.<br>
+     * If the input arrays have the same string keys, then the values for these keys are merged into an array.<br>
+     * This is done recursively, so that if one of the values is an array itself, the function will merge it with a
+     * corresponding entry in another array too.<br>
+     * If, however, the arrays have the same numeric key, the later value will not overwrite the original value but
+     * will be appended.
+     * @since 1.0.0
+     *
+     * @param array<array-key, mixed> ...$arrays [optional] <p>
+     * Variable list of arrays to recursively merge.
+     * </p>
+     *
+     * @return array<array-key, mixed> The resulting array.
+     */
+    public static function mergeRecursive (array ...$arrays):array {
+
+        return array_merge_recursive(...$arrays);
+
+    }
+
+    /**
+     * ### Pad array to the specified length with a value
+     *
+     * Returns a copy of the array padded to the size specified by $length with $value.<br>
+     * If the length is positive, then the array is padded on the right if it is negative, then on the left.<br>
+     * If the absolute value of a length is less than or equal to the length of the array, then no padding takes place.<br>
+     * It is possible to add at most 1,048,576 elements at a time.
+     * @since 1.0.0
+     *
+     * @template TValue
+     * @template TPaddedValue
+     *
+     * @param array<array-key, TValue> $array <p>
+     * Initial array of values to pad.
+     * </p>
+     * @param int $length <p>
+     * New size of the array.
+     * If the length is positive, then the array is padded on the right if it is negative, then on the left.<br>
+     * If the absolute value of a length is less than or equal to the length of the array, then no padding takes place.<br>
+     * </p>
+     * @param TPaddedValue $value <p>
+     * Value to pad if input is less than length.
+     * </p>
+     *
+     * @return array<array-key, TValue|TPaddedValue> A copy of the input padded to the size specified by $length with
+     * value $value.
+     *
+     * @caution Keys can be re-numbered.
+     */
+    public static function pad (array $array, int $length, mixed $value):array {
+
+        return array_pad($array, $length, $value);
+
+    }
+
+    /**
+     * ### Replaces elements from passed arrays into the first array
+     *
+     * Replaces the values of $array with values having the same keys in each of the following arrays.<br>
+     * If a key from the first array exists in the second array, its value will be replaced by the value from the
+     * second array.<br>
+     * If the key exists in the second array, and not the first, it will be created in the first array.<br>
+     * If a key only exists in the first array, it will be left as is.<br>
+     * If several arrays are passed for replacement, they will be processed in order, the later arrays overwriting
+     * the previous values.<br>
+     * Method is not recursive, it will replace values in the first array by whatever type is in the second array.
+     * @since 1.0.0
+     *
+     * @template TKey of array-key
+     * @template TValueOriginal
+     * @template TValueReplacement
+     *
+     * @param array<TKey, TValueOriginal> $array <p>
+     * The array in which elements are replaced.
+     * </p>
+     * @param array<TKey, TValueReplacement> ...$replacements<p>
+     * Arrays from which elements will be extracted.<br>
+     * Values from later arrays overwrite the previous values.
+     * </p>
+     *
+     * @return array<TKey, TValueOriginal|TValueReplacement> The resulting array.
+     */
+    public static function replace (array $array, array ...$replacements):array {
+
+        return array_replace($array, ...$replacements);
+
+    }
+
+    /**
+     * ### Replace two or more arrays recursively
+     *
+     * Replaces the values of $array with the same values from all the following arrays.<br>
+     * If a key from the first array exists in the second array, its value will be replaced by the value from the
+     * second array.<br>
+     * If the key exists in the second array, and not the first, it will be created in the first array.<br>
+     * If a key only exists in the first array, it will be left as is.<br>
+     * If several arrays are passed for replacement, they will be processed in order, the later array overwriting the
+     * previous values.<br>
+     * When the value in the first array is scalar, it will be replaced by the value in the second array, may it be
+     * scalar or array.<br>
+     * When the value in the first array and the second array are both arrays, {@see Arr#replaceRecursive()} will
+     * replace their respective values recursively.
+     * @since 1.0.0
+     *
+     * @template TKey of array-key
+     * @template TValueOriginal
+     * @template TValueReplacement
+     *
+     * @param array<TKey, TValueOriginal> $array <p>
+     * The array in which elements are replaced.
+     * </p>
+     * @param array<TKey, TValueReplacement> ...$replacements<p>
+     * Arrays from which elements will be extracted.<br>
+     * Values from later arrays overwrite the previous values.
+     * </p>
+
+     * @return array<TKey, TValueOriginal|TValueReplacement> The resulting array.
+     */
+    public static function replaceRecursive (array $array, array ...$replacements):array {
+
+        /** @var array<TKey, TValueOriginal|TValueReplacement> */
+        return array_replace_recursive($array, ...$replacements);
+
+    }
+
+    /**
+     * ### Reverse the order of array items
+     *
+     * Takes an input array and returns a new array with the order of the elements reversed.
+     * @since 1.0.0
+     *
+     * @template TKey of array-key
+     * @template TValue
+     *
+     * @param array<TKey, TValue> $array <p>
+     * Array to reverse.
+     * </p>
+     * @param bool $preserve_keys [optional] <p>
+     * Whether you want to preserve keys from an original array or not.<br>
+     * Non-numeric keys aren't affected by this setting and will always be preserved.
+     * </p>
+     *
+     * @return ($preserve_keys is true ? array<TKey, TValue> : list<TValue>) The reversed array.
+     */
+    public static function reverse (array $array, bool $preserve_keys = false):array {
+
+        return array_reverse($array, $preserve_keys);
+
+    }
+
+    /**
+     * ### Extract a slice of the array
+     * @since 1.0.0
+     *
+     * @template TKey of array-key
+     * @template TValue
+     *
+     * @param array<TKey, TValue> $array <p>
+     * The input array.
+     * </p>
+     * @param int $offset <p>
+     * If the offset is non-negative, the sequence will start at that offset in the array.<br>
+     * If the offset is negative, the sequence will start that far from the end of the array.
+     * </p>
+     * @param null|int $length [optional] <p>
+     * If length is given and is positive, then the sequence will have that many elements in it.<br>
+     * If length is given and is negative, then the sequence will stop that many elements from the end of the array.<br>
+     * If it is omitted, then the sequence will have everything from offset up until the end of the array.<br>
+     * </p>
+     * @param bool $preserve_keys [optional] <p>
+     * Note that array_slice will reorder and reset the array indices by default.<br>
+     * You can change this behavior by setting preserve_keys to true.
+     * </p>
+     *
+     * @return (
+     *  $preserve_keys is true
+     *  ? array<TKey, TValue>
+     *  : ($array is list
+     *    ? list<TValue>
+     *    : array<array-key, TValue>)
+     * ) Converted value.
+     *
+     * @note Named keys will always retain their name.
+     */
+    public static function slice (array $array, int $offset, ?int $length = null, bool $preserve_keys = false):array {
+
+        return array_slice($array, $offset, $length, $preserve_keys);
+
+    }
+
+    /**
+     * ### Remove a portion of the array and replace it with something else
+     *
+     * Removes the elements designated by offset and length from the parameter $array and replaces them with the
+     * elements of the replacement array, if supplied.
+     * @since 1.0.0
+     *
+     * @template TKey of array-key
+     * @template TValue
+     * @template TReplacedValue
+     *
+     * @param array<TKey, TValue> &$array <p>
+     * Array to splice.
+     * </p>
+     * @param int $offset <p>
+     * If the offset is positive, then the start of the removed portion is at that offset from the beginning of the
+     * input array.<br>
+     * If the offset is negative, then it starts that far from the end of the input array.
+     * </p>
+     * @param null|int $length [optional] <p>
+     * If the length is omitted, removes everything from offset to the end of the array.<br>
+     * If the length is specified and is positive, then that many elements will be removed.<br>
+     * If the length is specified and is negative, then the end of the removed portion will be that many elements from
+     * the end of the array.<br>
+     * </p>
+     * @param TReplacedValue $replacement [optional] <p>
+     * If a replacement array is specified, then the removed elements will be replaced with elements from this array.<br>
+     * If offset and length are such that nothing is removed, then the elements from the replacement array or array
+     * are inserted in the place specified by the offset.<br>
+     * Keys in a replacement array aren't preserved.<br>
+     * </p>
+     * @phpstan-param-out ($array is list ? list<TValue|TReplacedValue> : array<TValue|TReplacedValue>) $array
+     *
+     * @return array<TKey, TValue> Spliced array.
+     *
+     * @note Numerical keys in an array aren't preserved.<br>
+     * @note If the replacement is not an array, it will be typecast to one (in other words (array) $replacement).<br>
+     * This may result in unexpected behavior when using an object or null replacement.
+     */
+    public static function splice (array &$array, int $offset, ?int $length = null, mixed $replacement = []):array {
+
+        return array_splice($array, $offset, $length, $replacement); // @phpstan-ignore paramOut.type
+
+    }
+
+    /**
+     * ### Removes duplicate values from an array
+     *
+     * Takes an input array and returns a new array without duplicate values.
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Shared\Enums\String\Compare::AS_STRING As default compare enum.
+     *
+     * @template TKey of array-key
+     * @template TValue
+     *
+     * @param array<TKey, TValue> $array <p>
+     * The array to remove duplicates.
+     * </p>
+     *
+     * @return array<TKey, TValue> The filtered array.
+     *
+     * @note The new array will preserve keys.
+     * @note This method is not intended to work on multidimensional arrays.
+     */
+    public static function unique (array $array, Compare $compare = Compare::AS_STRING):array {
+
+        return array_unique($array, $compare->value);
+
+    }
+
+    /**
+     * ### Create an array containing a range of elements
+     * @since 1.0.0
+     *
+     * @param int|float|string $start <p>
+     * First value of the sequence.
+     * </p>
+     * @param int|float|string $end <p>
+     * The sequence is ended upon reaching the end value.
+     * </p>
+     * @param positive-int|float $step [optional] <p>
+     * If a step value is given, it will be used as the increment between elements in the sequence.<br>
+     * Step should be given as a positive number. If not specified, a step will default to 1.
+     * </p>
+     *
+     * @throws \FireHub\Core\Throwable\Error\LowLevel\Arr\OutOfRangeError If $step is 0, $start, $end, or $step is not
+     * finite, or $step is negative, but the produced range is increasing (in other words, $start <= $end).
+     *
+     * @return list<int|float|string> Sequence of elements as an array with the first element being start going up to
+     * end, with each value of the sequence being step values apart.
+     *
+     * @note Character sequence values are limited to a length of one.<br>
+     * If a length greater than one is entered only the first character is used.
+     */
+    public static function range (int|float|string $start, int|float|string $end, int|float $step = 1):array {
+
+        try {
+
+            return range($start, $end, $step);
+
+        } catch (ValueError $error) {
+
+            throw new OutOfRangeError($error->getMessage(), previous: $error);
+
+        }
+
+    }
+
+    /**
+     * ### Pick one or more random keys out of an array
+     *
+     * Picks one or more random entries out of an array and returns the key (or keys) of the random entries.
+     * @since 1.0.0
+     *
+     * @template TKey of array-key
+     *
+     * @param non-empty-array<TKey, mixed> $array <p>
+     * The input array.
+     * </p>
+     * @param positive-int $number [optional] <p>
+     * Specifies how many entries should be picked.
+     * </p>
+     *
+     * @throws \FireHub\Core\Throwable\Error\LowLevel\Arr\OutOfRangeError If $array is empty, or if $number is out of
+     * range.
+     *
+     * @return ($number is int<2, max> ? list<TKey> : TKey) When picking only one entry, the method returns the key
+     * for a random entry.<br>
+     * Otherwise, an array of keys for the random entries is returned.
+     *
+     * @caution This function doesn't generate cryptographically secure values and mustn't be used for cryptographic
+     * purposes, or purposes that require returned values to be unguessable.
+     */
+    public static function random (array $array, int $number = 1):int|string|array {
+
+        try {
+
+            /** @var ($number is int<2, max> ? list<TKey> : TKey) */
+            return array_rand($array, $number);
+
+        } catch (ValueError $error) {
+
+            throw new OutOfRangeError($error->getMessage(), previous: $error);
+
+        }
+
+    }
+
+    /**
+     * ### Iteratively reduce the array to a single value using a callback function
+     *
+     * Iteratively applies the $callback function to the elements of the $array to reduce the array to a single value.
+     * @since 1.0.0
+     *
+     * @template TValue
+     * @template TReturn
+     *
+     * @param array<array-key, TValue> $array <p>
+     * The input array.
+     * </p>
+     * @param callable(null|TReturn, TValue):TReturn $callback <p>
+     * The callable function.
+     * </p>
+     * @param null|TReturn $initial [optional] <p>
+     * If the optional initial is available, it will be used at the beginning of the process, or as a final result in
+     * case the array is empty.
+     * </p>
+     *
+     * @return null|TReturn Resulting value or null if the array is empty and the initial is not passed.
+     */
+    public static function reduce (array $array, callable $callback, mixed $initial = null):mixed {
+
+        return func_num_args() < 3
+            ? array_reduce($array, $callback)
+            : array_reduce($array, $callback, $initial);
+
+    }
+
+    /**
+     * ### Pop the element off the end of an array
+     *
+     * Pops and returns the last element value of the $array, shortening the $array by one element.
+     * @since 1.0.0
+     *
+     * @template TArray of array<array-key, mixed>
+     *
+     * @param TArray &$array <p>
+     * The array to get the value from.
+     * </p>
+     * @phpstan-param-out TArray $array
+     *
+     * @return null|value-of<TArray> The last value of an array. If an array is empty (or is not an array), null will
+     * be returned.
+     *
+     * @note This function will reset the array pointer of the input array after use.
+     */
+    public static function pop (array &$array):mixed {
+
+        return array_pop($array);
+
+    }
+
+    /**
+     * ### Push elements onto the end of an array
+     *
+     * Method treats an array as a stack and pushes the passed variables onto the end of an array.<br>
+     * The length of an array increases by the number of variables pushed.
+     * @since 1.0.0
+     *
+     * @template TKey of array-key
+     * @template TValue
+     * @template TPushedValue
+     *
+     * @param array<TKey, TValue> &$array <p>
+     * The input array.
+     * </p>
+     * @param TPushedValue ...$values [optional] <p>
+     * The values to push onto the end of the array.
+     * </p>
+     * @phpstan-param-out array<TKey, TValue|TPushedValue> $array
+     *
+     * @return int The new number of elements in the array.
+     *
+     * @note If you use push to add one element to the array, it is better to use $array[] = because in that way
+     * there is no overhead of calling a function.
+     */
+    public static function push (array &$array, mixed ...$values):int {
+
+        return array_push($array, ...$values);
+
+    }
+
+    /**
+     * ### Removes an item at the beginning of an array
+     *
+     * Shifts the first value of the array off and returns it, shortening the array by one element and moving
+     * everything down.<br>
+     * All numerical array keys will be modified to start counting from zero while literal keys won't be affected.
+     * @since 1.0.0
+     *
+     * @template TArray of array<array-key, mixed>
+     *
+     * @param TArray &$array <p>
+     * Array to shift.
+     * </p>
+     * @phpstan-param-out TArray $array
+     *
+     * @return null|value-of<TArray> The shifted value, or null if an array is empty or is not an array.
+     *
+     * @note This function will reset the array pointer of the input array after use.
+     */
+    public static function shift (array &$array):mixed {
+
+        return array_shift($array);
+
+    }
+
+    /**
+     * ### Prepend one or more elements to the beginning of an array
+     *
+     * Method prepends passed elements to the front of the array.<br>
+     * Note that the list of elements is prepended as a whole so that the prepended elements stay in the same order.<br>
+     * All numerical array keys will be modified to start counting from zero, while literal keys won't be changed.
+     * @since 1.0.0
+     *
+     * @template TKey of array-key
+     * @template TValue
+     * @template TUnshiftValue
+     *
+     * @param array<TKey, TValue> &$array <p>
+     * The input array.
+     * </p>
+     * @param TUnshiftValue ...$values [optional] <p>
+     * The values to prepend.
+     * </p>
+     * @phpstan-param-out array<TKey, TValue|TUnshiftValue> $array
+     *
+     * @return int The new number of elements in the array.
+     *
+     * @note Resets array's internal pointer to the first element.
+     */
+    public static function unshift (array &$array, mixed ...$values):int {
+
+        return array_unshift($array, ...$values);
+
+    }
+
+    /**
+     * ### Get the first item from an array
+     *
+     * Get the first item of the given $array without affecting the internal array pointer.
+     * @since 1.0.0
+     *
+     * @template TKey of array-key
+     * @template TValue
+     *
+     * @param array<TKey, TValue> $array <p>
+     * An array.
+     * </p>
+     *
+     * @return null|TValue First item from $array or null if an array is empty.
+     */
+    public static function first (array $array):mixed {
+
+        return array_first($array);
+
+    }
+
+    /**
+     * ### Get the last item from an array
+     *
+     * Get the last item of the given $array without affecting the internal array pointer.
+     * @since 1.0.0
+     *
+     * @template TKey of array-key
+     * @template TValue
+     *
+     * @param array<TKey, TValue> $array <p>
+     * An array.
+     * </p>
+     *
+     * @return null|TValue Last item from $array or null if an array is empty.
+     */
+    public static function last (array $array):mixed {
+
+        return array_last($array);
+
+    }
+
+    /**
+     * ### Get the first key from an array
+     *
+     * Get the first key of the given $array without affecting the internal array pointer.
+     * @since 1.0.0
+     *
+     * @template TKey of array-key
+     * @template TValue
+     *
+     * @param array<TKey, TValue> $array <p>
+     * An array.
+     * </p>
+     *
+     * @return null|TKey First key from $array or null if an array is empty.
+     */
+    public static function firstKey (array $array):null|int|string {
+
+        return array_key_first($array);
+
+    }
+
+    /**
+     * ### Get the last key from an array
+     *
+     * Get the last key of the given $array without affecting the internal array pointer.
+     * @since 1.0.0
+     *
+     * @template TKey of array-key
+     * @template TValue
+     *
+     * @param array<TKey, TValue> $array <p>
+     * An array.
+     * </p>
+     *
+     * @return null|TKey Last key from $array or null if an array is empty.
+     */
+    public static function lastKey (array $array):null|int|string {
+
+        return array_key_last($array);
+
+    }
+
+    /**
+     * ### Calculate the product of values in an array
+     *
+     * Returns the product of values in an array.
+     * @since 1.0.0
+     *
+     * @template TValue of int|float
+     *
+     * @param array<array-key, TValue> $array <p>
+     * The array.
+     * </p>
+     *
+     * @return int|float The product as an integer or float.
+     */
+    public static function product (array $array):int|float {
+
+        return array_product($array);
+
+    }
+
+    /**
+     * ### Calculate the sum of values in an array
+     * @since 1.0.0
+     *
+     * @template TValue of int|float
+     *
+     * @param array<array-key, TValue> $array <p>
+     * The input array.
+     * </p>
+     *
+     * @return int|float The sum of values as an integer or float; 0 if the array is empty.
+     */
+    public static function sum (array $array):int|float {
+
+        return array_sum($array);
+
+    }
+
+    /**
+     * ### Searches the array for a given value and returns the first corresponding key if successful
+     * @since 1.0.0
+     *
+     * @template TKey of array-key
+     * @template TValue
+     *
+     * @param array<TKey, TValue> $array <p>
+     * Array to search.
+     * </p>
+     * @param mixed $value <p>
+     * The searched value.
+     * If $value is a string, the comparison is done in a case-sensitive manner.
+     * </p>
+     *
+     * @return TKey|false The key for value if it is found in the array, false otherwise.
+     *
+     * @warning This method may return Boolean false but may also return a non-Boolean value which evaluates to false.
+     * Read the section on Booleans for more information.
+     * Use the === operator for testing the return value of this function.
+     */
+    public static function search (array $array, mixed $value):int|string|false {
+
+        return array_search($value, $array, true);
+
+    }
+
+    /**
+     * ### Returns the first element satisfying a callback function
+     * @since 1.0.0
+     *
+     * @template TKey of array-key
+     * @template TValue
+     *
+     * @param array<TKey, TValue> $array <p>
+     * The array that should be searched.
+     * </p>
+     * @param callable(TValue, TKey):bool $callback <p>
+     * The callback function to call to check each element.
+     * </p>
+     *
+     * @return null|TValue The value of the first element for which the callback returns true, null otherwise.
+     */
+    public static function find (array $array, callable $callback):mixed {
+
+        return array_find($array, $callback);
+
+    }
+
+    /**
+     * ### Returns the key of the first element satisfying a callback function
+     * @since 1.0.0
+     *
+     * @template TKey of array-key
+     * @template TValue
+     *
+     * @param array<TKey, TValue> $array <p>
+     * The array that should be searched.
+     * </p>
+     * @param callable(TValue, TKey):bool $callback <p>
+     * The callback function to call to check each element.
+     * </p>
+     *
+     * @return null|TKey The key of the first element for which the callback returns true, null otherwise.
+     */
+    public static function findKey (array $array, callable $callback):mixed {
+
+        return array_find_key($array, $callback);
+
+    }
+
+    /**
+     * ### Shuffle array
+     *
+     * This function shuffles (randomizes the order of the elements in) an array.
+     * @since 1.0.0
+     *
+     * @template TArray of array<array-key, mixed>
+     *
+     * @param TArray &$array <p>
+     * The array.
+     * </p>
+     * @phpstan-param-out TArray $array
+     *
+     * @return true Always returns true.
+     *
+     * @caution This function doesn't generate cryptographically secure values and mustn't be used for cryptographic
+     * purposes, or purposes that require returned values to be unguessable.
+     * @note This function assigns new keys to the elements in an array.<br>
+     * It will remove any existing keys that may have been assigned, rather than reordering the keys.<br>
+     * @note Resets array's internal pointer to the first element.
+     */
+    public static function shuffle (array &$array):true {
+
+        return shuffle($array); // @phpstan-ignore paramOut.type
+
+    }
+
+    /**
+     * ### Sorts array
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Shared\Enums\Order::ASC As default parameter.
+     * @uses \FireHub\Core\Shared\Enums\String\Sort::BY_REGULAR As default parameter.
+     *
+     * @template TArray of array<array-key, mixed>
+     *
+     * @param TArray &$array <p>
+     * Array to sort.
+     * </p>
+     * @param \FireHub\Core\Shared\Enums\Order $order [optional] <p>
+     * Order type.
+     * </p>
+     * @param \FireHub\Core\Shared\Enums\String\Sort $flag [optional] <p>
+     * Sort flag.
+     * </p>
+     * @param bool $preserve_keys [optional] <p>
+     * Whether you want to preserve keys from an original array or not.
+     * </p>
+     * @phpstan-param-out ($preserve_keys is true ? TArray : list<value-of<TArray>>) $array
+     *
+     * @return true Always true.
+     *
+     * @note Resets array's internal pointer to the first element.
+     */
+    public static function sort (array &$array, Order $order = Order::ASC, Sort $flag = Sort::BY_REGULAR, bool $preserve_keys = false):true {
+
+        return $order === Order::ASC
+            ? ($preserve_keys
+                ? asort($array, $flag->value)
+                : sort($array, $flag->value))
+            : ($preserve_keys
+                ? arsort($array, $flag->value)
+                : rsort($array, $flag->value));
+
+    }
+
+    /**
+     * ### Sorts an array by key
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Shared\Enums\Order::ASC As default parameter.
+     * @uses \FireHub\Core\Shared\Enums\String\Sort::BY_REGULAR As default parameter.
+     *
+     * @template TArray of array<array-key, mixed>
+     *
+     * @param TArray &$array <p>
+     * Array to sort.
+     * </p>
+     * @param \FireHub\Core\Shared\Enums\Order $order [optional] <p>
+     * Order type.
+     * </p>
+     * @param \FireHub\Core\Shared\Enums\String\Sort $flag [optional] <p>
+     * Sort flag.
+     * </p>
+     * @phpstan-param-out TArray $array
+     *
+     * @return true Always true.
+     *
+     * @note Resets array's internal pointer to the first element.
+     */
+    public static function sortByKeys (array &$array, Order $order = Order::ASC, Sort $flag = Sort::BY_REGULAR):true {
+
+        return $order === Order::ASC // @phpstan-ignore paramOut.type
+            ? ksort($array, $flag->value) // @phpstan-ignore paramOut.type
+            : krsort($array, $flag->value); // @phpstan-ignore paramOut.type
+
+    }
+
+    /**
+     * ### Sorts an array by values using a user-defined comparison function
+     * @since 1.0.0
+     *
+     * @template TArray of array<array-key, mixed>
+     *
+     * @param TArray &$array <p>
+     * Array to sort.
+     * </p>
+     * @param callable(value-of<TArray>, value-of<TArray>):int<-1, 1> $callback <p>
+     * The comparison function must return an integer less than, equal to, or greater than zero if the first argument
+     * is considered to be respectively less than, equal to, or greater than the second.
+     * </p>
+     * @param bool $preserve_keys [optional] <p>
+     * Whether you want to preserve keys from an original array or not.
+     * </p>
+     * @phpstan-param-out ($preserve_keys is true ? TArray : list<value-of<TArray>>) $array
+     *
+     * @return true Always true.
+     *
+     * @caution Returning non-integer values from the comparison function, such as float, will result in an internal
+     * cast to int of the callback's return value.
+     * So values such as 0.99 and 0.1 will both be cast to an integer value of 0, which will compare such values as
+     * equal.
+     */
+    public static function sortBy (array &$array, callable $callback, bool $preserve_keys = false):true {
+
+        return $preserve_keys // @phpstan-ignore paramOut.type
+            ? uasort($array, $callback)
+            : usort($array, $callback);
+
+    }
+
+    /**
+     * ### Sorts an array by key using a user-defined comparison function
+     * @since 1.0.0
+     *
+     * @template TArray of array<array-key, mixed>
+     *
+     * @param TArray &$array <p>
+     * Array to sort.
+     * </p>
+     * @param callable(key-of<TArray>, key-of<TArray>):int<-1, 1> $callback <p>
+     * The callback comparison function.<br>
+     * Function cmp_function should accept two parameters which will be filled by pairs of array keys.<br>
+     * The comparison function must return an integer less than, equal to, or greater than zero if the first argument
+     * is considered to be respectively less than, equal to, or greater than the second.
+     * </p>
+     * @phpstan-param-out TArray $array
+     *
+     * @return true Always true.
+     *
+     * @note Resets array's internal pointer to the first element.
+     */
+    public static function sortKeysBy (array &$array, callable $callback):true {
+
+        return uksort($array, $callback); // @phpstan-ignore paramOut.type
 
     }
 
