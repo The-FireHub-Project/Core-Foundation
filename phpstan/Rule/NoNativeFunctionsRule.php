@@ -75,7 +75,18 @@ final class NoNativeFunctionsRule implements Rule {
 
             $funcName = strtolower((string)$name);
 
-            if (in_array($funcName, get_defined_functions()['internal'], true)) {
+            $list = array_values(
+                array_diff(
+                    get_defined_functions()['internal'],
+                    [
+                        'func_num_args',
+                        'func_get_arg',
+                        'func_get_args',
+                    ]
+                )
+            );
+
+            if (in_array($funcName, $list, true)) {
 
                 return [
                     RuleErrorBuilder::message(sprintf(
