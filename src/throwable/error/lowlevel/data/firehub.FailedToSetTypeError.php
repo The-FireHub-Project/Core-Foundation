@@ -28,6 +28,6 @@ class FailedToSetTypeError extends Error {
      *
      * @since 1.0.0
      */
-    protected const string DEFAULT_MESSAGE = 'Failed to set type error.';
+    protected const string DEFAULT_MESSAGE = 'Failed to set type.';
 
 }

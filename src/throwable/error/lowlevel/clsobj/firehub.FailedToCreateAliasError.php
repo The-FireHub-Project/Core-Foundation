@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the FireHub Project ecosystem
@@ -18,16 +20,18 @@ namespace FireHub\Core\Throwable\Error\LowLevel\Data;
 use FireHub\Core\Throwable\Error;
 
 /**
- * ### Array to string conversion error
+ * ### Failed to create class alias error
+ *
  * @since 1.0.0
  */
-class ArrayToStringConversionError extends Error {
+class FailedToCreateAliasError extends Error
+{
 
     /**
      * @inheritdoc
      *
      * @since 1.0.0
      */
-    protected const string DEFAULT_MESSAGE = 'Array to string conversion.';
+    protected const string DEFAULT_MESSAGE = 'Failed to create class alias.';
 
 }

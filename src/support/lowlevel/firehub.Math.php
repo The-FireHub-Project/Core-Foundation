@@ -42,7 +42,8 @@ final class Math {
      *
      * @return TValue Value considered "highest" according to standard comparisons.
      *
-     * @caution Be careful when passing arguments of different types because method can produce unpredictable results.
+     * @caution Be careful when passing arguments of different types because the method can produce unpredictable
+     * results.
      */
     public static function max (mixed $value, mixed ...$values):mixed {
 
