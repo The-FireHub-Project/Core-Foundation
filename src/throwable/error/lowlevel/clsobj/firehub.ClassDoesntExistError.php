@@ -20,17 +20,17 @@ namespace FireHub\Core\Throwable\Error\LowLevel\ClsObj;
 use FireHub\Core\Throwable\Error;
 
 /**
- * ### Failed to create class alias error
+ * ### Class doesn't exist error
  *
  * @since 1.0.0
  */
-class FailedToCreateAliasError extends Error {
+class ClassDoesntExistError extends Error {
 
     /**
      * @inheritdoc
      *
      * @since 1.0.0
      */
-    protected const string DEFAULT_MESSAGE = 'Failed to create class alias.';
+    protected const string DEFAULT_MESSAGE = "Class doesn't exist.";
 
 }

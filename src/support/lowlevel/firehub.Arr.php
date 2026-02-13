@@ -609,7 +609,7 @@ final class Arr {
      * equal.
      * @note Note that this function only checks one dimension of an n-dimensional array.<br>
      * Of course, you can check deeper dimensions by using
-     * Arr#differenceFunc($array1[0], $array2[0]), 'data_compare_func').
+     * Arr#differenceFunc($array1[0], $array2[0], 'data_compare_func').
      */
     public static function differenceFunc (array $array, array $excludes, callable $callback):array {
 
