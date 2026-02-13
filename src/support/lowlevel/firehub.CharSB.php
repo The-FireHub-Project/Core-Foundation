@@ -39,7 +39,7 @@ final class CharSB {
      * Windows 1252, by passing the position of a desired character in the encoding's mapping table.
      * However, note that this function is not aware of any string encoding, and in particular can't be passed a
      * Unicode code point value to generate a string in a multibyte encoding like UTF-8 or UTF-16.<br>
-     * This function complements {@see CharSB::ord() ord}.
+     * This function complements CharSB::ord().
      * @since 1.0.0
      *
      * @link https://www.man7.org/linux/man-pages/man7/ascii.7.html List of codepoint values
@@ -69,7 +69,7 @@ final class CharSB {
      * returning the position of a character in the character set's mapping table.<br>
      * However, note that this function is not aware of any string encoding, and in particular will never identify a
      * Unicode code point in a multibyte encoding such as UTF-8 or UTF-16.<br>
-     * This function complements {@see CharSB::chr() chr}.
+     * This function complements CharSB::chr().
      * @since 1.0.0
      *
      * @link https://www.man7.org/linux/man-pages/man7/ascii.7.html List of codepoint values

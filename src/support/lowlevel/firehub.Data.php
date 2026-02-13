@@ -177,7 +177,7 @@ final class Data {
      *
      * Generates a storable representation of a value.<br>
      * This is useful for storing or passing PHP values around without losing their type and structure.
-     * To make the serialized string into a PHP value again, use {@see Data::unserialize() unserialize}.
+     * To make the serialized string into a PHP value again, use Data::unserialize().
      * @since 1.0.0
      *
      * @param null|scalar|array<array-key, mixed>|object $value <p>
@@ -189,11 +189,11 @@ final class Data {
      *
      * @return string String containing a byte-stream representation of a value that can be stored anywhere.
      *
-     * @warning When {@see Data::serialize() serialize} serializes objects, the leading backslash is not included in
-     * the class name of namespaced classes for maximum compatibility.
+     * @warning When Data::serialize() serializes objects, the leading backslash is not included in the class name
+     * of namespaced classes for maximum compatibility.
      * @note This is a binary string that may include null bytes and needs to be stored and handled as such.
-     * For example, {@see Data::serialize() serialize} output should generally be stored in a BLOB field in a database,
-     * rather than a CHAR or TEXT field.
+     * For example, Data::serialize() output should generally be stored in a BLOB field in a database, rather than
+     * a CHAR or TEXT field.
      */
     public static function serialize (null|string|int|float|bool|array|object $value):string {
 

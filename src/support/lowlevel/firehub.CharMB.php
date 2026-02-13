@@ -36,7 +36,7 @@ final class CharMB {
      *
      * Returns a string containing the character specified by the Unicode code point value, encoded in the specified
      * encoding.<br>
-     * This function complements {@see CharMB::ord() ord}.
+     * This function complements CharMB::ord().
      * @since 1.0.0
      *
      * @link https://en.wikipedia.org/wiki/List_of_Unicode_characters List of codepoint values
@@ -68,7 +68,7 @@ final class CharMB {
      * ### Get Unicode code point of character
      *
      * Returns the Unicode code point value of the given character.<br>
-     * This function complements {@see CharMB::chr() chr}.
+     * This function complements CharMB::chr().
      * @since 1.0.0
      *
      * @link https://en.wikipedia.org/wiki/List_of_Unicode_characters List of codepoint values

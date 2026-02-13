@@ -15,7 +15,7 @@ declare(strict_types = 1);
  * @version GIT: $Id$ Blob checksum.
  */
 
-namespace FireHub\Core\Throwable\Error\LowLevel\Data;
+namespace FireHub\Core\Throwable\Error\LowLevel\ClsObj;
 
 use FireHub\Core\Throwable\Error;
 

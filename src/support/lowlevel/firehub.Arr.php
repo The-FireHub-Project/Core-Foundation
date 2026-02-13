@@ -570,7 +570,7 @@ final class Arr {
      * @return TArray An array containing all the entries from $array that aren't present in any of the other arrays.
      *
      * @note This function only checks one dimension of an n-dimensional array.<br>
-     * You can check deeper dimensions by using {@see Arr#difference($array1[0], $array2[0])}.
+     * You can check deeper dimensions by using Arr#difference($array1[0], $array2[0]).
      */
     public static function difference (array $array, array ...$excludes):array {
 
@@ -583,7 +583,7 @@ final class Arr {
      * ### Computes the difference of arrays using values for comparison by using a callback for comparison
      *
      * Computes the difference of arrays by using a callback function for data comparison.<br>
-     * This is unlike {@see Arr#difference()} which uses an internal function for comparing the data.
+     * This is unlike Arr#difference() which uses an internal function for comparing the data.
      * @since 1.0.0
      *
      * @template TArray of array<array-key, mixed>
@@ -609,7 +609,7 @@ final class Arr {
      * equal.
      * @note Note that this function only checks one dimension of an n-dimensional array.<br>
      * Of course, you can check deeper dimensions by using
-     * {@see Arr#differenceFunc($array1[0], $array2[0]), 'data_compare_func')}.
+     * Arr#differenceFunc($array1[0], $array2[0]), 'data_compare_func').
      */
     public static function differenceFunc (array $array, array $excludes, callable $callback):array {
 
@@ -621,8 +621,8 @@ final class Arr {
     /**
      * ### Computes the difference of arrays using keys for comparison
      *
-     * Compares the keys from an array against the keys from arrays and returns the difference.
-     * This function is like {@see Arr#difference()} except the comparison is done on the keys instead of the values.
+     * Compares the keys from an array against the keys from arrays and returns the difference.<br>
+     * This function is like Arr#difference() except the comparison is done on the keys instead of the values.
      * @since 1.0.0
      *
      * @template TArray of array<array-key, mixed>
@@ -638,7 +638,7 @@ final class Arr {
      * other arrays.
      *
      * @note This function only checks one dimension of an n-dimensional array.<br>
-     * Of course, you can check deeper dimensions by using {@see Arr#differenceKey($array1[0], $array2[0])}.
+     * Of course, you can check deeper dimensions by using Arr#differenceKey($array1[0], $array2[0]).
      */
     public static function differenceKey (array $array, array ...$excludes):array {
 
@@ -651,7 +651,7 @@ final class Arr {
      * ### Computes the difference of arrays using keys for comparison by using a callback for data comparison
      *
      * Compares the keys from an array against the keys from arrays and returns the difference.<br>
-     * This function is like {@see Arr#difference()} except the comparison is done on the keys instead of the values.
+     * This function is like Arr#difference() except the comparison is done on the keys instead of the values.
      * @since 1.0.0
      *
      * @template TArray of array<array-key, mixed>
@@ -675,7 +675,7 @@ final class Arr {
      * equal.
      * @note This function only checks one dimension of an n-dimensional array.<br>
      * Of course, you can check deeper dimensions by using
-     * {@see Arr#differenceKeyFunc($array1[0], $array2[0], 'callback_func')}.
+     * Arr#differenceKeyFunc($array1[0], $array2[0], 'callback_func').
      */
     public static function differenceKeyFunc (array $array, array $excludes, callable $callback):array {
 
@@ -688,7 +688,7 @@ final class Arr {
      * ### Computes the difference of arrays with additional index check
      *
      * Compares an array against arrays and returns the difference.<br>
-     * Unlike {@see Arr#difference()}, the array keys are also used in the comparison.
+     * Unlike Arr#difference(), the array keys are also used in the comparison.
      * @since 1.0.0
      *
      * @template TArray of array<array-key, mixed>
@@ -704,8 +704,7 @@ final class Arr {
      * the other arrays.
      *
      * @note This function only checks one dimension of an n-dimensional array.<br>
-     * It is possible to check deeper dimensions by using, for example,
-     * {@see Arr#differenceAssoc($array1[0], $array2[0])}.
+     * It is possible to check deeper dimensions by using, for example, Arr#differenceAssoc($array1[0], $array2[0]).
      * @note Ensure arguments are passed in the correct order when comparing similar arrays with more keys.<br>
      * The new array should be the first in the list.
      */
@@ -743,7 +742,7 @@ final class Arr {
      * equal.
      * @note Note that this function only checks one dimension of an n-dimensional array.<br>
      * Of course, you can check deeper dimensions by using, for example,
-     * {@see Arr#differenceAssocFuncValue($array1[0], $array2[0], some_comparison_func')}.
+     * Arr#differenceAssocFuncValue($array1[0], $array2[0], some_comparison_func').
      */
     public static function differenceAssocFuncValue (array $array, array $excludes, callable $callback):array {
 
@@ -756,8 +755,8 @@ final class Arr {
      * ### Computes the difference of arrays with additional index check by using a callback for key comparison
      *
      * Compares an array against arrays and returns the difference.<br>
-     * Unlike {@see Arr#difference()}, the array keys are used in the comparison.<br>
-     * Unlike {@see Arr#differenceAssoc()}, a user-supplied callback function is used for the indices' comparison,
+     * Unlike Arr#difference(), the array keys are used in the comparison.<br>
+     * Unlike Arr#differenceAssoc(), a user-supplied callback function is used for the indices' comparison,
      * not an internal function.
      * @since 1.0.0
      *
@@ -783,7 +782,7 @@ final class Arr {
      * equal.
      * @note This function only checks one dimension of an n-dimensional array.<br>
      * It is possible to check deeper dimensions by using, for example,
-     * {@see Arr#differenceAssocFuncKey($array1[0], $array2[0], 'key_compare_func')}.
+     * Arr#differenceAssocFuncKey($array1[0], $array2[0], 'key_compare_func').
      */
     public static function differenceAssocFuncKey (array $array, array $excludes, callable $callback):array {
 
@@ -796,7 +795,7 @@ final class Arr {
      * ### Computes the difference of arrays with additional index check by using a callback for key-value comparison
      *
      * Computes the difference of arrays with additional index check, compares data, and indexes by a callback function.<br>
-     * Note that the keys are used in the comparison unlike {@see Arr#difference()} and {@see Arr#differenceFunc()}.
+     * Note that the keys are used in the comparison unlike Arr#difference() and Arr#differenceFunc().
      * @since 1.0.0
      *
      * @template TArray of array<array-key, mixed>
@@ -824,7 +823,7 @@ final class Arr {
      * equal.
      * @note This function only checks one dimension of an n-dimensional array.<br>
      * It is possible to check deeper dimensions by using, for example,
-     * {@see Arr#differenceAssocFuncKeyValue($array1[0], $array2[0], 'data_compare_func', 'key_compare_func')}.
+     *  Arr#differenceAssocFuncKeyValue($array1[0], $array2[0], 'data_compare_func', 'key_compare_func').
      */
     public static function differenceAssocFuncKeyValue (array $array, array $excludes, callable $callback_value, callable $callback_key):array {
 
@@ -957,7 +956,7 @@ final class Arr {
      * ### Computes the intersection of arrays with additional index check
      *
      * Returns an array containing all the values of an array that are present in all the arguments.<br>
-     * Note that the keys are also used in the comparison, unlike in {@see Arr#intersect()}.
+     * Note that the keys are also used in the comparison, unlike in Arr#intersect().
      * @since 1.0.0
      *
      * @template TArray of array<array-key, mixed>
@@ -985,7 +984,7 @@ final class Arr {
      * ### Computes the intersection of arrays with additional index check by using a callback for value comparison
      *
      * Computes the intersection of arrays with additional index check, compares data by a callback function.<br>
-     * Note that the keys are used in the comparison unlike in {@see Arr#intersectFunc()}.
+     * Note that the keys are used in the comparison unlike in Arr#intersectFunc().
      * The data is compared by using a callback function.
      * @since 1.0.0
      *
@@ -1098,7 +1097,7 @@ final class Arr {
      * Iterates over each value in the $array, passing them to the $callback function.<br>
      * If the $callback function returns true, the current value from an $array is returned into the result array.<br>
      * Array keys are preserved and may result in gaps if the $array was indexed.<br>
-     * The result array can be re-indexed using the {@see Arr#values()} function.
+     * The result array can be re-indexed using the Arr#values() function.
      * @since 1.0.0
      *
      * @template TKey of array-key
@@ -1204,7 +1203,7 @@ final class Arr {
      * Returns an array containing the results of applying the $callback to the corresponding value of an $array
      * used as arguments for the callback.<br>
      * The number of parameters that the $callback function accepts should match the number of arrays passed to
-     * {@see Arr#map()}. Excess input arrays are ignored.<br>
+     * Arr#map(). Excess input arrays are ignored.<br>
      * An ArgumentCountError is thrown if an insufficient number of arguments is provided.
      * @since 1.0.0
      *
@@ -1218,7 +1217,7 @@ final class Arr {
      * @param callable(TValue):TReturn $callback <p>
      * Callback function to run for each element in each array.<br>
      * Null can be passed as a value to $callback to perform a zip operation on multiple arrays.<br>
-     * If only an array is provided, {@see Arr#map()} will return the input array.
+     * If only an array is provided, Arr#map() will return the input array.
      * </p>
      *
      * @return ($array is list
@@ -1370,8 +1369,8 @@ final class Arr {
      * previous values.<br>
      * When the value in the first array is scalar, it will be replaced by the value in the second array, may it be
      * scalar or array.<br>
-     * When the value in the first array and the second array are both arrays, {@see Arr#replaceRecursive()} will
-     * replace their respective values recursively.
+     * When the value in the first array and the second array are both arrays, Arr#replaceRecursive() will replace
+     * their respective values recursively.
      * @since 1.0.0
      *
      * @template TKey of array-key
