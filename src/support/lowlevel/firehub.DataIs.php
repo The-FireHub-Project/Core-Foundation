@@ -15,6 +15,7 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
+use FireHub\Core\Support\LowLevel;
 use Countable;
 
 use function is_array;
@@ -38,8 +39,11 @@ use function is_string;
  * @since 1.0.0
  *
  * @internal
+ *
+ * @note This class is intended only as an inheritance base for framework-internal helpers.<br>
+ * Do not instantiate or extend outside the FireHub low-level helper ecosystem.
  */
-final class DataIs {
+final class DataIs extends LowLevel {
 
     /**
      * ### Checks whether the value is an array

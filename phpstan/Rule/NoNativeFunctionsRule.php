@@ -22,6 +22,7 @@ use PHPStan\Analyser\Scope;
 use PHPStan\Rules\ {
     Rule, RuleErrorBuilder
 };
+use PHPStan\Reflection\ReflectionProvider;
 
 /**
  * ### Rule that forbids direct usage of native functions
@@ -32,6 +33,20 @@ use PHPStan\Rules\ {
  * @implements Rule<TNodeType>
  */
 final class NoNativeFunctionsRule implements Rule {
+
+    /**
+     * ## Constructor
+     * @since 1.0.0
+     *
+     * @param \PHPStan\Reflection\ReflectionProvider $reflectionProvider <p>
+     * Reflection provider for class hierarchy checks.
+     * </p>
+     *
+     * @return void
+     */
+    public function __construct(
+        private ReflectionProvider $reflectionProvider
+    ) {}
 
     /**
      * ### Returns the node type this rule is interested in
@@ -62,10 +77,15 @@ final class NoNativeFunctionsRule implements Rule {
      */
     public function processNode (Node $node, Scope $scope):array {
 
-        $fileName = $scope->getFile();
-        if (str_contains(
-            $fileName, DIRECTORY_SEPARATOR . 'support' . DIRECTORY_SEPARATOR . 'lowlevel' . DIRECTORY_SEPARATOR
-        )) return [];
+        $classReflection = $scope->getClassReflection();
+
+        if (
+            $classReflection !== null &&
+            $classReflection->isSubclassOfClass($this->reflectionProvider
+                ->getClass(\FireHub\Core\Support\LowLevel::class))
+        ) {
+            return [];
+        }
 
         if (!$node instanceof FuncCall) return [];
 

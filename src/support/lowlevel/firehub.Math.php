@@ -15,6 +15,8 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
+use FireHub\Core\Support\LowLevel;
+
 use function max;
 
 /**
@@ -24,8 +26,11 @@ use function max;
  * @since 1.0.0
  *
  * @internal
+ *
+ * @note This class is intended only as an inheritance base for framework-internal helpers.<br>
+ * Do not instantiate or extend outside the FireHub low-level helper ecosystem.
  */
-final class Math {
+final class Math extends LowLevel {
 
     /**
      * ### Find the highest value

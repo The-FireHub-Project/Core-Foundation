@@ -15,6 +15,7 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
+use FireHub\Core\Support\LowLevel;
 use FireHub\Core\Throwable\Error\LowLevel\ClsObj\ {
     ClassDoesntExistError, FailedToCreateAliasError
 };
@@ -47,8 +48,11 @@ use function trait_exists;
  * @since 1.0.0
  *
  * @internal
+ *
+ * @note This class is intended only as an inheritance base for framework-internal helpers.<br>
+ * Do not instantiate or extend outside the FireHub low-level helper ecosystem.
  */
-final class ClsObj {
+final class ClsObj extends LowLevel {
 
     /**
      * ### Checks if a class name exists

@@ -15,6 +15,7 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
+use FireHub\Core\Support\LowLevel;
 use FireHub\Core\Shared\Enums\Data\Type;
 use FireHub\Core\Throwable\Error\LowLevel\Data\ {
     ArrayToStringConversionError, CannotSerializeError, FailedToSetTypeError, SetAsResourceError, TypeUnknownError,
@@ -36,8 +37,11 @@ use function unserialize;
  * @since 1.0.0
  *
  * @internal
+ *
+ * @note This class is intended only as an inheritance base for framework-internal helpers.<br>
+ * Do not instantiate or extend outside the FireHub low-level helper ecosystem.
  */
-final class Data {
+final class Data extends LowLevel {
 
     /**
      * ### Gets the type name of a variable in a way that is suitable for debugging

@@ -13,17 +13,14 @@
  * @version GIT: $Id$ Blob checksum.
  */
 
-namespace FireHub\Core\Support\LowLevel;
-
-use FireHub\Core\Support\LowLevel;
-
-use function mb_list_encodings;
+namespace FireHub\Core\Support;
 
 /**
- * ### Multibyte string low-level proxy class
+ * ### Abstract Low-Level Base Class
  *
- * Low-level multibyte string proxy; provides defensive, deterministic, JIT-friendly access to PHP mbstring functions
- * without throwing exceptions.
+ * Serves as the base class for all low-level helper classes in the FireHub framework.<br>
+ * Provides a private and final constructor to prevent instantiation and overriding, enforcing a stateless,
+ * static-only usage pattern.
  * @since 1.0.0
  *
  * @internal
@@ -31,18 +28,14 @@ use function mb_list_encodings;
  * @note This class is intended only as an inheritance base for framework-internal helpers.<br>
  * Do not instantiate or extend outside the FireHub low-level helper ecosystem.
  */
-final class StrMB extends LowLevel {
+abstract class LowLevel {
 
     /**
-     * ### List of all supported encodings
+     * ### Protected and final constructor to prevent instantiation and overriding
      * @since 1.0.0
      *
-     * @return non-empty-list<string> Returns a numerically indexed array of all available encodings.
+     * @return void
      */
-    public static function listEncodings ():array {
-
-        return mb_list_encodings();
-
-    }
+    final protected function __construct() {}
 
 }

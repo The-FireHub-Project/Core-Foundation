@@ -15,6 +15,7 @@
 
 namespace FireHub\Core\Support\LowLevel;
 
+use FireHub\Core\Support\LowLevel;
 use FireHub\Core\Shared\Enums\ {
     Order, String\CaseFolding, String\Compare, String\Sort
 };
@@ -109,8 +110,11 @@ use function usort;
  * @since 1.0.0
  *
  * @internal
+ *
+ * @note This class is intended only as an inheritance base for framework-internal helpers.<br>
+ * Do not instantiate or extend outside the FireHub low-level helper ecosystem.
  */
-final class Arr {
+final class Arr extends LowLevel {
 
     /**
      * ### Checks if all array elements satisfy a callback function
