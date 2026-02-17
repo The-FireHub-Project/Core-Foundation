@@ -163,7 +163,7 @@ final class Json extends LowLevel {
      */
     public static function validate (string $json, int $depth = 512, Validate ...$flags):bool {
 
-        return json_validate($json, $depth, Arr::reduce(
+        return json_validate($json, $depth, Arr::reduce( // @phpstan-ignore argument.type
             Arr::unique($flags),
             static fn(null|int $carry, Validate $flag) => $carry | $flag->value,
             0
