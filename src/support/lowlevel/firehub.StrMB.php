@@ -17,7 +17,29 @@ namespace FireHub\Core\Support\LowLevel;
 
 use FireHub\Core\Support\LowLevel;
 
+use function mb_check_encoding;
+use function mb_convert_case;
+use function mb_convert_encoding;
+use function mb_detect_encoding;
+use function mb_internal_encoding;
+use function mb_lcfirst;
 use function mb_list_encodings;
+use function mb_ltrim;
+use function mb_rtrim;
+use function mb_str_split;
+use function mb_stripos;
+use function mb_stristr;
+use function mb_strlen;
+use function mb_strpos;
+use function mb_strrchr;
+use function mb_strrichr;
+use function mb_strripos;
+use function mb_strrpos;
+use function mb_strstr;
+use function mb_substr;
+use function mb_substr_count;
+use function mb_trim;
+use function mb_ucfirst;
 
 /**
  * ### Multibyte string low-level proxy class
