@@ -40,7 +40,7 @@ use const PHP_SYSCONFDIR;
  * DIRECTORY_SEPARATOR constant.
  * @since 1.0.0
  *
- * @var string \FireHub\Core\Support\Constants\Path\DS
+ * @var string \FireHub\Core\Shared\Constants\Path\DS
  *
  * @see https://www.php.net/manual/en/dir.constants.php To find more info for DIRECTORY_SEPARATOR constant.
  *
@@ -52,7 +52,7 @@ const DS = DIRECTORY_SEPARATOR;
  * ### Semicolon on Windows, colon otherwise
  * @since 1.0.0
  *
- * @var string \FireHub\Core\Support\Constants\Path\SEPARATOR
+ * @var string \FireHub\Core\Shared\Constants\Path\SEPARATOR
  *
  * @see https://www.php.net/manual/en/dir.constants.php To find more info for PATH_SEPARATOR constant.
  *
@@ -64,7 +64,7 @@ const SEPARATOR = PATH_SEPARATOR;
  * ### The maximum length of filenames (including a path) supported by this build of PHP
  * @since 1.0.0
  *
- * @var int \FireHub\Core\Support\Constants\Path\MAX_LENGTH
+ * @var int \FireHub\Core\Shared\Constants\Path\MAX_LENGTH
  *
  * @api
  */
@@ -74,7 +74,7 @@ const MAX_LENGTH = PHP_MAXPATHLEN;
  * ### Default PHP include path
  * @since 1.0.0
  *
- * @var int \FireHub\Core\Support\Constants\Path\DEFAULT_INCLUDE
+ * @var int \FireHub\Core\Shared\Constants\Path\DEFAULT_INCLUDE
  *
  * @api
  */
@@ -84,7 +84,7 @@ const DEFAULT_INCLUDE = DEFAULT_INCLUDE_PATH;
  * ### PEAR installation directory
  * @since 1.0.0
  *
- * @var int \FireHub\Core\Support\Constants\Path\PEAR_INSTALL_DIR
+ * @var int \FireHub\Core\Shared\Constants\Path\PEAR_INSTALL_DIR
  *
  * @api
  */
@@ -94,7 +94,7 @@ const PEAR_INSTALL_DIR = PHP_PEAR_INSTALL_DIR;
  * ### PEAR extension directory
  * @since 1.0.0
  *
- * @var int \FireHub\Core\Support\Constants\Path\PEAR_EXTENSION_DIR
+ * @var int \FireHub\Core\Shared\Constants\Path\PEAR_EXTENSION_DIR
  *
  * @api
  */
@@ -106,7 +106,7 @@ const PEAR_EXTENSION_DIR = PHP_PEAR_EXTENSION_DIR;
  * Defaults to PHP_PREFIX (or PHP_PREFIX . "\\ext" on Windows).
  * @since 1.0.0
  *
- * @var int \FireHub\Core\Support\Constants\Path\EXTENSION_DIR
+ * @var int \FireHub\Core\Shared\Constants\Path\EXTENSION_DIR
  *
  * @api
  */
@@ -118,7 +118,7 @@ const EXTENSION_DIR = PHP_EXTENSION_DIR;
  * On Windows, it is the value --with-prefix was set to at configure-
  * @since 1.0.0
  *
- * @var string \FireHub\Core\Support\Constants\Path\PREFIX
+ * @var string \FireHub\Core\Shared\Constants\Path\PREFIX
  *
  * @api
  */
@@ -130,7 +130,7 @@ const PREFIX = PHP_PREFIX;
  * On Windows, it is the value --with-prefix was set to at configuring.
  * @since 1.0.0
  *
- * @var string \FireHub\Core\Support\Constants\Path\BINDIR
+ * @var string \FireHub\Core\Shared\Constants\Path\BINDIR
  *
  * @api
  */
@@ -140,7 +140,7 @@ const BINDIR = PHP_BINDIR;
  * ### Specifies the PHP binary path during script execution
  * @since 1.0.0
  *
- * @var string \FireHub\Core\Support\Constants\Path\BINARY
+ * @var string \FireHub\Core\Shared\Constants\Path\BINARY
  *
  * @api
  */
@@ -150,7 +150,7 @@ const BINARY = PHP_BINARY;
  * ### Specifies libdir directory
  * @since 1.0.0
  *
- * @var string \FireHub\Core\Support\Constants\Path\LIBDIR
+ * @var string \FireHub\Core\Shared\Constants\Path\LIBDIR
  *
  * @api
  */
@@ -160,7 +160,7 @@ const LIBDIR = PHP_LIBDIR;
  * ### Specifies datadir directory
  * @since 1.0.0
  *
- * @var string \FireHub\Core\Support\Constants\Path\DATADIR
+ * @var string \FireHub\Core\Shared\Constants\Path\DATADIR
  *
  * @api
  */
@@ -170,7 +170,7 @@ const DATADIR = PHP_DATADIR;
  * ### Specifies sysconfig directory
  * @since 1.0.0
  *
- * @var string \FireHub\Core\Support\Constants\Path\SYSCONFDIR
+ * @var string \FireHub\Core\Shared\Constants\Path\SYSCONFDIR
  *
  * @api
  */
@@ -180,7 +180,7 @@ const SYSCONFDIR = PHP_SYSCONFDIR;
  * ### Specifies localstatedir directory
  * @since 1.0.0
  *
- * @var string \FireHub\Core\Support\Constants\Path\LOCALSTATEDIR
+ * @var string \FireHub\Core\Shared\Constants\Path\LOCALSTATEDIR
  *
  * @api
  */
@@ -190,7 +190,7 @@ const LOCALSTATEDIR = PHP_LOCALSTATEDIR;
  * ### Specifies a config file path
  * @since 1.0.0
  *
- * @var string \FireHub\Core\Support\Constants\Path\CONFIG_FILE
+ * @var string \FireHub\Core\Shared\Constants\Path\CONFIG_FILE
  *
  * @api
  */
@@ -200,7 +200,7 @@ const CONFIG_FILE = PHP_CONFIG_FILE_PATH;
  * ### Specifies file scan directory
  * @since 1.0.0
  *
- * @var string \FireHub\Core\Support\Constants\Path\FILE_SCAN
+ * @var string \FireHub\Core\Shared\Constants\Path\FILE_SCAN
  *
  * @api
  */

@@ -83,7 +83,7 @@ final class ClsObj extends LowLevel {
      * Checks if the given interface has been defined.
      * @since 1.0.0
      *
-     * @param class-string $name <p>
+     * @param interface-string $name <p>
      * The interface name.
      * </p>
      * @param bool $autoload [optional] <p>
@@ -104,14 +104,12 @@ final class ClsObj extends LowLevel {
      * This method checks whether the given enum has been defined.
      * @since 1.0.0
      *
-     * @param class-string $name <p>
+     * @param enum-string $name <p>
      * The enum name.
      * </p>
      * @param bool $autoload [optional] <p>
      * Whether to autoload if not already loaded.
      * </p>
-     *
-     * @phpstan-assert-if-true class-string<\UnitEnum> $name
      *
      * @return bool True if enum exists, false otherwise.
      */
@@ -125,7 +123,7 @@ final class ClsObj extends LowLevel {
      * ### Checks if trait name exist
      * @since 1.0.0
      *
-     * @param class-string $name <p>
+     * @param trait-string $name <p>
      * The trait name.
      * </p>
      * @param bool $autoload [optional] <p>
