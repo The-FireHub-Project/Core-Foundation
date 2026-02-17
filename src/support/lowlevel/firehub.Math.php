@@ -597,9 +597,8 @@ final class Math extends LowLevel {
      * ### Arc cosine
      *
      * Returns the arc cosine of num in radians.<br>
-     * NumFloat#cosineArc() is the inverse function of NumFloat#cosine() which means that
-     * $number == NumFloat#cosine(NumFloat#cosineArc($number)) for every value of a that is within NumFloat#cosineArc()
-     * range.
+     * Math#cosineArc() is the inverse function of Math#cosine() which means that
+     * $number == Math#cosine(Math#cosineArc($number)) for every value of a that is within Math#cosineArc() range.
      * @since 1.0.0
      *
      * @param float $number <p>
@@ -673,8 +672,8 @@ final class Math extends LowLevel {
      * ### Arc sine
      *
      * Returns the arc sine of $number in radians.<br>
-     * NumFloat#sineArc() is the inverse function of NumFloat#sine(), which means that $num ==
-     * NumFloat#sine(NumFloat#sineArc($number)) for every value of a that is within NumFloat#sineArc() range.
+     * Math#sineArc() is the inverse function of Math#sine(), which means that
+     * $num == Math#sine(Math#sineArc($number)) for every value of a that is within Math#sineArc() range.
      * @since 1.0.0
      *
      * @param float $number <p>
@@ -748,8 +747,8 @@ final class Math extends LowLevel {
      * ### Arc tangent
      *
      * Returns the arc tangent of num in radians.<br>
-     * NumFloat#tangentArc() is the inverse function of NumFloat#tangent(), which means that $num ==
-     * NumFloat#tangent(NumFloat#tangentArc($number)) for every value of a that is within NumFloat#tangentArc() range.
+     * Math#tangentArc() is the inverse function of Math#tangent(), which means that
+     * $num == Math#tangent(Math#tangentArc($number)) for every value of a that is within Math#tangentArc() range.
      * @since 1.0.0
      *
      * @param float $number <p>
