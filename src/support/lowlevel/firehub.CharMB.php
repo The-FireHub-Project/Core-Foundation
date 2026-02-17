@@ -7,7 +7,7 @@
  * @copyright 2026 The FireHub Project - All rights reserved
  * @license https://opensource.org/license/Apache-2-0 Apache License, Version 2.0
  *
- * @php-version 8.0
+ * @php-version 8.1
  * @package Core\Support
  *
  * @version GIT: $Id$ Blob checksum.

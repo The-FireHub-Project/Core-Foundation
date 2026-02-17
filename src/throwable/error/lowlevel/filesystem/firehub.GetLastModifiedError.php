@@ -13,21 +13,21 @@
  * @version GIT: $Id$ Blob checksum.
  */
 
-namespace FireHub\Core\Throwable\Error\LowLevel\Arr;
+namespace FireHub\Core\Throwable\Error\LowLevel\FileSystem;
 
 use FireHub\Core\Throwable\Error;
 
 /**
- * ### Chunk length too small error
+ * ### Get last modified time error
  * @since 1.0.0
  */
-class ChunkLengthTooSmallError extends Error {
+class GetLastModifiedError extends Error {
 
     /**
      * @inheritdoc
      *
      * @since 1.0.0
      */
-    protected const string DEFAULT_MESSAGE = 'Chunk length too small.';
+    protected const string DEFAULT_MESSAGE = 'Get last modified time error.';
 
 }
