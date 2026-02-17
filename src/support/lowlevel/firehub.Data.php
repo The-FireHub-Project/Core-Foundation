@@ -66,6 +66,9 @@ final class Data extends LowLevel {
      */
     public static function getDebugType (mixed $value):string {
 
+        \PHPStan\dumpType(Math::max(10, 2, 50, 5));
+        \PHPStan\dumpType(Math::min(10, 2, 50, 5));
+
         return get_debug_type($value);
 
     }
