@@ -866,8 +866,11 @@ final class StrSB extends LowLevel {
      */
     public static function lastPosition (string $search, string $string, bool $case_sensitive = true, int $offset = 0):int|false {
 
-        if ($case_sensitive) return strrpos($string, $search, $offset);
+        if ($case_sensitive)
+            /** @var non-negative-int|false */
+            return strrpos($string, $search, $offset);
 
+        /** @var non-negative-int|false */
         return strripos($string, $search, $offset);
 
     }
@@ -920,7 +923,7 @@ final class StrSB extends LowLevel {
     }
 
     /**
-     * ### Find the first part of a string
+     * ### Find the first occurrence of a string
      *
      * Returns part of $string starting from and including the first occurrence of $find to the end of $string.
      * @since 1.0.0
@@ -938,10 +941,10 @@ final class StrSB extends LowLevel {
      * Searched values are case-insensitive.
      * </p>
      *
-     * @return ($string is empty ? '' : non-falsy-string)|false The portion of string or false if the needle
+     * @return ($string is empty ? '' : non-falsy-string)|false The portion of string or false if the $find
      * is not found.
      */
-    public static function firstPart (string $find, string $string, bool $before_needle = false, bool $case_sensitive = true):string|false {
+    public static function firstOccurrence (string $find, string $string, bool $before_needle = false, bool $case_sensitive = true):string|false {
 
         if ($case_sensitive) return strstr($string, $find, $before_needle);
 
@@ -950,10 +953,9 @@ final class StrSB extends LowLevel {
     }
 
     /**
-     * ### Find the last part of a string
+     * ### Finds the last occurrence of any character from $find within $string
      *
-     * This function returns the portion of $string which starts at the last occurrence of $find and goes until the
-     * end of $string.
+     * This function finds the last occurrence of a $find in the $string and returns the portion of $string.
      * @since 1.0.0
      *
      * @param string $find <p>
@@ -966,10 +968,10 @@ final class StrSB extends LowLevel {
      * If true, return the part of the string before the last occurrence (excluding the find string).
      * </p>
      *
-     * @return ($string is empty ? '' : non-falsy-string)|false The portion of string, or false if the needle
+     * @return ($string is empty ? '' : non-falsy-string)|false The portion of string, or false if the $find
      * is not found.
      */
-    public static function lastPart (string $find, string $string, bool $before_needle = false):string|false {
+    public static function lastCharacterFrom (string $find, string $string, bool $before_needle = false):string|false {
 
         return strrchr($string, $find, $before_needle);
 
