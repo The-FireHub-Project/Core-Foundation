@@ -1027,7 +1027,7 @@ final class StrSB extends LowLevel {
      * ### Convert a string to an array
      * @since 1.0.0
      *
-     * @param non-empty-string $string <p>
+     * @param string $string <p>
      * The input string.
      * </p>
      * @param positive-int $length [optional] <p>
@@ -1043,7 +1043,7 @@ final class StrSB extends LowLevel {
      */
     public static function split (string $string, int $length = 1):array {
 
-        return !($length < 1)
+        return $length >= 1
             ? str_split($string, $length)
             : throw new ChunkLengthLessThanOneError;
 
