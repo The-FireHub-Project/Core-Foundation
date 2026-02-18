@@ -7,7 +7,7 @@
  * @copyright 2026 The FireHub Project - All rights reserved
  * @license https://opensource.org/license/Apache-2-0 Apache License, Version 2.0
  *
- * @php-version 8.0
+ * @php-version 8.1
  * @package Core\Support
  *
  * @version GIT: $Id$ Blob checksum.
@@ -309,7 +309,7 @@ final class StrMB extends LowLevel {
         return match($side) {
             Side::LEFT => mb_ltrim($string, $characters, $encoding?->value),
             Side::RIGHT => mb_rtrim($string, $characters, $encoding?->value),
-            SIDE::BOTH => mb_trim($string, $characters, $encoding?->value)
+            Side::BOTH => mb_trim($string, $characters, $encoding?->value)
         };
 
     }
@@ -499,9 +499,9 @@ final class StrMB extends LowLevel {
      */
     public static function encoding (?Encoding $encoding = null):true|Encoding {
 
-        return $encoding
+        return $encoding !== null
             ? mb_internal_encoding($encoding->value)
-            : (($new_encoding = Encoding::tryFrom(mb_internal_encoding()))
+            : (($new_encoding = Encoding::tryFrom(mb_internal_encoding())) !== null
                 ? $new_encoding : throw new InvalidEncodingError);
 
     }
