@@ -17,8 +17,11 @@ namespace FireHub\Core\Support\LowLevel;
 
 use FireHub\Core\Support\LowLevel;
 use FireHub\Core\Shared\Enums\Side;
+use FireHub\Core\Shared\Enums\String\Count\ {
+    CharacterMode, WordFormat
+};
 use FireHub\Core\Throwable\Error\LowLevel\String\ {
-    ChunkLengthLessThanOneError, EmptyPadError, EmptySeparatorError
+    ChunkLengthLessThanOneError, ComparePartError, EmptyPadError, EmptySeparatorError
 };
 use Stringable, ValueError;
 
@@ -721,17 +724,151 @@ final class StrSB extends LowLevel {
      * @param string $string_2 <p>
      * String to compare with.
      * </p>
+     * @param bool $case_sensitive [optional] <p>
+     * Is comparison case-sensitive or not.
+     * </p>
      *
      * @return int<-1, 1> -1 if string1 is less than string2; 1 if string1 is greater than string2, and 0 if they are
      * equal.
      *
      * @note This comparison is case-sensitive.
      */
-    public static function compare (string $string_1, string $string_2):int {
+    public static function compare (string $string_1, string $string_2, bool $case_sensitive = true):int {
 
-        $cmp = strcmp($string_1, $string_2);
+        $cmp = $case_sensitive
+            ? strcmp($string_1, $string_2)
+            : strcasecmp($string_1, $string_2);
 
         return $cmp < 0 ? -1 : ($cmp > 0 ? 1 : 0);
+
+    }
+
+    /**
+     * ### Comparison of two strings from an offset, up to length characters
+     * @since 1.0.0
+     *
+     * @param string $string_1 <p>
+     * String to compare against.
+     * </p>
+     * @param string $string_2 <p>
+     * String to compare with.
+     * </p>
+     * @param int $offset <p>
+     * The start position for the comparison.<br>
+     * If negative, it starts counting from the end of the string.
+     * </p>
+     * @param null|int $length [optional] <p>
+     * The length of the comparison.<br>
+     * The default value is the largest of the length for the needle compared to the length of haystack minus the
+     * offset.
+     * </p>
+     * @param bool $case_sensitive [optional] <p>
+     * If case_sensitive is true, the comparison is case-sensitive.
+     * </p>
+     *
+     * @throws \FireHub\Core\Throwable\Error\LowLevel\String\ComparePartError If $offset is higher than $string_1.
+     *
+     * @return int<-1, 1> -1 if string1 is less than string2, 1 if string1 is greater than string2, and zero if
+     * they're equal.
+     */
+    public static function comparePart (string $string_1, string $string_2, int $offset, ?int $length = null, bool $case_sensitive = true):int {
+
+        try {
+
+            return substr_compare($string_1, $string_2, $offset, $length, !$case_sensitive) <=> 0;
+
+        } catch (ValueError $error) {
+
+            throw new ComparePartError($error->getMessage());
+
+        }
+
+    }
+
+    /**
+     * ### String comparison of the first n characters
+     * @since 1.0.0
+     *
+     * @param string $string_1 <p>
+     * String to compare against.
+     * </p>
+     * @param string $string_2 <p>
+     * String to compare with.
+     * </p>
+     * @param int $length <p>
+     * Number of characters to use in the comparison.
+     * </p>
+     *
+     * @return int<-1, 1>|false -1 if string1 is less than string2; 1 if string1 is greater than string2, and 0 if
+     * they are equal, or false if the length is less than 0.
+     */
+    public static function compareFirstN (string $string_1, string $string_2, int $length):int|false {
+
+        $cmp = strncmp($string_1, $string_2, $length);
+
+        return $length > 0 ? $cmp < 0 ? -1 : ($cmp > 0 ? 1 : 0) <=> 0 : false;
+
+    }
+
+    /**
+     * ### Find the position of the first occurrence of a substring in a string
+     * @since 1.0.0
+     *
+     * @param string $search <p>
+     * A string to find position.
+     * </p>
+     * @param string $string <p>
+     * The string to search in.
+     * </p>
+     * @param bool $case_sensitive [optional] <p>
+     * Search case-sensitive position.
+     * </p>
+     * @param int $offset [optional] <p>
+     * If specified, search will start this number of characters counted from the beginning of the string.
+     * </p>
+     *
+     * @return non-negative-int|false Numeric position of the first occurrence or false if none exist.
+     *
+     * @warning This function may return Boolean false but may also return a non-Boolean value which evaluates to false.<br>
+     * Read the section on Booleans for more information.<br>
+     * Use the === operator for testing the return value of this function.
+     */
+    public static function firstPosition (string $search, string $string, bool $case_sensitive = true, int $offset = 0):int|false {
+
+        if ($case_sensitive) return strpos($string, $search, $offset);
+
+        return stripos($string, $search, $offset);
+
+    }
+
+    /**
+     * ### Find the position of the last occurrence of a substring in a string
+     * @since 1.0.0
+     *
+     * @param string $search <p>
+     * A string to find position.
+     * </p>
+     * @param string $string <p>
+     * The string to search in.
+     * </p>
+     * @param bool $case_sensitive [optional] <p>
+     * Search case-sensitive position.
+     * </p>
+     * @param int $offset [optional] <p>
+     * If specified, search will start this number of characters counted from the beginning of the string.
+     * </p>
+     *
+     * @return non-negative-int|false Numeric position of the last occurrence or false if none exist.
+     *
+     * @warning This function may return Boolean false but may also return a non-Boolean value which evaluates to false.<br>
+     * Read the section on Booleans for more information.<br>
+     * Use the === operator for testing the return value of this function.
+     */
+    public static function lastPosition (string $search, string $string, bool $case_sensitive = true, int $offset = 0):int|false {
+
+        if ($case_sensitive) return strrpos($string, $search, $offset);
+
+        return strripos($string, $search, $offset);
 
     }
 
@@ -779,6 +916,299 @@ final class StrSB extends LowLevel {
     public static function part (string $string, int $start, ?int $length = null):string {
 
         return substr($string, $start, $length);
+
+    }
+
+    /**
+     * ### Find the first part of a string
+     *
+     * Returns part of $string starting from and including the first occurrence of $find to the end of $string.
+     * @since 1.0.0
+     *
+     * @param string $find <p>
+     * String to find.
+     * </p>
+     * @param string $string <p>
+     * The string being searched.
+     * </p>
+     * @param bool $before_needle [optional] <p>
+     * If true, return the part of the string before the first occurrence (excluding the find string).
+     * </p>
+     * @param bool $case_sensitive [optional] <p>
+     * Searched values are case-insensitive.
+     * </p>
+     *
+     * @return ($string is empty ? '' : non-falsy-string)|false The portion of string or false if the needle
+     * is not found.
+     */
+    public static function firstPart (string $find, string $string, bool $before_needle = false, bool $case_sensitive = true):string|false {
+
+        if ($case_sensitive) return strstr($string, $find, $before_needle);
+
+        return stristr($string, $find, $before_needle);
+
+    }
+
+    /**
+     * ### Find the last part of a string
+     *
+     * This function returns the portion of $string which starts at the last occurrence of $find and goes until the
+     * end of $string.
+     * @since 1.0.0
+     *
+     * @param string $find <p>
+     * String to find.
+     * </p>
+     * @param string $string <p>
+     * The string being searched.
+     * </p>
+     * @param bool $before_needle [optional] <p>
+     * If true, return the part of the string before the last occurrence (excluding the find string).
+     * </p>
+     *
+     * @return ($string is empty ? '' : non-falsy-string)|false The portion of string, or false if the needle
+     * is not found.
+     */
+    public static function lastPart (string $find, string $string, bool $before_needle = false):string|false {
+
+        return strrchr($string, $find, $before_needle);
+
+    }
+
+    /**
+     * ### Find part of a string with characters
+     * @since 1.0.0
+     *
+     * @param string $characters <p>
+     * Characters to find. This parameter is case-sensitive.
+     * </p>
+     * @param string $string <p>
+     * The string where characters are looked for.
+     * </p>
+     *
+     * @return ($string is empty ? '' : non-falsy-string)|false String starting from the character found, or false if it
+     * is not found.
+     */
+    public static function partFrom (string $characters, string $string):string|false {
+
+        return strpbrk($string, $characters);
+
+    }
+
+    /**
+     * ### Return information about characters used in a string
+     *
+     * Counts the number of occurrences for every byte-value (0..255) in $string and returns it in various ways.
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Shared\Enums\String\Count\CharacterMode::ARR_POSITIVE As default parameter.
+     *
+     * @param string $string <p>
+     * The examined string.
+     * </p>
+     * @param \FireHub\Core\Shared\Enums\String\Count\CharacterMode $mode [optional] <p>
+     * Count mode.
+     * </p>
+     *
+     * @return ($mode is CharacterMode::STR_* ? string : array<int, int>) An array with the byte-value as a key with a
+     * frequency greater than zero are listed.
+     *
+     * @phpstan-ignore-next-line return.unusedType
+     */
+    public static function countByChar (string $string, CharacterMode $mode = CharacterMode::ARR_POSITIVE):string|array {
+
+        return count_chars($string, $mode->value);
+
+    }
+
+    /**
+     * ### Convert a string to an array
+     * @since 1.0.0
+     *
+     * @param non-empty-string $string <p>
+     * The input string.
+     * </p>
+     * @param positive-int $length [optional] <p>
+     * Maximum length of the chunk.
+     * </p>
+     *
+     * @throws \FireHub\Core\Throwable\Error\LowLevel\String\ChunkLengthLessThanOneError If the length is less than 1.
+     *
+     * @return list<non-empty-string> If the optional $length parameter is specified, the returned array will be broken
+     * down into chunks with each being $length in length, except the final chunk which may be shorter if the string
+     * doesn't divide evenly.<br>
+     * The default $length is 1, meaning every chunk will be one byte in size.
+     */
+    public static function split (string $string, int $length = 1):array {
+
+        return !($length < 1)
+            ? str_split($string, $length)
+            : throw new ChunkLengthLessThanOneError;
+
+    }
+
+    /**
+     * ### Count the number of words in a string
+     *
+     * Counts the number of words inside a string.<br>
+     * If the optional format is not specified, then the return value will be an integer representing the number of
+     * words found..<br>
+     * In the event the format is specified, the return value will be an array, the content of which is dependent on
+     * the format..<br>
+     * The possible value for the format and the resultant outputs are listed below.
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Shared\Enums\String\Count\WordFormat::WORDS As default parameter.
+     *
+     * @param string $string <p>
+     * The string.
+     * </p>
+     * @param null|string $characters [optional] <p>
+     * A list of additional characters which will be considered as 'word'.
+     * </p>
+     * @param \FireHub\Core\Shared\Enums\String\Count\WordFormat $format [optional] <p>
+     * Word count format for strings.
+     * </p>
+     *
+     * @return int|array<int, string> Number of words found or list of words.
+     */
+    public static function countWords (string $string, ?string $characters = null, WordFormat $format = WordFormat::WORDS):int|array {
+
+        /** @var int|array<int, string> */
+        return str_word_count($string, $format->value, $characters);
+
+    }
+
+    /**
+     * ### Get the number of times the searched substring occurs in the string
+     *
+     * Returns the number of times the needle substring occurs in the haystack string.<br>
+     * Note that the needle is case-sensitive.
+     * @since 1.0.0
+     *
+     * @param string $string <p>
+     * The string being checked.
+     * </p>
+     * @param string $search <p>
+     * The string being found.
+     * </p>
+     * @param int $start [optional] <p>
+     * The offset is where to start counting.<br>
+     * If the offset is negative, counting starts from the end of the string.
+     * </p>
+     * @param null|int $length [optional] <p>
+     * The maximum length after the specified offset to search for the substring.<br>
+     * It outputs a warning if the offset plus the length is greater than the $string length.<br>
+     * A negative length counts from the end of $string.
+     * </p>
+     *
+     * @return non-negative-int The number of times the searched substring occurs in the string.
+     *
+     * @note This method doesn't count overlapped substring.
+     */
+    public static function partCount (string $string, string $search, int $start = 0, ?int $length = null):int {
+
+        return substr_count($string, $search, $start, $length);
+
+    }
+
+    /**
+     * ### Length of the initial segment for a string consisting entirely of characters contained within a given mask
+     *
+     * Finds the length of the initial segment for $string that contains only characters from $characters.
+     * @since 1.0.0
+     *
+     * @param string $string <p>
+     * The string to examine.
+     * </p>
+     * @param string $characters <p>
+     * The list of allowable characters.
+     * </p>
+     * @param int $offset [optional] <p>
+     * The position in a subject to start searching.<br>
+     * If start is given and is non-negative, then StrSB#segmentMatching() will begin examining the subject at
+     * the start position.<br>
+     * For instance, in the string 'abcdef', the character at position 0 is 'a', the character at position 2 is 'c',
+     * and so forth.<br>
+     * If start is given and is negative, then StrSB#segmentMatching() will begin examining the subject at the start
+     * position from the end of a subject.
+     * </p>
+     * @param int|null $length [optional] <p>
+     * The length of the segment from the subject to examine.<br>
+     * If length is given and is non-negative, then the subject will be examined for length characters after the
+     * starting position.<br>
+     * If length is given and is negative, then the subject will be examined from the starting position up-to-length
+     * characters from the end of the subject.
+     * </p>
+     *
+     * @return non-negative-int The length of the initial segment for string which consists entirely of characters in
+     * characters.
+     *
+     * @note When the offset parameter is set, the returned length is counted starting from this position, not from
+     * beginning of the string.
+     */
+    public static function segmentMatching (string $string, string $characters, int $offset = 0, ?int $length = null):int {
+
+        return strspn($string, $characters, $offset, $length);
+
+    }
+
+    /**
+     * ### Find length of the initial segment not matching mask
+     *
+     * Returns the length of the initial segment for $string which doesn't contain any of the characters in $characters.
+     * @since 1.0.0
+     *
+     * @param string $string <p>
+     * The string to examine.
+     * </p>
+     * @param string $characters <p>
+     * The string containing every disallowed character.
+     * </p>
+     * @param int $offset [optional] <p>
+     * The position in a subject to start searching.<br>
+     * If start is given and is non-negative, then StrSB#segmentNotMatching() will begin examining the subject at
+     * the start position.<br>
+     * For instance, in the string 'abcdef', the character at position 0 is 'a', the character at position 2 is 'c',
+     * and so forth.<br>
+     * If start is given and is negative, then StrSB#segmentNotMatching() will begin examining the subject at the
+     * start position from the end of a subject.
+     * </p>
+     * @param null|int $length [optional] <p>
+     * The length of the segment from the subject to examine.<br>
+     * If length is given and is non-negative, then the subject will be examined for length characters after the
+     * starting position.<br>
+     * If length is given and is negative, then the subject will be examined from the starting position up-to-length
+     * characters from the end of the subject.
+     * </p>
+     *
+     * @return non-negative-int The length of the initial segment from string which consists entirely of characters not
+     * in characters.
+     *
+     * @note When the offset parameter is set, the returned length is counted starting from this position, not from
+     * beginning of the string.
+     */
+    public static function segmentNotMatching (string $string, string $characters, int $offset = 0, ?int $length = null):int {
+
+        return strcspn($string, $characters, $offset, $length);
+
+    }
+
+    /**
+     * ### Get string length
+     * @since 1.0.0
+     *
+     * @param string $string <p>
+     * The string being measured for length.
+     * </p>
+     *
+     * @return non-negative-int String length.
+     *
+     * @note The function returns the number of bytes rather than the number of characters in a string.
+     */
+    public static function length (string $string):int {
+
+        return strlen($string);
 
     }
 
