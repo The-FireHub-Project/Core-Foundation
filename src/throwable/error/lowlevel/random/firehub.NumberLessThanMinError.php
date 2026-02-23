@@ -13,21 +13,21 @@
  * @version GIT: $Id$ Blob checksum.
  */
 
-namespace FireHub\Core\Throwable\Error\LowLevel\Regex;
+namespace FireHub\Core\Throwable\Error\LowLevel\Random;
 
 use FireHub\Core\Throwable\Error;
 
 /**
- * ### Invalid pattern error
+ * ### Number less than min error
  * @since 1.0.0
  */
-class InvalidPatternError extends Error {
+class NumberLessThanMinError extends Error {
 
     /**
      * @inheritdoc
      *
      * @since 1.0.0
      */
-    protected const string DEFAULT_MESSAGE = 'Invalid pattern.';
+    protected const string DEFAULT_MESSAGE = 'Number less than min.';
 
 }

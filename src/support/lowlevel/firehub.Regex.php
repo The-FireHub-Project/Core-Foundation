@@ -7,7 +7,7 @@
  * @copyright 2026 The FireHub Project - All rights reserved
  * @license https://opensource.org/license/Apache-2-0 Apache License, Version 2.0
  *
- * @php-version 7.0
+ * @php-version 8.0
  * @package Core\Support
  *
  * @version GIT: $Id$ Blob checksum.
@@ -20,6 +20,10 @@ use FireHub\Core\Throwable\Error\LowLevel\Regex\InvalidPatternError;
 
 use function preg_match;
 use function preg_match_all;
+use function preg_replace;
+use function preg_replace_callback;
+use function preg_split;
+use function preg_quote;
 
 /**
  * ### Regex low-level proxy class
@@ -81,6 +85,130 @@ final class Regex extends LowLevel {
         return $match === false
             ? throw new InvalidPatternError
             : $match !== 0;
+
+    }
+
+    /**
+     * ### Perform a regular expression search and replace
+     *
+     * Searches $subject for matches to $pattern and replaces them with $replacement.
+     * @since 1.0.0
+     *
+     * @param string $pattern <p>
+     * The regular expression pattern.
+     * </p>
+     * @param string $replacement <p>
+     * The string to replace.
+     * </p>
+     * @param string $string <p>
+     * The string being evaluated.
+     * </p>
+     * @param int $limit [optional] <p>
+     * The maximum possible replacements for each pattern in each subject string.<br>
+     * Defaults to -1 (no limit).
+     * </p>
+     *
+     * @throws \FireHub\Core\Throwable\Error\LowLevel\Regex\InvalidPatternError If error while performing a regular
+     * expression, search and replace.
+     *
+     * @return string Replaced string.
+     */
+    public static function replace (string $pattern, string $replacement, string $string, int $limit = -1):string {
+
+        return preg_replace($pattern, $replacement, $string, $limit)
+            ?? throw new InvalidPatternError;
+
+    }
+
+    /**
+     * ### Perform a regular expression search and replace using a callback
+     *
+     * Searches $subject for matches to $pattern and replaces them with $replacement.
+     * @since 1.0.0
+     *
+     * @param string $pattern <p>
+     * The regular expression pattern.
+     * </p>
+     * @param callable(array<array-key, string> $matches):string $callback <p>
+     * A callback that will be called and passed an array of matched elements in the subject string.<br>
+     * The callback should return the replacement string.<br>
+     * This is the callback signature.
+     * </p>
+     * @param string $string <p>
+     * The string being evaluated.
+     * </p>
+     * @param int $limit [optional] <p>
+     * The maximum possible replacements for each pattern in each subject string.<br>
+     * Defaults to -1 (no limit).
+     * </p>
+     *
+     * @throws \FireHub\Core\Throwable\Error\LowLevel\Regex\InvalidPatternError If error while performing a regular
+     * expression, search and replace.
+     *
+     * @return string Replaced string.
+     */
+    public static function replaceFunc (string $pattern, callable $callback, string $string, int $limit = -1):string {
+
+        return preg_replace_callback($pattern, $callback, $string, $limit)
+            ?? throw new InvalidPatternError;
+
+    }
+
+    /**
+     * ### Split string by a regular expression
+     *
+     * Split the given string by a regular expression.
+     * @since 1.0.0
+     *
+     * @param string $pattern <p>
+     * The regular expression pattern.
+     * </p>
+     * @param string $string <p>
+     * The input string.
+     * </p>
+     * @param int $limit [optional] <p>
+     * The maximum possible replacements for each pattern in each subject string.<br>
+     * Defaults to -1 (no limit).
+     * </p>
+     * @param bool $remove_empty [optional] <p>
+     * If true, only non-empty pieces will be returned.
+     * </p>
+     *
+     * @throws \FireHub\Core\Throwable\Error\LowLevel\Regex\InvalidPatternError If error while performing a regular
+     * expression split.
+     *
+     * @return list<string> Array containing substrings of $string split along boundaries matched by $pattern.
+     */
+    public static function split (string $pattern, string $string, int $limit = -1, bool $remove_empty = false):array {
+
+        return preg_split($pattern, $string, $limit, $remove_empty ? PREG_SPLIT_NO_EMPTY : 0)
+            ?: throw new InvalidPatternError;
+
+    }
+
+    /**
+     * ### Quote regular expression characters
+     *
+     * Method takes string and puts a backslash in front of every character that is part of the regular expression
+     * syntax.<br>
+     * This is useful if you have a runtime string that you need to match in some text and the string may contain
+     * special regex characters.
+     * @since 1.0.0
+     *
+     * @param string $string <p>
+     * The input string.
+     * </p>
+     * @param null|string $delimiter [optional] <p>
+     * If the optional delimiter is specified, it will also be escaped.<br>
+     * This is useful for escaping the delimiter required by the PCRE functions.<br>
+     * The / is the most commonly used delimiter.
+     * </p>
+     *
+     * @return string The quoted (escaped) string.
+     */
+    public static function quote (string $string, ?string $delimiter = null):string {
+
+        return preg_quote($string, $delimiter);
 
     }
 

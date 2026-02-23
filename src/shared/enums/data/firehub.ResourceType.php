@@ -303,6 +303,11 @@ enum ResourceType:string {
     /**
      * @since 1.0.0
      */
+    case STREAM_CONTEXT = 'stream-context';
+
+    /**
+     * @since 1.0.0
+     */
     case SSH2_SESSION = 'SSH2 Session';
 
     /**
