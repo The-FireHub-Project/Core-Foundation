@@ -4,6 +4,8 @@ title: The FireHub Project - Core Foundation
 abstract: The essential PHP core for clean, domain-driven architecture.
 type: software
 license: Apache-2.0
+version: v0.1.0
+date-released: 2026-02-23
 
 url: "https://the-firehub-project.github.io/core-foundation"
 repository-code: "https://github.com/The-FireHub-Project/Core-Foundation"
