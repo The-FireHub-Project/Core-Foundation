@@ -12,6 +12,11 @@ Thumbs.db
 # Composer dependencies resolver
 composer.lock
 
+# Phar
+/phar/**¸
+!/phar/*.phar
+!/phar/*.phar.pubkey
+
 # Storage folder for runtime-generated files
 /storage/
 
