@@ -12,7 +12,7 @@ Thumbs.db
 # Composer dependencies resolver
 composer.lock
 
-# Phar
+# PHAR artifacts
 /phar/**¸
 !/phar/*.phar
 !/phar/*.phar.pubkey
