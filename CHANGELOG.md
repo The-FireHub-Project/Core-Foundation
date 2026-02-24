@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update GH_TOKEN secret reference in PHPStan workflow (pr: [#8](https://github.com/The-FireHub-Project/Core-Foundation/pull/8), commit: [`8f97f98`](https://github.com/The-FireHub-Project/Core-Foundation/commit/8f97f98))
 - Update SemanticPullRequest.yml (pr: [#8](https://github.com/The-FireHub-Project/Core-Foundation/pull/8), commit: [`961cb4e`](https://github.com/The-FireHub-Project/Core-Foundation/commit/961cb4e))
 
-## [0.1.0] - 2026-02-23
+## v0.1.0 - 2026-02-23
 
 ### Added
 - Introduce SPL autoload management helper and custom error classes for FireHub framework (issue: [#1](https://github.com/The-FireHub-Project/Core-Foundation/issues/1), pr: [#2](https://github.com/The-FireHub-Project/Core-Foundation/pull/2), commit: [`e374bec`](https://github.com/The-FireHub-Project/Core-Foundation/commit/e374bec))
