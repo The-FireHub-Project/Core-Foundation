@@ -11,7 +11,7 @@ parameters:
     - phpstan/
   excludePaths:
    analyse:
-      - phpstan/**
+     - phpstan/**
   tmpDir: storage/cache/phpstan/
   ignoreErrors:
     - identifier: ternary.shortNotAllowed
