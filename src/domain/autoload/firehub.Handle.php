@@ -16,7 +16,7 @@
 namespace FireHub\Core\Domain\Autoload;
 
 use FireHub\Core\Shared\ValueObject;
-use FireHub\Core\Throwable\Exception\Domain\Autoload\InvalidAutoloadHandleException;
+use FireHub\Core\Throwable\Exception\Domain\Autoload\InvalidHandleException;
 
 /**
  * ### Autoload Handle Value Object
@@ -42,8 +42,7 @@ final readonly class Handle extends ValueObject {
      * Handle name.
      * </p>
      *
-     * @throws \FireHub\Core\Throwable\Exception\Domain\Autoload\InvalidAutoloadHandleException If the handle name is
-     * empty.
+     * @throws \FireHub\Core\Throwable\Exception\Domain\Autoload\InvalidHandleException If the handle name is empty.
      *
      * @return void
      */
@@ -51,7 +50,7 @@ final readonly class Handle extends ValueObject {
         private string $name
     ) {
 
-        if ($this->name === '') throw InvalidAutoloadHandleException::empty();
+        if ($this->name === '') throw InvalidHandleException::empty();
 
     }
 

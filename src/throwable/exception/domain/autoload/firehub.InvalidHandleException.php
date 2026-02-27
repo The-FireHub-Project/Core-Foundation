@@ -21,7 +21,7 @@ use FireHub\Core\Throwable\Exception;
  * ### Invalid autoload handle exception
  * @since 1.0.0
  */
-class InvalidAutoloadHandleException extends Exception {
+class InvalidHandleException extends Exception {
 
     /**
      * @inheritdoc
