@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased](https://github.com/The-FireHub-Project/Core-Foundation/compare/v0.1.1...feature/bootstrap-autoload)
+
+### Added
+- Add public entry points for web and CLI PHAR access in Core Foundation (issue: [#5](https://github.com/The-FireHub-Project/Core-Foundation/issues/5), pr: [#9](https://github.com/The-FireHub-Project/Core-Foundation/pull/9), commit: [`bbc48a1`](https://github.com/The-FireHub-Project/Core-Foundation/commit/bbc48a1))
+- Update .gitignore and .gitattributes (issue: [#5](https://github.com/The-FireHub-Project/Core-Foundation/issues/5), pr: [#9](https://github.com/The-FireHub-Project/Core-Foundation/pull/9), commit: [`0b938f0`](https://github.com/The-FireHub-Project/Core-Foundation/commit/0b938f0))
+- Update .gitignore for PHAR files (issue: [#5](https://github.com/The-FireHub-Project/Core-Foundation/issues/5), pr: [#9](https://github.com/The-FireHub-Project/Core-Foundation/pull/9), commit: [`5607af0`](https://github.com/The-FireHub-Project/Core-Foundation/commit/5607af0))
+
 ## [v0.1.1](https://github.com/The-FireHub-Project/Core-Foundation/compare/v0.1.0...v0.1.1) – 2026-02-24
 
 ### Added
@@ -12,7 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update GH_TOKEN secret reference in PHPStan workflow (pr: [#8](https://github.com/The-FireHub-Project/Core-Foundation/pull/8), commit: [`8f97f98`](https://github.com/The-FireHub-Project/Core-Foundation/commit/8f97f98))
 - Update SemanticPullRequest.yml (pr: [#8](https://github.com/The-FireHub-Project/Core-Foundation/pull/8), commit: [`961cb4e`](https://github.com/The-FireHub-Project/Core-Foundation/commit/961cb4e))
 
-## [0.1.0] - 2026-02-23
+## v0.1.0 - 2026-02-23
 
 ### Added
 - Introduce SPL autoload management helper and custom error classes for FireHub framework (issue: [#1](https://github.com/The-FireHub-Project/Core-Foundation/issues/1), pr: [#2](https://github.com/The-FireHub-Project/Core-Foundation/pull/2), commit: [`e374bec`](https://github.com/The-FireHub-Project/Core-Foundation/commit/e374bec))

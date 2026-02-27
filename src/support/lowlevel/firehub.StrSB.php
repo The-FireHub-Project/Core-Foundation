@@ -37,6 +37,7 @@ use function lcfirst;
 use function ltrim;
 use function quotemeta;
 use function rtrim;
+use function sprintf ;
 use function str_contains;
 use function str_ends_with;
 use function str_ireplace;
@@ -1211,6 +1212,29 @@ final class StrSB extends LowLevel {
     public static function length (string $string):int {
 
         return strlen($string);
+
+    }
+
+    /**
+     * ### Return a formatted string
+     *
+     * Returns a string produced according to the formatting string $format.
+     * @since 1.0.0
+     *
+     * @param string $format <p>
+     * String is composed of zero or more directives: ordinary characters (excluding %) that are copied directly to
+     * the result and conversion specifications, each of which results in fetching its own parameter.<br>
+     * A conversion specification follows this prototype: %[argnum$][flags][width][.precision]specifier.
+     * </p>
+     * @param null|scalar ...$values <p>
+     * The values to insert into the formatted string.
+     * </p>
+     *
+     * @return string string produced according to the formatting string $format.
+     */
+    public static function format (string $format, null|bool|float|int|string ...$values):string {
+
+        return sprintf($format, ...$values);
 
     }
 

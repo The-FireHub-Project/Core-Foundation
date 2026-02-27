@@ -202,17 +202,13 @@ final class Arr extends LowLevel {
      * ### Checks if a value exists in an array
      * @since 1.0.0
      *
-     * @template TValue
-     *
-     * @param array<array-key, TValue> $array <p>
+     * @param array<array-key, mixed> $array <p>
      * The array.
      * </p>
      * @param mixed $value <p>
      * The searched value.
      * If the value is a string, the comparison is done in a case-sensitive manner.
      * </p>
-     *
-     * @phpstan-assert-if-true TValue $value
      *
      * @return bool True if a value is found in the array, false otherwise.
      */
