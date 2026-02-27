@@ -1226,13 +1226,13 @@ final class StrSB extends LowLevel {
      * the result and conversion specifications, each of which results in fetching its own parameter.<br>
      * A conversion specification follows this prototype: %[argnum$][flags][width][.precision]specifier.
      * </p>
-     * @param mixed ...$values <p>
+     * @param null|scalar ...$values <p>
      * The values to insert into the formatted string.
      * </p>
      *
      * @return string string produced according to the formatting string $format.
      */
-    public static function format (string $format, mixed ...$values):string {
+    public static function format (string $format, null|bool|float|int|string ...$values):string {
 
         return sprintf($format, ...$values);
 
