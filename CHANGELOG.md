@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased](https://github.com/The-FireHub-Project/Core-Foundation/compare/v0.1.1...feature/bootstrap-autoload)
 
 ### Added
+- Add PSR-4–based autoloader with namespace and directory mapping (issue: [#5](https://github.com/The-FireHub-Project/Core-Foundation/issues/5), pr: [#9](https://github.com/The-FireHub-Project/Core-Foundation/pull/9), commit: [`7206a57`](https://github.com/The-FireHub-Project/Core-Foundation/commit/7206a57))
+- Add Handle value object and InvalidAutoloadHandleException to support autoloader management in Core Foundation (issue: [#5](https://github.com/The-FireHub-Project/Core-Foundation/issues/5), pr: [#9](https://github.com/The-FireHub-Project/Core-Foundation/pull/9), commit: [`2375c67`](https://github.com/The-FireHub-Project/Core-Foundation/commit/2375c67))
 - Add public entry points for web and CLI PHAR access in Core Foundation (issue: [#5](https://github.com/The-FireHub-Project/Core-Foundation/issues/5), pr: [#9](https://github.com/The-FireHub-Project/Core-Foundation/pull/9), commit: [`bbc48a1`](https://github.com/The-FireHub-Project/Core-Foundation/commit/bbc48a1))
 - Update .gitignore and .gitattributes (issue: [#5](https://github.com/The-FireHub-Project/Core-Foundation/issues/5), pr: [#9](https://github.com/The-FireHub-Project/Core-Foundation/pull/9), commit: [`0b938f0`](https://github.com/The-FireHub-Project/Core-Foundation/commit/0b938f0))
 - Update .gitignore for PHAR files (issue: [#5](https://github.com/The-FireHub-Project/Core-Foundation/issues/5), pr: [#9](https://github.com/The-FireHub-Project/Core-Foundation/pull/9), commit: [`5607af0`](https://github.com/The-FireHub-Project/Core-Foundation/commit/5607af0))
