@@ -1539,7 +1539,7 @@ final class Arr extends LowLevel {
      * Takes an input array and returns a new array without duplicate values.
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Shared\Enums\String\Compare::AS_STRING As default compare enum.
+     * @uses \FireHub\Core\Shared\Enums\String\Compare::AS_REGULAR As default compare enum.
      *
      * @template TKey of array-key
      * @template TValue
@@ -1553,7 +1553,7 @@ final class Arr extends LowLevel {
      * @note The new array will preserve keys.
      * @note This method is not intended to work on multidimensional arrays.
      */
-    public static function unique (array $array, Compare $compare = Compare::AS_STRING):array {
+    public static function unique (array $array, Compare $compare = Compare::AS_REGULAR):array {
 
         return array_unique($array, $compare->value);
 
