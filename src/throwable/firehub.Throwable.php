@@ -77,6 +77,14 @@ trait Throwable {
     }
 
     /**
+     * ### Static typed builder factory
+     * @since 1.0.0
+     *
+     * @return \FireHub\Core\Throwable\Builder<self> Abstract Fluent Builder.
+     */
+    abstract public static function builder():Builder;
+
+    /**
      * ### Gets the metadata associated with the throwable instance
      * @since 1.0.0
      *
