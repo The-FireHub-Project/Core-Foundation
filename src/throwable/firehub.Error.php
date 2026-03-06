@@ -41,14 +41,14 @@ class Error extends InternalError implements ThrowableContract {
     protected const string DEFAULT_MESSAGE = 'General error.';
 
     /**
-     * ### Static typed builder factory
+     * @inheritDoc
+     *
      * @since 1.0.0
      *
-     * @return \FireHub\Core\Throwable\ErrorBuilder<\FireHub\Core\Throwable\Error> Fluent Error Builder.
+     * @return \FireHub\Core\Throwable\ErrorBuilder<static> Fluent Error Builder.
      */
     final public static function builder():ErrorBuilder {
 
-        /** @var \FireHub\Core\Throwable\ErrorBuilder<\FireHub\Core\Throwable\Error> */
         return new ErrorBuilder(static::class);
 
     }

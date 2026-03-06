@@ -166,7 +166,7 @@ final class Autoload {
      * @uses \FireHub\Core\Domain\Autoload\Handle The handle parameter for the autoload function.
      * @uses \FireHub\Core\Support\LowLevel\SplAutoload::unregister() To unregister the autoload function.
      *
-     * @param \FireHub\Core\Domain\Autoload\Handle<non-empty-string> $handle <p>
+     * @param \FireHub\Core\Domain\Autoload\Handle<covariant non-empty-string> $handle <p>
      * Handle being used to load a class.
      * </p>
      *

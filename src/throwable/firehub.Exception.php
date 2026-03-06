@@ -41,14 +41,14 @@ class Exception extends InternalException implements ThrowableContract {
     protected const string DEFAULT_MESSAGE = 'General exception.';
 
     /**
-     * ### Static typed builder factory
+     * @inheritDoc
+     *
      * @since 1.0.0
      *
-     * @return \FireHub\Core\Throwable\ExceptionBuilder<\FireHub\Core\Throwable\Exception> Fluent Exception Builder
+     * @return \FireHub\Core\Throwable\ExceptionBuilder<static> Fluent Exception Builder.
      */
     final public static function builder():ExceptionBuilder {
 
-        /** @var \FireHub\Core\Throwable\ExceptionBuilder<\FireHub\Core\Throwable\Exception> */
         return new ExceptionBuilder(static::class);
 
     }

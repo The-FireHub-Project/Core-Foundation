@@ -150,16 +150,16 @@ abstract class Builder {
     }
 
     /**
-     * ### Build the object
+     * ### Build and throw the object
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Shared\Contracts\Throwable To build the object.
      *
      * @return TThrowable The built object.
      */
-    public function build ():Throwable {
+    public function throw ():Throwable {
 
-        return new $this->exception(
+        return throw new $this->exception(
             $this->message,
             $this->code,
             $this->context,

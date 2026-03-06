@@ -80,7 +80,7 @@ trait Throwable {
      * ### Static typed builder factory
      * @since 1.0.0
      *
-     * @return \FireHub\Core\Throwable\Builder<self> Abstract Fluent Builder.
+     * @return \FireHub\Core\Throwable\Builder<static> Abstract Fluent Builder.
      */
     abstract public static function builder():Builder;
 

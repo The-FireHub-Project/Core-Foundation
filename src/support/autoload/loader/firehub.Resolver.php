@@ -111,15 +111,13 @@ final class Resolver implements Loader {
 
         foreach ($this->namespaces as $namespace_prefix => $folders) {
 
-            if (StrSB::startsWith($namespace_prefix.'\\', $class)) {
+            if (!StrSB::startsWith($namespace_prefix.'\\', $class)) continue;
 
-                $path = $this->getPath($class, $namespace_prefix);
+            $path = $this->getPath($class, $namespace_prefix);
 
-                foreach ($folders as $folder)
-                    if ($this->requireFile($folder.$path))
-                        break;
-
-            }
+            foreach ($folders as $folder)
+                if ($this->requireFile($folder.$path))
+                    break;
 
         }
 
