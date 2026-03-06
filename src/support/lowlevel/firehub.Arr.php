@@ -202,17 +202,13 @@ final class Arr extends LowLevel {
      * ### Checks if a value exists in an array
      * @since 1.0.0
      *
-     * @template TValue
-     *
-     * @param array<array-key, TValue> $array <p>
+     * @param array<array-key, mixed> $array <p>
      * The array.
      * </p>
      * @param mixed $value <p>
      * The searched value.
      * If the value is a string, the comparison is done in a case-sensitive manner.
      * </p>
-     *
-     * @phpstan-assert-if-true TValue $value
      *
      * @return bool True if a value is found in the array, false otherwise.
      */
@@ -1543,7 +1539,7 @@ final class Arr extends LowLevel {
      * Takes an input array and returns a new array without duplicate values.
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Shared\Enums\String\Compare::AS_STRING As default compare enum.
+     * @uses \FireHub\Core\Shared\Enums\String\Compare::AS_REGULAR As default compare enum.
      *
      * @template TKey of array-key
      * @template TValue
@@ -1557,7 +1553,7 @@ final class Arr extends LowLevel {
      * @note The new array will preserve keys.
      * @note This method is not intended to work on multidimensional arrays.
      */
-    public static function unique (array $array, Compare $compare = Compare::AS_STRING):array {
+    public static function unique (array $array, Compare $compare = Compare::AS_REGULAR):array {
 
         return array_unique($array, $compare->value);
 
