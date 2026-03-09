@@ -27,8 +27,9 @@ use FireHub\Core\Support\Autoload\Loader;
  * significantly faster class loading—up to 2–5× faster than standard classmaps, and up to 10× faster when combined
  * with a single-file compiled core. It is intended to be used after a minimal Preloader and before a Resolver fallback,
  * ensuring all core classes are loaded efficiently while maintaining full namespace support.
- *
  * @since 1.0.0
+ *
+ * @internal
  */
 final readonly class CompiledClassmap implements Loader {
 

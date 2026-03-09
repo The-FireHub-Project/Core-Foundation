@@ -25,8 +25,9 @@ use FireHub\Core\Support\Autoload\Loader;
  * in an internal classmap and requires the corresponding file when found.<br>
  * This approach minimizes filesystem lookups and string operations during autoloading, making it particularly
  * suitable for optimized production environments and PHAR distributions where class locations are known in advance.
- *
  * @since 1.0.0
+ *
+ * @internal
  */
 final readonly class Classmap implements Loader {
 
