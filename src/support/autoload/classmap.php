@@ -91,6 +91,7 @@ return [
     \FireHub\Core\Support\LowLevel\StrMB::class => __DIR__.'/../../support/lowlevel/firehub.StrMB.php',
     \FireHub\Core\Support\LowLevel\StrSB::class => __DIR__.'/../../support/lowlevel/firehub.StrSB.php',
     \FireHub\Core\Support\LowLevel\SystemRuntime::class => __DIR__.'/../../support/lowlevel/firehub.SystemRuntime.php',
+    \FireHub\Core\Testing\Base::class => __DIR__.'/../../testing/firehub.Base.php',
     \FireHub\Core\Throwable\Builder::class => __DIR__.'/../../throwable/firehub.Builder.php',
     \FireHub\Core\Throwable\Error::class => __DIR__.'/../../throwable/firehub.Error.php',
     \FireHub\Core\Throwable\ErrorBuilder::class => __DIR__.'/../../throwable/firehub.ErrorBuilder.php',
