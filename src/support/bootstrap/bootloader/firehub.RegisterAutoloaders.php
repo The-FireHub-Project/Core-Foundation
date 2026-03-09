@@ -36,7 +36,6 @@ final class RegisterAutoloaders implements Bootloader {
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Support\Autoload\Autoload::prepend() To prepend a new autoloader.
-     * @uses \FireHub\Core\Support\Autoload\Autoload::unregister() To unregister a preloaded autoloader.
      * @uses \FireHub\Core\Support\Autoload\Loader\Resolver::addNamespace() To register a new namespace.
      * @uses \FireHub\Core\Domain\Autoload\Handle As autoloader handle.
      *
@@ -44,8 +43,6 @@ final class RegisterAutoloaders implements Bootloader {
      * function as an autoloader.
      * @throws \FireHub\Core\Throwable\Exception\Domain\Autoload\InvalidFolderException If folder us empty.
      * @throws \FireHub\Core\Throwable\Exception\Domain\Autoload\InvalidNamespaceException If namespace us empty.
-     * @throws \FireHub\Core\Throwable\Exception\Domain\Autoload\ImplementationException If the implementation
-     * doesn't exist.
      */
     public function boot ():bool {
 
@@ -55,8 +52,6 @@ final class RegisterAutoloaders implements Bootloader {
             __DIR__.'/../../../'
         );
         Autoload::prepend(new Handle('FireHub_Resolver'), $loader);
-
-        Autoload::unregister(new Handle('FireHub_Preloader'));
 
         return true;
 

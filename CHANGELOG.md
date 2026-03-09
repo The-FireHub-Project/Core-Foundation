@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased](https://github.com/The-FireHub-Project/Core-Foundation/compare/v0.1.1...feature/bootstrap-autoload)
 
 ### Added
+- Implemented FireHub bootstrap architecture and streamlined autoloading (issue: [#5](https://github.com/The-FireHub-Project/Core-Foundation/issues/5), pr: [#9](https://github.com/The-FireHub-Project/Core-Foundation/pull/9), commit: [`df8ddab`](https://github.com/The-FireHub-Project/Core-Foundation/commit/df8ddab))
 - Add fluent builder classes for `firehub.Exception` and `firehub.Error` (issue: [#5](https://github.com/The-FireHub-Project/Core-Foundation/issues/5), pr: [#9](https://github.com/The-FireHub-Project/Core-Foundation/pull/9), commit: [`dedc558`](https://github.com/The-FireHub-Project/Core-Foundation/commit/dedc558))
 - Add `context` property and `getContext` method to `firehub.Throwable` (issue: [#5](https://github.com/The-FireHub-Project/Core-Foundation/issues/5), pr: [#9](https://github.com/The-FireHub-Project/Core-Foundation/pull/9), commit: [`bf4c31f`](https://github.com/The-FireHub-Project/Core-Foundation/commit/bf4c31f))
 - Remove `console.php` and implement comprehensive dynamic autoloading (issue: [#5](https://github.com/The-FireHub-Project/Core-Foundation/issues/5), pr: [#9](https://github.com/The-FireHub-Project/Core-Foundation/pull/9), commit: [`ff5c15e`](https://github.com/The-FireHub-Project/Core-Foundation/commit/ff5c15e))
