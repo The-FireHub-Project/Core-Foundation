@@ -1,0 +1,45 @@
+name: PHPUnit with Codecov
+
+on:
+  push:
+  pull_request:
+
+permissions: read-all
+
+jobs:
+  build:
+    uses: The-FireHub-Project/.github/.github/workflows/RunCommandOnMatrix.yml@master
+    with:
+      title: "Run PHPUnit"
+      operatingSystems: '["ubuntu-latest", "windows-latest", "macOS-latest"]'
+      phpVersions: ${{ vars.PHP_VERSIONS }}
+      phpExtensions: ${{ vars.PHP_EXTENSIONS }}
+      tools: "phpunit:13.x"
+      command: "phpunit --coverage-clover=coverage-${{ matrix.operating-system }}.xml --log-junit junit-${{ matrix.operating-system }}.xml"
+    secrets:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+  upload-coverage:
+    name: Upload Coverage (${{ matrix.os }})
+    runs-on: ubuntu-latest
+    needs: build
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, windows-latest, macOS-latest ]
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v8
+        with:
+          name: phpunit-artifacts-${{ matrix.os }}
+          path: ./artifacts/${{ matrix.os }}
+      - name: Upload coverage
+        uses: codecov/codecov-action@v5
+        with:
+          files: ./artifacts/${{ matrix.os }}/coverage-${{ matrix.os }}.xml
+          flags: ${{ matrix.os }}
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      - name: Upload test results to Codecov
+        if: ${{ !cancelled() && matrix.os == 'ubuntu-latest' }}
+        uses: codecov/test-results-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
