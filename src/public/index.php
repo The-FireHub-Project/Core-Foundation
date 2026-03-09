@@ -16,6 +16,8 @@
  * @version GIT: $Id$ Blob checksum.
  */
 
+namespace FireHub\Public;
+
 require __DIR__.'/../support/firehub.LowLevel.php';
 require __DIR__.'/../support/firehub.Autoload.php';
 require __DIR__.'/../support/lowlevel/firehub.SplAutoload.php';
