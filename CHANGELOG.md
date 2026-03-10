@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased](https://github.com/The-FireHub-Project/Core-Foundation/compare/v0.1.1...feature/bootstrap-autoload)
 
 ### Added
+- Update PHPUnit bootstrap file, add minimal boostrap logic, and integrate Codecov configuration (issue: [#5](https://github.com/The-FireHub-Project/Core-Foundation/issues/5), pr: [#9](https://github.com/The-FireHub-Project/Core-Foundation/pull/9), commit: [`09fbb79`](https://github.com/The-FireHub-Project/Core-Foundation/commit/09fbb79))
 - Add classmap-based autoloading for improved performance and modularity (issue: [#5](https://github.com/The-FireHub-Project/Core-Foundation/issues/5), pr: [#9](https://github.com/The-FireHub-Project/Core-Foundation/pull/9), commit: [`8dce6c9`](https://github.com/The-FireHub-Project/Core-Foundation/commit/8dce6c9))
 - Implemented FireHub bootstrap architecture and streamlined autoloading (issue: [#5](https://github.com/The-FireHub-Project/Core-Foundation/issues/5), pr: [#9](https://github.com/The-FireHub-Project/Core-Foundation/pull/9), commit: [`df8ddab`](https://github.com/The-FireHub-Project/Core-Foundation/commit/df8ddab))
 - Add fluent builder classes for `firehub.Exception` and `firehub.Error` (issue: [#5](https://github.com/The-FireHub-Project/Core-Foundation/issues/5), pr: [#9](https://github.com/The-FireHub-Project/Core-Foundation/pull/9), commit: [`dedc558`](https://github.com/The-FireHub-Project/Core-Foundation/commit/dedc558))
