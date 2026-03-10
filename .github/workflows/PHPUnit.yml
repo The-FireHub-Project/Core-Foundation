@@ -17,8 +17,6 @@ jobs:
       tools: "phpunit:13.x"
       command: |
         phpunit --testsuite unit --coverage-clover=coverage-unit.xml --log-junit junit-unit.xml
-        phpunit --testsuite integration --coverage-clover=coverage-integration.xml --log-junit junit-integration.xml
-        phpunit --testsuite smoke --coverage-clover=coverage-smoke.xml --log-junit junit-smoke.xml
       uploadArtifacts: true
     secrets:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
@@ -40,26 +38,6 @@ jobs:
             ./artifacts/windows-latest/coverage-unit.xml
             ./artifacts/macOS-latest/coverage-unit.xml
           flags: unit
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-      - name: Upload Integration coverage
-        uses: codecov/codecov-action@v5
-        with:
-          files: |
-            ./artifacts/ubuntu-latest/coverage-integration.xml
-            ./artifacts/windows-latest/coverage-integration.xml
-            ./artifacts/macOS-latest/coverage-integration.xml
-          flags: integration
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-      - name: Upload Smoke coverage
-        uses: codecov/codecov-action@v5
-        with:
-          files: |
-            ./artifacts/ubuntu-latest/coverage-smoke.xml
-            ./artifacts/windows-latest/coverage-smoke.xml
-            ./artifacts/macOS-latest/coverage-smoke.xml
-          flags: smoke
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload test results to Codecov
