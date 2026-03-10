@@ -1,4 +1,4 @@
-name: PHPUnit with Codecov
+name: PHPUnit
 
 on:
   push:
