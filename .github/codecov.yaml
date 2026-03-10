@@ -1,3 +1,10 @@
+comment:
+  layout: reach,diff,flags,tree,reach
+  behavior: default
+  require_head: true
+  require_base: true
+  show_carryforward_flags: false
+
 coverage:
   status:
     project:
