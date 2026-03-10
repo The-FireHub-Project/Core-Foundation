@@ -2,7 +2,13 @@ name: Code Coverage
 
 on:
   push:
+    branches:
+      - master
+      - 'v*'
   pull_request:
+    branches:
+      - master
+      - 'v*'
 
 permissions: read-all
 
