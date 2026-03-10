@@ -1,10 +1,3 @@
-comment:
-  layout: reach,diff,flags,tree,reach
-  behavior: default
-  require_head: true
-  require_base: true
-  show_carryforward_flags: false
-
 coverage:
   status:
     project:
@@ -43,8 +36,3 @@ component_management:
       name: support
       paths:
         - "src/support/**"
-
-github_checks:
-  annotations: true
-
-slack_app: true
