@@ -15,7 +15,7 @@ jobs:
       phpVersions: ${{ vars.PHP_VERSIONS }}
       phpExtensions: ${{ vars.PHP_EXTENSIONS }}
       tools: "phpunit:13.x"
-      command: phpunit --coverage-clover=coverage-${{ matrix.os }}.xml --log-junit junit-${{ matrix.os }}.xml
+      command: "phpunit --coverage-clover=coverage-\${{ matrix.operating-system }}.xml --log-junit junit-\${{ matrix.operating-system }}.xml"
     secrets:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
   upload-coverage:
