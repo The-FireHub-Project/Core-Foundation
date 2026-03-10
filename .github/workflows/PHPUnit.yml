@@ -19,6 +19,7 @@ jobs:
         phpunit --testsuite unit --coverage-clover=coverage-unit.xml --log-junit junit-unit.xml
         phpunit --testsuite integration --coverage-clover=coverage-integration.xml --log-junit junit-integration.xml
         phpunit --testsuite smoke --coverage-clover=coverage-smoke.xml --log-junit junit-smoke.xml
+      uploadArtifacts: true
     secrets:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
   upload-coverage:
