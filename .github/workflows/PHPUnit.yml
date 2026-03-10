@@ -30,7 +30,7 @@ jobs:
       - name: Download all OS artifacts
         uses: actions/download-artifact@v8
         with:
-          name: phpunit-artifacts
+          pattern: artifact-*
           path: ./artifacts
       - name: Upload Unit coverage
         uses: codecov/codecov-action@v5
