@@ -1200,7 +1200,7 @@ final class Arr extends LowLevel {
      */
     public static function keys (array $array, mixed $filter = null):array {
 
-        return func_num_args() >= 2
+        return $filter !== null
             ? array_keys($array, $filter, true)
             : array_keys($array);
 

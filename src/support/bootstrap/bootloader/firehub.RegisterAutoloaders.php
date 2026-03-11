@@ -51,6 +51,10 @@ final class RegisterAutoloaders implements Bootloader {
             'FireHub\Core\\',
             __DIR__.'/../../../'
         );
+        $loader->addNamespace(
+            'FireHub\Tests\\',
+            __DIR__.'/../../../../tests'
+        );
         Autoload::prepend(new Handle('FireHub_Resolver'), $loader);
 
         return true;
