@@ -122,6 +122,9 @@ final class ArrTest extends Base {
     #[DataProviderExternal(ArrDataProvider::class, 'list')]
     public function testIsList (array $array):void {
 
+        var_dump(spl_autoload_functions());
+        exit();
+
         self::assertTrue(Arr::isList($array));
 
     }
