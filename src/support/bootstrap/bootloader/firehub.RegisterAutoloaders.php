@@ -35,7 +35,7 @@ final class RegisterAutoloaders implements Bootloader {
      *
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\Autoload\Autoload::prepend() To prepend a new autoloader.
+     * @uses \FireHub\Core\Support\Autoload\Autoload::append() To append a new autoloader.
      * @uses \FireHub\Core\Support\Autoload\Loader\Resolver::addNamespace() To register a new namespace.
      * @uses \FireHub\Core\Domain\Autoload\Handle As autoloader handle.
      *
@@ -55,7 +55,7 @@ final class RegisterAutoloaders implements Bootloader {
             'FireHub\Tests\\',
             __DIR__.'/../../../../tests'
         );
-        Autoload::prepend(new Handle('FireHub_Resolver'), $loader);
+        Autoload::append(new Handle('FireHub_Resolver'), $loader);
 
         return true;
 

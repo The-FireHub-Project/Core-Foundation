@@ -18,7 +18,7 @@
 
 namespace FireHub\Public;
 
-require 'index.php';
+require __DIR__ . '/index.php';
 
 use FireHub\Core\Support\Bootstrap\FireHubConfigurator;
 
