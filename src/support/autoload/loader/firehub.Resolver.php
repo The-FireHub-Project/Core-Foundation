@@ -170,7 +170,7 @@ final class Resolver implements Loader {
      */
     private function requireFile (string $path):bool {
 
-        var_dump($path);
+        var_dump($path, FileSystem::isFile($path));
 
         if (!FileSystem::isFile($path))
             return false;
