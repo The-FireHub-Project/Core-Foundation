@@ -1485,7 +1485,7 @@ final class ArrTest extends Base {
 
         Arr::shuffle($actual);
 
-        self::assertArraysAreEqualIgnoringOrder($expected, $actual);
+        self::assertEqualsCanonicalizing($expected, $actual);
 
     }
 

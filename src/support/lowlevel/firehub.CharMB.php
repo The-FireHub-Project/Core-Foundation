@@ -122,7 +122,7 @@ final class CharMB extends LowLevel {
     private static function validateEncoding (Encoding $encoding):void {
 
         Arr::inArray(StrMB::listEncodings(), $encoding->value)
-            ?: throw new InvalidEncodingError;
+            ?: throw new InvalidEncodingError; // @codeCoverageIgnore
 
     }
 

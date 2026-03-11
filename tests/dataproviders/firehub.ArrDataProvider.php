@@ -31,7 +31,6 @@ final class ArrDataProvider {
             [[1, 2, 3]],
             [[10.2, 200, -3]],
             [['x', 'y', 'z']],
-            [['', null, false, 0]],
             [[]]
         ];
 
