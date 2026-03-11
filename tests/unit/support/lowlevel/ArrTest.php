@@ -53,9 +53,6 @@ final class ArrTest extends Base {
     #[TestWith([false, ['x', 'y', 'z'], 'y'])]
     public function testAll (bool $expected, array $array, mixed $result):void {
 
-        var_dump(spl_autoload_functions());
-        exit();
-
         self::assertSame($expected, Arr::all($array, static fn($value) => $value >= $result));
 
     }
