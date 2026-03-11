@@ -84,12 +84,12 @@ final class Resolver implements Loader {
 
         $namespace_prefix = StrSB::trim(
             StrSB::trim($namespace_prefix),
-            characters: '\\/'
+            characters: '\\'
         ) ?: throw InvalidNamespaceException::empty();
 
         $folder = StrSB::trim(
             StrSB::trim($folder),
-            characters: '\\/'
+            characters: '\\'
         ) ?: throw InvalidFolderException::empty();
 
         $this->namespaces[$namespace_prefix] ??= [];
@@ -169,10 +169,6 @@ final class Resolver implements Loader {
      * @return bool True if a file is included, false otherwise.
      */
     private function requireFile (string $path):bool {
-
-        var_dump(__DIR__, $path, realpath($path), );
-        //var_dump(spl_autoload_functions());
-        exit();
 
         if (!FileSystem::isFile($path))
             return false;
