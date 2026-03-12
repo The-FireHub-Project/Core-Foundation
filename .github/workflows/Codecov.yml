@@ -1,0 +1,24 @@
+name: Code Coverage
+
+on:
+  push:
+    branches:
+      - master
+      - 'v*'
+  pull_request:
+    branches:
+      - master
+      - 'v*'
+
+permissions: read-all
+
+jobs:
+  build:
+    uses: The-FireHub-Project/.github/.github/workflows/Codecov.yml@master
+    with:
+      phpVersion: '8.5'
+      phpExtensions: ${{ vars.PHP_EXTENSIONS }}
+      tools: "phpunit:13.x"
+    secrets:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

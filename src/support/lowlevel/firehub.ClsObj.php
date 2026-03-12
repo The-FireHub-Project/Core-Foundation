@@ -202,7 +202,7 @@ final class ClsObj extends LowLevel {
      * Whether to allow this function to load the class automatically through the __autoload magic method.
      * </p>
      *
-     * @phpstan-assert-if-true TObject $object_or_class
+     * @phpstan-assert-if-true TObject|class-string<TObject> $object_or_class
      *
      * @return bool True if the object is of this object type or has this object type as one of its supertypes,
      * false otherwise.
