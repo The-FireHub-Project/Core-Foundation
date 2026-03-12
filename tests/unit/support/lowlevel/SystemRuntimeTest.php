@@ -287,7 +287,7 @@ final class SystemRuntimeTest extends Base {
      *
      * @return void
      */
-    #[TestWith(['display_errors'])]
+    #[TestWith(['max_memory_limit'])]
     public function testRestoreConfigurationOption (string $option):void {
 
         self::assertIsString(SystemRuntime::restoreConfigurationOption($option));
