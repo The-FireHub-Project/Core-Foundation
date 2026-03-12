@@ -24,7 +24,7 @@ use FireHub\Core\Throwable\Error\LowLevel\SystemRuntime\ {
 };
 use FireHub\Core\Support\LowLevel\SystemRuntime;
 use PHPUnit\Framework\Attributes\ {
-    CoversClass, Depends, Group, SmalL, TestWith
+    CoversClass, Depends, Group, Small, TestWith
 };
 
 /**

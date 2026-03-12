@@ -17,7 +17,7 @@ namespace FireHub\Tests\Unit\Support\LowLevel;
 use FireHub\Core\Testing\Base;
 use FireHub\Core\Support\LowLevel\Declared;
 use PHPUnit\Framework\Attributes\ {
-    CoversClass, Group, SmalL
+    CoversClass, Group, Small
 };
 
 /**

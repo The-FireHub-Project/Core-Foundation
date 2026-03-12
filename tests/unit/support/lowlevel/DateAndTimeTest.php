@@ -22,7 +22,7 @@ use FireHub\Core\Throwable\Error\LowLevel\DateTime\ {
 use FireHub\Core\Support\LowLevel\DateAndTime;
 use FireHub\Tests\DataProviders\DateTimeDataProvider;
 use PHPUnit\Framework\Attributes\ {
-    CoversClass, DataProviderExternal, Group, SmalL, TestWith
+    CoversClass, DataProviderExternal, Group, Small, TestWith
 };
 
 /**

@@ -339,19 +339,19 @@ final class FileSystem extends LowLevel {
      * Attempts to create the folder specified by $path.
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Shared\Enums\FileSystem\Permission As parameter.
+     * @uses \FireHub\Core\Shared\Enums\FileSystem\Permission::ALL As default parameter.
      * @uses \FireHub\Core\Support\LowLevel\DataIs::int() To find whether octdec() returns an integer.
      *
      * @param non-empty-string $path <p>
      * Path to folder ot disk partition.
      * </p>
-     * @param \FireHub\Core\Shared\Enums\FileSystem\Permission $owner <p>
+     * @param \FireHub\Core\Shared\Enums\FileSystem\Permission $owner [optional] <p>
      * File owner permission.
      * </p>
-     * @param \FireHub\Core\Shared\Enums\FileSystem\Permission $owner_group <p>
+     * @param \FireHub\Core\Shared\Enums\FileSystem\Permission $owner_group [optional] <p>
      * File owner group permission.
      * </p>
-     * @param \FireHub\Core\Shared\Enums\FileSystem\Permission $global <p>
+     * @param \FireHub\Core\Shared\Enums\FileSystem\Permission $global [optional] <p>
      * Everyone's permission.
      * </p>
      * @param bool $recursive [optional] <p>
@@ -364,7 +364,7 @@ final class FileSystem extends LowLevel {
      *
      * @todo Replace octdec with low level class.
      */
-    public static function create (string $path, Permission $owner, Permission $owner_group, Permission $global, bool $recursive = false):true {
+    public static function create (string $path, Permission $owner = Permission::ALL, Permission $owner_group = Permission::ALL, Permission $global = Permission::ALL, bool $recursive = false):true {
 
         return mkdir($path, (int)octdec('0'.$owner->value.$owner_group->value.$global->value), $recursive)
             ?: throw new CreateFolderError;

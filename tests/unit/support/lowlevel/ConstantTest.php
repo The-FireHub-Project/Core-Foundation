@@ -21,7 +21,7 @@ use FireHub\Core\Throwable\Error\LowLevel\Constant\ {
 use FireHub\Core\Support\LowLevel\Constant;
 use FireHub\Tests\DataProviders\ConstantDataProvider;
 use PHPUnit\Framework\Attributes\ {
-    CoversClass, DataProviderExternal, Depends, Group, SmalL, TestWith
+    CoversClass, DataProviderExternal, Depends, Group, Small, TestWith
 };
 
 /**

@@ -24,7 +24,7 @@ use FireHub\Core\Support\LowLevel\ {
 };
 use FireHub\Tests\DataProviders\DataDataProvider;
 use PHPUnit\Framework\Attributes\ {
-    CoversClass, DataProviderExternal, Group, SmalL, TestWith
+    CoversClass, DataProviderExternal, Group, Small, TestWith
 };
 
 /**
