@@ -23,7 +23,7 @@ final class ArrDataProvider {
     /**
      * @since 1.0.0
      *
-     * @return array[]
+     * @return array<list>
      */
     public static function list ():array {
 
@@ -39,7 +39,7 @@ final class ArrDataProvider {
     /**
      * @since 1.0.0
      *
-     * @return array[]
+     * @return array<array>
      */
     public static function associative ():array {
 
@@ -54,7 +54,7 @@ final class ArrDataProvider {
     /**
      * @since 1.0.0
      *
-     * @return array[]
+     * @return array<array>
      */
     public static function multidimensional ():array {
 

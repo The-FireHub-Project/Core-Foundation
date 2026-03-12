@@ -23,7 +23,7 @@ use \FireHub\Core\Throwable\Error\LowLevel\Arr\ {
 };
 use FireHub\Core\Support\LowLevel\Arr;
 use FireHub\Tests\DataProviders\ {
-    ArrDataProvider, ClassDataProvider
+    ArrDataProvider, ClsObjDataProvider
 };
 use PHPUnit\Framework\Attributes\ {
     CoversClass, DataProviderExternal, Group, Small, TestWith
@@ -237,7 +237,7 @@ final class ArrTest extends Base {
      *
      * @return void
      */
-    #[DataProviderExternal(ClassDataProvider::class, 'countable')]
+    #[DataProviderExternal(ClsObjDataProvider::class, 'countable')]
     public function testCountWithCountable (Countable $array):void {
 
         self::assertSame(10, Arr::count($array));
