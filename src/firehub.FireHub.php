@@ -21,7 +21,7 @@ use FireHub\Core\Throwable\Exception\Bootstrap\ {
     FailedToLoadBootloaderException, NotBootloaderException
 };
 use FireHub\Core\Support\LowLevel\ {
-    Arr, DataIs, ClsObj
+    DataIs, ClsObj
 };
 
 /**
@@ -91,7 +91,6 @@ final class FireHub {
      * ### Load bootloaders
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\LowLevel\Arr::unique() To remove duplicate bootloaders.
      * @uses \FireHub\Core\Support\LowLevel\DataIs::string() To check if the $key is a string.
      * @uses \FireHub\Core\Support\LowLevel\DataIs::array() To check if the $value is an array.
      * @uses \FireHub\Core\Support\LowLevel\ClsObj::ofClass() To check if the $value is a bootloader.
@@ -105,7 +104,7 @@ final class FireHub {
      */
     private function loadBootloaders ():void {
 
-        foreach (Arr::unique([...$this->bootloaders, ...$this->configurator->bootloaders]) as $key => $value)
+        foreach ([...$this->bootloaders, ...$this->configurator->bootloaders] as $key => $value)
             match (true) {
                 DataIs::string($key) && DataIs::array($value) && ClsObj::ofClass($key, Bootloader::class)
                     => new $key(...$value)->boot()

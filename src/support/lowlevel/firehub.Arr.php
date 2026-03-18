@@ -587,7 +587,7 @@ final class Arr extends LowLevel {
      * of the other arrays.
      * @since 1.0.0
      *
-     * @template TArray of array<array-key, mixed>
+     * @template TArray of array<array-key, scalar|\Stringable>
      *
      * @param TArray $array <p>
      * The array to compare from.
@@ -720,7 +720,7 @@ final class Arr extends LowLevel {
      * Unlike Arr#difference(), the array keys are also used in the comparison.
      * @since 1.0.0
      *
-     * @template TArray of array<array-key, mixed>
+     * @template TArray of array<array-key, scalar|\Stringable>
      *
      * @param TArray $array <p>
      * The array to compare from.
@@ -868,7 +868,7 @@ final class Arr extends LowLevel {
      * Note that keys are preserved.
      * @since 1.0.0
      *
-     * @template TArray of array<array-key, mixed>
+     * @template TArray of array<array-key, scalar|\Stringable>
      *
      * @param TArray $array <p>
      * The array with main values to check.
@@ -988,7 +988,7 @@ final class Arr extends LowLevel {
      * Note that the keys are also used in the comparison, unlike in Arr#intersect().
      * @since 1.0.0
      *
-     * @template TArray of array<array-key, mixed>
+     * @template TArray of array<array-key, scalar|\Stringable>
      *
      * @param TArray $array <p>
      * The array with main values to check.
@@ -1555,7 +1555,7 @@ final class Arr extends LowLevel {
      */
     public static function unique (array $array, Compare $compare = Compare::AS_REGULAR):array {
 
-        return array_unique($array, $compare->value);
+        return array_unique($array, $compare->value); // @phpstan-ignore argument.type
 
     }
 
@@ -2201,11 +2201,11 @@ final class Arr extends LowLevel {
 
         return $order === Order::ASC
             ? ($preserve_keys
-                ? asort($array, $flag->value)
-                : sort($array, $flag->value))
+                ? asort($array, $flag->value) // @phpstan-ignore argument.type
+                : sort($array, $flag->value)) // @phpstan-ignore argument.type
             : ($preserve_keys
-                ? arsort($array, $flag->value)
-                : rsort($array, $flag->value));
+                ? arsort($array, $flag->value) // @phpstan-ignore argument.type
+                : rsort($array, $flag->value)); // @phpstan-ignore argument.type
 
     }
 
