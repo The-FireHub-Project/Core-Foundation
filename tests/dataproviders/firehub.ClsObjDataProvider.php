@@ -14,7 +14,7 @@
 
 namespace FireHub\Tests\DataProviders;
 
-use Countable;
+use Countable, IteratorAggregate, SplFixedArray, Traversable;
 
 /**
  * ### Class data provider
@@ -35,6 +35,41 @@ final class ClsObjDataProvider {
                 public function count():int {return 10;}
 
             }]
+        ];
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return array<object<\Iterator>>
+     */
+    public static function iterator ():array {
+
+        return [
+            [new class implements Countable, IteratorAggregate {
+                public array $data = [1 => 'one', 2 => 'two', 3 => 'three'];
+                public function count ():int {return 3;}
+                public function getIterator ():Traversable {yield from $this->data;}
+            }]
+        ];
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @return array<object<SplFixedArray>>
+     */
+    public static function splFixedArray ():array {
+
+        $iterator = new SplFixedArray(3);
+        $iterator[0] = 1;
+        $iterator[1] = 2;
+        $iterator[2] = 3;
+
+        return [
+            [$iterator]
         ];
 
     }

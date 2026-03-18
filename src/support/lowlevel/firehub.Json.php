@@ -22,6 +22,7 @@ use FireHub\Core\Shared\Enums\Json\ {
 use FireHub\Core\Throwable\Error\LowLevel\Json\ {
     DecodeError, EncodeError
 };
+use JsonException;
 
 use function json_decode;
 use function json_encode;
@@ -76,14 +77,22 @@ final class Json extends LowLevel {
      */
     public static function encode (mixed $value, int $depth = 512, Flag|Encode ...$flags):string {
 
-        return json_encode($value, Arr::reduce(
-                Arr::unique($flags),
-                static fn(null|int $carry, Flag|Encode $flag) => $flag !== Flag::THROW_ON_ERROR
-                    ? $carry | $flag->value
-                    : $carry,
-                0
-            ) | Flag::THROW_ON_ERROR->value, $depth)
-            ?: throw new EncodeError;
+        try {
+
+            return json_encode($value, Arr::reduce(
+                    Arr::unique($flags),
+                    static fn(null|int $carry, Flag|Encode $flag) => $flag !== Flag::THROW_ON_ERROR
+                        ? $carry | $flag->value
+                        : $carry,
+                    0
+                ) | Flag::THROW_ON_ERROR->value, $depth)
+                ?: throw new EncodeError;
+
+        } catch (JsonException $error) {
+
+            throw new EncodeError($error->getMessage());
+
+        }
 
     }
 
@@ -123,14 +132,22 @@ final class Json extends LowLevel {
      */
     public static function decode (string $json, bool $as_array = false, int $depth = 512, Flag|Decode ...$flags):mixed {
 
-        return json_decode($json, $as_array, $depth, Arr::reduce(
-                Arr::unique($flags),
-                static fn(null|int $carry, Flag|Decode $flag) => $flag !== Flag::THROW_ON_ERROR
-                    ? $carry | $flag->value
-                    : $carry,
-                0
-            ) | Flag::THROW_ON_ERROR->value)
-            ?: throw new DecodeError;
+        try {
+
+            return json_decode($json, $as_array, $depth, Arr::reduce(
+                    Arr::unique($flags),
+                    static fn(null|int $carry, Flag|Decode $flag) => $flag !== Flag::THROW_ON_ERROR
+                        ? $carry | $flag->value
+                        : $carry,
+                    0
+                ) | Flag::THROW_ON_ERROR->value)
+                ?: throw new DecodeError;
+
+        } catch (JsonException $error) {
+
+            throw new DecodeError($error->getMessage());
+
+        }
 
     }
 
