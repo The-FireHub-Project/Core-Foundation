@@ -35,6 +35,7 @@ use Countable;
  * @since 1.0.0
  */
 #[Small]
+#[Group('support')]
 #[Group('lowlevel')]
 #[CoversClass(Arr::class)]
 final class ArrTest extends Base {

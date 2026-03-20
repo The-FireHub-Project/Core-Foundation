@@ -31,6 +31,7 @@ use PHPUnit\Framework\Attributes\ {
  * @since 1.0.0
  */
 #[Small]
+#[Group('support')]
 #[Group('lowlevel')]
 #[CoversClass(Json::class)]
 final class JsonTest extends Base {

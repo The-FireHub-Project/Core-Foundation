@@ -29,6 +29,7 @@ use PHPUnit\Framework\Attributes\ {
  * @since 1.0.0
  */
 #[Small]
+#[Group('support')]
 #[Group('lowlevel')]
 #[CoversClass(Constant::class)]
 final class ConstantTest extends Base {

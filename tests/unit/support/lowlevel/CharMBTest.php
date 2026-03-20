@@ -26,6 +26,7 @@ use PHPUnit\Framework\Attributes\ {
  * @since 1.0.0
  */
 #[Small]
+#[Group('support')]
 #[Group('lowlevel')]
 #[CoversClass(CharMB::class)]
 final class CharMBTest extends Base {

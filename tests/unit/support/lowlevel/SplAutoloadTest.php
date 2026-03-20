@@ -26,6 +26,7 @@ use Closure;
  * @since 1.0.0
  */
 #[Small]
+#[Group('support')]
 #[Group('lowlevel')]
 #[CoversClass(SplAutoload::class)]
 final class SplAutoloadTest extends Base {

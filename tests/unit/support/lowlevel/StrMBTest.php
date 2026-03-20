@@ -30,6 +30,7 @@ use PHPUnit\Framework\Attributes\ {
  * @since 1.0.0
  */
 #[Small]
+#[Group('support')]
 #[Group('lowlevel')]
 #[CoversClass(StrMB::class)]
 final class StrMBTest extends Base {

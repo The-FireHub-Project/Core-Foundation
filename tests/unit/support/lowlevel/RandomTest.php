@@ -28,6 +28,7 @@ use PHPUnit\Framework\Attributes\ {
  * @since 1.0.0
  */
 #[Small]
+#[Group('support')]
 #[Group('lowlevel')]
 #[CoversClass(Random::class)]
 final class RandomTest extends Base {

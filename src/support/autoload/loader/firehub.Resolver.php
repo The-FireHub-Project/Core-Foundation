@@ -75,8 +75,8 @@ final class Resolver implements Loader {
      * Base folder.
      * </p>
      *
-     * @throws \FireHub\Core\Throwable\Exception\Domain\Autoload\InvalidFolderException If folder us empty.
-     * @throws \FireHub\Core\Throwable\Exception\Domain\Autoload\InvalidNamespaceException If namespace us empty.
+     * @throws \FireHub\Core\Throwable\Exception\Domain\Autoload\InvalidFolderException If the folder is empty.
+     * @throws \FireHub\Core\Throwable\Exception\Domain\Autoload\InvalidNamespaceException If namespace is empty.
      *
      * @return void
      */
