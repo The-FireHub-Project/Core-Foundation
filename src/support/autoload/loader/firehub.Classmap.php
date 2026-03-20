@@ -54,7 +54,7 @@ final readonly class Classmap implements Loader {
 
         if (!isset($this->map[$class])) return;
 
-        require $this->map[$class];
+        require_once $this->map[$class];
 
     }
 

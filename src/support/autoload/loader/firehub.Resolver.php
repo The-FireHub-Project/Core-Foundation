@@ -173,7 +173,7 @@ final class Resolver implements Loader {
         if (!FileSystem::isFile($path))
             return false;
 
-        require $path;
+        require_once $path;
 
         return true;
 
