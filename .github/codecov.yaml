@@ -1,0 +1,38 @@
+coverage:
+  status:
+    project:
+      default:
+        target: auto
+        paths:
+          - "src"
+      domain:
+        target: 70%
+        paths:
+          - src/domain*
+      shared:
+        target: 70%
+        paths:
+          - src/shared*
+      support:
+        target: 70%
+        paths:
+          - src/support*
+
+component_management:
+  default_rules:
+    statuses:
+      - type: project
+        target: auto
+  individual_components:
+    - component_id: module_domain
+      name: domain
+      paths:
+        - "src/domain/**"
+    - component_id: module_shared
+      name: shared
+      paths:
+        - "src/shared/**"
+    - component_id: module_support
+      name: support
+      paths:
+        - "src/support/**"

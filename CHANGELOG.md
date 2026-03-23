@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased](https://github.com/The-FireHub-Project/Core-Foundation/compare/v0.1.1...feature/bootstrap-autoload)
+
+### Added
+- Update PHPUnit bootstrap file, add minimal boostrap logic, and integrate Codecov configuration (issue: [#5](https://github.com/The-FireHub-Project/Core-Foundation/issues/5), pr: [#9](https://github.com/The-FireHub-Project/Core-Foundation/pull/9), commit: [`09fbb79`](https://github.com/The-FireHub-Project/Core-Foundation/commit/09fbb79))
+- Add classmap-based autoloading for improved performance and modularity (issue: [#5](https://github.com/The-FireHub-Project/Core-Foundation/issues/5), pr: [#9](https://github.com/The-FireHub-Project/Core-Foundation/pull/9), commit: [`8dce6c9`](https://github.com/The-FireHub-Project/Core-Foundation/commit/8dce6c9))
+- Implemented FireHub bootstrap architecture and streamlined autoloading (issue: [#5](https://github.com/The-FireHub-Project/Core-Foundation/issues/5), pr: [#9](https://github.com/The-FireHub-Project/Core-Foundation/pull/9), commit: [`df8ddab`](https://github.com/The-FireHub-Project/Core-Foundation/commit/df8ddab))
+- Add fluent builder classes for `firehub.Exception` and `firehub.Error` (issue: [#5](https://github.com/The-FireHub-Project/Core-Foundation/issues/5), pr: [#9](https://github.com/The-FireHub-Project/Core-Foundation/pull/9), commit: [`dedc558`](https://github.com/The-FireHub-Project/Core-Foundation/commit/dedc558))
+- Add `context` property and `getContext` method to `firehub.Throwable` (issue: [#5](https://github.com/The-FireHub-Project/Core-Foundation/issues/5), pr: [#9](https://github.com/The-FireHub-Project/Core-Foundation/pull/9), commit: [`bf4c31f`](https://github.com/The-FireHub-Project/Core-Foundation/commit/bf4c31f))
+- Remove `console.php` and implement comprehensive dynamic autoloading (issue: [#5](https://github.com/The-FireHub-Project/Core-Foundation/issues/5), pr: [#9](https://github.com/The-FireHub-Project/Core-Foundation/pull/9), commit: [`ff5c15e`](https://github.com/The-FireHub-Project/Core-Foundation/commit/ff5c15e))
+- Add PSR-4–based autoloader with namespace and directory mapping (issue: [#5](https://github.com/The-FireHub-Project/Core-Foundation/issues/5), pr: [#9](https://github.com/The-FireHub-Project/Core-Foundation/pull/9), commit: [`7206a57`](https://github.com/The-FireHub-Project/Core-Foundation/commit/7206a57))
+- Add Handle value object and InvalidAutoloadHandleException to support autoloader management in Core Foundation (issue: [#5](https://github.com/The-FireHub-Project/Core-Foundation/issues/5), pr: [#9](https://github.com/The-FireHub-Project/Core-Foundation/pull/9), commit: [`2375c67`](https://github.com/The-FireHub-Project/Core-Foundation/commit/2375c67))
+- Add public entry points for web and CLI PHAR access in Core Foundation (issue: [#5](https://github.com/The-FireHub-Project/Core-Foundation/issues/5), pr: [#9](https://github.com/The-FireHub-Project/Core-Foundation/pull/9), commit: [`bbc48a1`](https://github.com/The-FireHub-Project/Core-Foundation/commit/bbc48a1))
+- Update .gitignore and .gitattributes (issue: [#5](https://github.com/The-FireHub-Project/Core-Foundation/issues/5), pr: [#9](https://github.com/The-FireHub-Project/Core-Foundation/pull/9), commit: [`0b938f0`](https://github.com/The-FireHub-Project/Core-Foundation/commit/0b938f0))
+- Update .gitignore for PHAR files (issue: [#5](https://github.com/The-FireHub-Project/Core-Foundation/issues/5), pr: [#9](https://github.com/The-FireHub-Project/Core-Foundation/pull/9), commit: [`5607af0`](https://github.com/The-FireHub-Project/Core-Foundation/commit/5607af0))
+
 ## [v0.1.1](https://github.com/The-FireHub-Project/Core-Foundation/compare/v0.1.0...v0.1.1) – 2026-02-24
 
 ### Added
@@ -12,7 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update GH_TOKEN secret reference in PHPStan workflow (pr: [#8](https://github.com/The-FireHub-Project/Core-Foundation/pull/8), commit: [`8f97f98`](https://github.com/The-FireHub-Project/Core-Foundation/commit/8f97f98))
 - Update SemanticPullRequest.yml (pr: [#8](https://github.com/The-FireHub-Project/Core-Foundation/pull/8), commit: [`961cb4e`](https://github.com/The-FireHub-Project/Core-Foundation/commit/961cb4e))
 
-## [0.1.0] - 2026-02-23
+## v0.1.0 - 2026-02-23
 
 ### Added
 - Introduce SPL autoload management helper and custom error classes for FireHub framework (issue: [#1](https://github.com/The-FireHub-Project/Core-Foundation/issues/1), pr: [#2](https://github.com/The-FireHub-Project/Core-Foundation/pull/2), commit: [`e374bec`](https://github.com/The-FireHub-Project/Core-Foundation/commit/e374bec))

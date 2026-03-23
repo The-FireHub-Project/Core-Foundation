@@ -129,7 +129,7 @@ final class Random extends LowLevel {
      * The length of the random string that should be returned in bytes; must be 1 or greater.
      * </p>
      *
-     * @throws \FireHub\Core\Throwable\Error\LowLevel\Random\MaxLessThanMinError If length is less than 1.
+     * @throws \FireHub\Core\Throwable\Error\LowLevel\Random\MaxLessThanMinError If the length is less than 1.
      * @throws \FireHub\Core\Throwable\Error\LowLevel\Random\SecureNumberError If an appropriate source of randomness
      * cannot be found.
      *
