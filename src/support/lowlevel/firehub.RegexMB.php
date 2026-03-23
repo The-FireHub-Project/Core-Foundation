@@ -92,7 +92,7 @@ final class RegexMB extends LowLevel {
      * Case-sensitive replace type.
      * </p>
      *
-     * @throws \FireHub\Core\Throwable\Error\LowLevel\Regex\InvalidPatternError If error occurred while performing a
+     * @throws \FireHub\Core\Throwable\Error\LowLevel\Regex\InvalidPatternError If an error occurred while performing a
      * regular expression search and replace type.
      * @throws \FireHub\Core\Throwable\Error\LowLevel\String\InvalidEncodingError If string is not valid for the current
      * encoding.
@@ -136,7 +136,7 @@ final class RegexMB extends LowLevel {
      * The string being evaluated.
      * </p>
      *
-     * @throws \FireHub\Core\Throwable\Error\LowLevel\Regex\InvalidPatternError If error occurred while performing a
+     * @throws \FireHub\Core\Throwable\Error\LowLevel\Regex\InvalidPatternError If an error occurred while performing a
      * regular expression search and replace type.
      * @throws \FireHub\Core\Throwable\Error\LowLevel\String\InvalidEncodingError If string is not valid for the current
      * encoding.

@@ -49,6 +49,12 @@ trait Throwable {
      * @param null|\FireHub\Core\Throwable\ValueObject\Code<covariant non-negative-int> $code [optional] <p>
      * The throwable code.
      * </p>
+     * @param array<non-empty-string, mixed> $context [optional] <p>
+     * Holds structured, machine-readable metadata associated with the throwable instance.<br>
+     * Context data is intended for logging, debugging, monitoring, and transport layers, and must not replace the
+     * human-readable exception message.<br>
+     * Keys must be non-empty strings to ensure predictable normalization and serialization.
+     * </p>
      * @param null|InternalThrowable $previous [optional] <p>
      * The previous throwable used for the throwable chaining.
      * </p>
@@ -58,6 +64,7 @@ trait Throwable {
     final public function __construct (
         string $message = '',
         ?Code $code = null,
+        protected array $context = [],
         ?InternalThrowable $previous = null
     ) {
 
@@ -66,6 +73,26 @@ trait Throwable {
             $code?->value() ?? static::DEFAULT_CODE,
             $previous
         );
+
+    }
+
+    /**
+     * ### Static typed builder factory
+     * @since 1.0.0
+     *
+     * @return \FireHub\Core\Throwable\Builder<static> Abstract Fluent Builder.
+     */
+    abstract public static function builder():Builder;
+
+    /**
+     * ### Gets the metadata associated with the throwable instance
+     * @since 1.0.0
+     *
+     * @return array<non-empty-string, mixed> The metadata associated with the throwable instance.
+     */
+    final public function getContext ():array {
+
+        return $this->context;
 
     }
 
