@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/The-FireHub-Project/Core-Foundation/compare/v0.1.1...feature/bootstrap-autoload)
+## [v0.2.0](https://github.com/The-FireHub-Project/Core-Foundation/compare/v0.1.1...v0.2.0) – 2026-03-23
 
 ### Added
 - Update PHPUnit bootstrap file, add minimal boostrap logic, and integrate Codecov configuration (issue: [#5](https://github.com/The-FireHub-Project/Core-Foundation/issues/5), pr: [#9](https://github.com/The-FireHub-Project/Core-Foundation/pull/9), commit: [`09fbb79`](https://github.com/The-FireHub-Project/Core-Foundation/commit/09fbb79))
