@@ -113,7 +113,6 @@ final class AutoloadTest extends Base {
      *
      * @return void
      */
-    #[TestWith(['test_prepend'])]
     public function testImplementations ():void {
 
         self::assertIsList(Autoload::implementations());
