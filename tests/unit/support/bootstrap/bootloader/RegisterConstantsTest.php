@@ -21,7 +21,7 @@ use PHPUnit\Framework\Attributes\ {
 };
 
 /**
- * ### Core Runtime Constants Loader
+ * ### Test Core Runtime Constants Loader
  * @since 1.0.0
  */
 #[Small]
