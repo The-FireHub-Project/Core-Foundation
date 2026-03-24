@@ -14,7 +14,7 @@
     "phpstan/phpstan-strict-rules": "^2.0",
     "phpunit/phpunit": "^13.0"
   },
-  "autoload-dev": {
+  "autoload": {
     "psr-4": {
       "FireHub\\PHPStan\\": "phpstan/"
     }
