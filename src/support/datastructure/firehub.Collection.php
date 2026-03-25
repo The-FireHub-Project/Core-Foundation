@@ -7,7 +7,7 @@
  * @copyright 2026 The FireHub Project - All rights reserved
  * @license https://opensource.org/license/Apache-2-0 Apache License, Version 2.0
  *
- * @php-version 7.0
+ * @php-version 8.4
  * @package Core\Support
  *
  * @version GIT: $Id$ Blob checksum.
@@ -16,9 +16,11 @@
 namespace FireHub\Core\Support\DataStructure;
 
 use FireHub\Core\Support\DataStructure\Contracts\Collection as CollectionContract;
-use FireHub\Core\Shared\Contracts\ArrayConvertable;
+use FireHub\Core\Shared\Contracts\ {
+    Magic\SerializableConvertable, ArrayConvertable, JsonSerializableConvertable
+};
 use FireHub\Core\Support\DataStructure\Traits\ {
-    Enumerable, Shared
+    Convertable, Enumerable, Shared
 };
 use Traversable;
 
@@ -38,8 +40,12 @@ use Traversable;
  *
  * @implements \FireHub\Core\Support\DataStructure\Contracts\Collection<TKey, TValue>
  * @implements \FireHub\Core\Shared\Contracts\ArrayConvertable<TKey, TValue>
+ * @implements \FireHub\Core\Shared\Contracts\JsonSerializableConvertable<TKey, TValue>
+ * @implements \FireHub\Core\Shared\Contracts\Magic\SerializableConvertable<TKey, TValue>
+ *
+ * @phpstan-consistent-constructor
  */
-class Collection implements CollectionContract, ArrayConvertable {
+class Collection implements CollectionContract, ArrayConvertable, JsonSerializableConvertable, SerializableConvertable {
 
     /**
      * ### Shared Operations for All Data Structures
@@ -58,17 +64,25 @@ class Collection implements CollectionContract, ArrayConvertable {
     use Enumerable;
 
     /**
+     * ### Convertable Trait
+     * @since 1.0.0
+     *
+     * @use \FireHub\Core\Support\DataStructure\Traits\Convertable<TKey, TValue>
+     */
+    use Convertable;
+
+    /**
      * ### Constructor
      * @since 1.0.0
      *
-     * @param array<TKey, TValue> $storage <p>
+     * @param array<TKey, TValue> $storage [optional] <p>
      * Underlying storage data.
      * </p>
      *
      * @retrun void
      */
     public function __construct (
-        private array $storage = []
+        protected(set) array $storage = []
     ) {}
 
     /**
@@ -124,9 +138,49 @@ class Collection implements CollectionContract, ArrayConvertable {
      *
      * @since 1.0.0
      */
+    public function jsonSerialize ():array {
+
+        return $this->storage;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     */
     public function getIterator ():Traversable {
 
         yield from $this->storage;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @return array<TKey, TValue> An associative array of key/value pairs that represent the serialized form
+     * of the object.
+     */
+    public function __serialize ():array {
+
+        return $this->storage;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @param array<TKey, TValue> $data <p>
+     * Serialized data.
+     * </p>
+     */
+    public function __unserialize (array $data):void {
+
+        $this->storage = $data;
 
     }
 

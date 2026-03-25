@@ -50,12 +50,52 @@ final readonly class CompiledClassmap implements Loader {
                 require __DIR__.'/../../../firehub.FireHub.php';
                 return;
 
+            case \FireHub\Core\Shared\Contracts\ArrayConvertable::class:
+                require __DIR__.'/../../../shared/contracts/firehub.ArrayConvertable.php';
+                return;
+
+            case \FireHub\Core\Shared\Contracts\Arrayable::class:
+                require __DIR__.'/../../../shared/contracts/firehub.Arrayable.php';
+                return;
+
+            case \FireHub\Core\Shared\Contracts\Countable::class:
+                require __DIR__.'/../../../shared/contracts/firehub.Countable.php';
+                return;
+
+            case \FireHub\Core\Shared\Contracts\Iterator::class:
+                require __DIR__.'/../../../shared/contracts/firehub.Iterator.php';
+                return;
+
+            case \FireHub\Core\Shared\Contracts\IteratorAggregate::class:
+                require __DIR__.'/../../../shared/contracts/firehub.IteratorAggregate.php';
+                return;
+
+            case \FireHub\Core\Shared\Contracts\JsonSerializable::class:
+                require __DIR__.'/../../../shared/contracts/firehub.JsonSerializable.php';
+                return;
+
+            case \FireHub\Core\Shared\Contracts\JsonSerializableConvertable::class:
+                require __DIR__.'/../../../shared/contracts/firehub.JsonSerializableConvertable.php';
+                return;
+
+            case \FireHub\Core\Shared\Contracts\Magic\Serializable::class:
+                require __DIR__.'/../../../shared/contracts/magic/firehub.Serializable.php';
+                return;
+
+            case \FireHub\Core\Shared\Contracts\Magic\SerializableConvertable::class:
+                require __DIR__.'/../../../shared/contracts/magic/firehub.SerializableConvertable.php';
+                return;
+
             case \FireHub\Core\Shared\Contracts\Magic\Stringable::class:
                 require __DIR__.'/../../../shared/contracts/magic/firehub.Stringable.php';
                 return;
 
             case \FireHub\Core\Shared\Contracts\Throwable::class:
                 require __DIR__.'/../../../shared/contracts/firehub.Throwable.php';
+                return;
+
+            case \FireHub\Core\Shared\Contracts\Traversable::class:
+                require __DIR__.'/../../../shared/contracts/firehub.Traversable.php';
                 return;
 
             case \FireHub\Core\Shared\Enums\Comparison::class:
@@ -196,6 +236,30 @@ final readonly class CompiledClassmap implements Loader {
 
             case \FireHub\Core\Support\Bootstrap\FireHubConfigurator::class:
                 require __DIR__.'/../../../support/bootstrap/firehub.FireHubConfigurator.php';
+                return;
+
+            case \FireHub\Core\Support\Contracts\DataStructure::class:
+                require __DIR__.'/../../../support/contracts/firehub.DataStructure.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Collection::class:
+                require __DIR__.'/../../../support/datastructure/firehub.Collection.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Contracts\Collection::class:
+                require __DIR__.'/../../../support/datastructure/contracts/firehub.Collection.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Traits\Convertable::class:
+                require __DIR__.'/../../../support/datastructure/traits/firehub.Convertable.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Traits\Enumerable::class:
+                require __DIR__.'/../../../support/datastructure/traits/firehub.Enumerable.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Traits\Shared::class:
+                require __DIR__.'/../../../support/datastructure/traits/firehub.Shared.php';
                 return;
 
             case \FireHub\Core\Support\LowLevel::class:
