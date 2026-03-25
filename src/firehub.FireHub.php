@@ -96,6 +96,7 @@ final class FireHub {
      * @uses \FireHub\Core\Support\LowLevel\ClsObj::ofClass() To check if the $value is a bootloader.
      * @uses \FireHub\Core\Support\Bootstrap\Bootloader::boot() To boot a bootloader.
      *
+     * @throws \FireHub\Core\Shared\Contracts\Throwable
      * @throws \FireHub\Core\Throwable\Exception\Bootstrap\FailedToLoadBootloaderException If a bootloader fails to
      * load.
      * @throws \FireHub\Core\Throwable\Exception\Bootstrap\NotBootloaderException If a bootloader is not a bootloader.
@@ -108,17 +109,20 @@ final class FireHub {
             match (true) {
                 DataIs::string($key) && DataIs::array($value) && ClsObj::ofClass($key, Bootloader::class)
                     => new $key(...$value)->boot()
-                        ?: FailedToLoadBootloaderException::builder()
+                        ?: throw FailedToLoadBootloaderException::builder()
                             ->withContext(['class' => $key])
-                            ->throw(),
+                            ->build(),
                 DataIs::string($value) && ClsObj::ofClass($value, Bootloader::class)
                     => new $value()->boot()
-                        ?: FailedToLoadBootloaderException::builder()
+                        ?: throw FailedToLoadBootloaderException::builder()
                             ->withContext(['class' => $value])
-                            ->throw(),
-                default => NotBootloaderException::builder()
-                            ->withContext(['bootloader' => ''])
-                            ->throw()
+                            ->build(),
+                default => throw NotBootloaderException::builder()
+                            ->withContext([
+                                'key' => $key,
+                                'value' => $value
+                            ])
+                            ->build()
             };
 
     }
