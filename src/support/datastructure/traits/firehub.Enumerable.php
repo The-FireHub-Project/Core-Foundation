@@ -15,8 +15,6 @@
 
 namespace FireHub\Core\Support\DataStructure\Traits;
 
-use FireHub\Core\Support\LowLevel\Iterator;
-
 /**
  * ### Enumerable – Shared Iteration and Transformation Behavior
  *
@@ -27,32 +25,9 @@ use FireHub\Core\Support\LowLevel\Iterator;
  * LazyCollection), reducing duplication and ensuring a uniform API without enforcing a strict contract.
  * @since 1.0.0
  *
- * @template-covariant TKey
- * @template-covariant TValue
+ * @template TKey
+ * @template TValue
  */
 trait Enumerable {
-
-    /**
-     * {@inheritDoc}
-     *
-     * <code>
-     * use FireHub\Core\Support\DataStructures\Collection;
-     *
-     * $collection = new Collection(['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
-     *
-     * $collection->count();
-     *
-     * // 6
-     * </code>
-     *
-     * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Support\LowLevel\Iterator::count() To count storage items.
-     */
-    public function count ():int {
-
-        return Iterator::count($this);
-
-    }
 
 }

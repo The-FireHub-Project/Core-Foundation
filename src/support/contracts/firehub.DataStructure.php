@@ -27,8 +27,8 @@ use FireHub\Core\Shared\Contracts\ {
  * collections, lazy collections, and other linear or dynamic data containers.
  * @since 1.0.0
  *
- * @template-covariant TKey
- * @template-covariant TValue
+ * @template TKey
+ * @template TValue
  *
  * @extends \FireHub\Core\Shared\Contracts\IteratorAggregate<TKey, TValue>
  */

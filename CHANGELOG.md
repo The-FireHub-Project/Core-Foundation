@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased](https://github.com/The-FireHub-Project/Core-Foundation/compare/v0.2.0...feature/support-high-level-api)
 
+### Added
+- Introduce foundational contracts, shared traits, and high-level abstractions for data structures (issue: [#11](https://github.com/The-FireHub-Project/Core-Foundation/issues/11), pr: [#13](https://github.com/The-FireHub-Project/Core-Foundation/pull/13), commit: [`4f809d5`](https://github.com/The-FireHub-Project/Core-Foundation/commit/4f809d5))
+
 ## [v0.2.0](https://github.com/The-FireHub-Project/Core-Foundation/compare/v0.1.1...v0.2.0) – 2026-03-23
 
 ### Added

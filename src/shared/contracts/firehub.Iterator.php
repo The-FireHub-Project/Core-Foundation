@@ -23,8 +23,8 @@ use Iterator as InternalIterator;
  * Interface for external iterators or objects that can be iterated themselves internally.
  * @since 1.0.0
  *
- * @template-covariant TKey
- * @template-covariant TValue
+ * @template TKey
+ * @template TValue
  *
  * @extends Traversable<TKey, TValue>
  * @extends InternalIterator<TKey, TValue>

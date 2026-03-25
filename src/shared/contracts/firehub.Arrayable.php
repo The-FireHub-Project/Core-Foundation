@@ -15,17 +15,21 @@
 
 namespace FireHub\Core\Shared\Contracts;
 
-use Traversable as InternalTraversable;
-
 /**
- * ### Base traversable contract
- *
- * Interface to detect if a class is traversable using foreach.
+ * ### Represents an object that can be converted into an array representation
  * @since 1.0.0
  *
- * @template TKey
+ * @template TKey of array-key
  * @template TValue
- *
- * @extends InternalTraversable<TKey, TValue>
  */
-interface Traversable extends InternalTraversable {}
+interface Arrayable {
+
+    /**
+     * ### Convert object to array
+     * @since 1.0.0
+     *
+     * @return array<TKey, TValue> Object as an array.
+     */
+    public function toArray ():array;
+
+}
