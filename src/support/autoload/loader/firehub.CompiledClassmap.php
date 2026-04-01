@@ -42,6 +42,14 @@ final readonly class CompiledClassmap implements Loader {
 
         switch ($class) {
 
+            case \Collection2::class:
+                require __DIR__.'/../../../index.php';
+                return;
+
+            case \Collection3::class:
+                require __DIR__.'/../../../index.php';
+                return;
+
             case \FireHub\Core\Domain\Autoload\Handle::class:
                 require __DIR__.'/../../../domain/autoload/firehub.Handle.php';
                 return;
@@ -100,6 +108,10 @@ final readonly class CompiledClassmap implements Loader {
 
             case \FireHub\Core\Shared\Enums\Comparison::class:
                 require __DIR__.'/../../../shared/enums/firehub.Comparison.php';
+                return;
+
+            case \FireHub\Core\Shared\Enums\ControlFlow\Signal::class:
+                require __DIR__.'/../../../shared/enums/controlflow/firehub.Signal.php';
                 return;
 
             case \FireHub\Core\Shared\Enums\Data\Category::class:
@@ -240,6 +252,10 @@ final readonly class CompiledClassmap implements Loader {
 
             case \FireHub\Core\Support\Contracts\DataStructure::class:
                 require __DIR__.'/../../../support/contracts/firehub.DataStructure.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Abstract\Collection::class:
+                require __DIR__.'/../../../support/datastructure/abstract/firehub.Collection.php';
                 return;
 
             case \FireHub\Core\Support\DataStructure\Collection::class:
@@ -698,12 +714,8 @@ final readonly class CompiledClassmap implements Loader {
                 require __DIR__.'/../../../throwable/firehub.ExceptionBuilder.php';
                 return;
 
-            case \FireHub\Core\Throwable\Exception\Bootstrap\FailedToLoadBootloaderException::class:
-                require __DIR__.'/../../../throwable/exception/bootstrap/firehub.FailedToLoadBootloaderException.php';
-                return;
-
-            case \FireHub\Core\Throwable\Exception\Bootstrap\NotBootloaderException::class:
-                require __DIR__.'/../../../throwable/exception/bootstrap/firehub.NotBootloaderException.php';
+            case \FireHub\Core\Throwable\Exception\DataStructure\WrongReturnTypeException::class:
+                require __DIR__.'/../../../throwable/exception/datastructure/firehub.WrongReturnTypeException.php';
                 return;
 
             case \FireHub\Core\Throwable\Exception\Domain\Autoload\ImplementationException::class:
@@ -720,6 +732,14 @@ final readonly class CompiledClassmap implements Loader {
 
             case \FireHub\Core\Throwable\Exception\Domain\Autoload\InvalidNamespaceException::class:
                 require __DIR__.'/../../../throwable/exception/domain/autoload/firehub.InvalidNamespaceException.php';
+                return;
+
+            case \FireHub\Core\Throwable\Exception\Support\Bootstrap\FailedToLoadBootloaderException::class:
+                require __DIR__.'/../../../throwable/exception/support/bootstrap/firehub.FailedToLoadBootloaderException.php';
+                return;
+
+            case \FireHub\Core\Throwable\Exception\Support\Bootstrap\NotBootloaderException::class:
+                require __DIR__.'/../../../throwable/exception/support/bootstrap/firehub.NotBootloaderException.php';
                 return;
 
             case \FireHub\Core\Throwable\Throwable::class:

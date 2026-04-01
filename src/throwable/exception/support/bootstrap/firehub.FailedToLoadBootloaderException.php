@@ -13,7 +13,7 @@
  * @version GIT: $Id$ Blob checksum.
  */
 
-namespace FireHub\Core\Throwable\Exception\Bootstrap;
+namespace FireHub\Core\Throwable\Exception\Support\Bootstrap;
 
 use FireHub\Core\Throwable\Exception;
 

@@ -71,8 +71,8 @@ final class FireHubConfiguratorTest extends Base {
     /**
      * @since 1.0.0
      *
-     * @throws \FireHub\Core\Throwable\Exception\Bootstrap\FailedToLoadBootloaderException
-     * @throws \FireHub\Core\Throwable\Exception\Bootstrap\NotBootloaderException
+     * @throws \FireHub\Core\Throwable\Exception\Support\Bootstrap\FailedToLoadBootloaderException
+     * @throws \FireHub\Core\Throwable\Exception\Support\Bootstrap\NotBootloaderException
      *
      * @return void
      */

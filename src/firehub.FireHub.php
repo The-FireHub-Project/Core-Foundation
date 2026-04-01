@@ -17,7 +17,7 @@ namespace FireHub\Core;
 
 use FireHub\Core\Support\Bootstrap\FireHubConfigurator;
 use FireHub\Core\Support\Bootstrap\Bootloader;
-use FireHub\Core\Throwable\Exception\Bootstrap\ {
+use FireHub\Core\Throwable\Exception\Support\Bootstrap\ {
     FailedToLoadBootloaderException, NotBootloaderException
 };
 use FireHub\Core\Support\LowLevel\ {
@@ -59,9 +59,10 @@ final class FireHub {
      * FireHub configurator.
      * </p>
      *
-     * @throws \FireHub\Core\Throwable\Exception\Bootstrap\FailedToLoadBootloaderException If a bootloader fails to
-     * load.
-     * @throws \FireHub\Core\Throwable\Exception\Bootstrap\NotBootloaderException If a bootloader is not a bootloader.
+     * @throws \FireHub\Core\Throwable\Exception\Support\Bootstrap\FailedToLoadBootloaderException If a bootloader
+     * fails to load.
+     * @throws \FireHub\Core\Throwable\Exception\Support\Bootstrap\NotBootloaderException If a bootloader is not
+     * a bootloader.
      *
      * @return void
      */
@@ -97,9 +98,10 @@ final class FireHub {
      * @uses \FireHub\Core\Support\Bootstrap\Bootloader::boot() To boot a bootloader.
      *
      * @throws \FireHub\Core\Shared\Contracts\Throwable
-     * @throws \FireHub\Core\Throwable\Exception\Bootstrap\FailedToLoadBootloaderException If a bootloader fails to
-     * load.
-     * @throws \FireHub\Core\Throwable\Exception\Bootstrap\NotBootloaderException If a bootloader is not a bootloader.
+     * @throws \FireHub\Core\Throwable\Exception\Support\Bootstrap\FailedToLoadBootloaderException If a bootloader
+     * fails to load.
+     * @throws \FireHub\Core\Throwable\Exception\Support\Bootstrap\NotBootloaderException If a bootloader is not
+     * a bootloader.
      *
      * @return void
      */

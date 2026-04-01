@@ -16,6 +16,10 @@
 namespace FireHub\Core\Support\DataStructure\Traits;
 
 use FireHub\Core\Support\LowLevel\Iterator;
+use FireHub\Core\Shared\Enums\ControlFlow\Signal;
+use FireHub\Core\Throwable\Exception\DataStructure\WrongReturnTypeException;
+
+use const FireHub\Core\Shared\Constants\Number\MAX;
 
 /**
  * ### Shared Operations for All Data Structures
@@ -50,6 +54,85 @@ trait Shared {
     public function count ():int {
 
         return Iterator::count($this);
+
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <code>
+     * use FireHub\Core\Support\DataStructures\Collection;
+     *
+     * $collection = new Collection(['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->each(
+     *    function ($value, $key):Signal {
+     *    echo $value.',';
+     *    return Signal::CONTINUE;
+     * });
+     *
+     * // 'John,Jane,Jane,Jane,Richard,Richard,'
+     * </code>
+     *
+     * You can limit the number of elements:
+     * <code>
+     * use FireHub\Core\Support\DataStructures\Collection;
+     *
+     * $collection = new Collection(['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->each(
+     *    function ($value, $key):Signal {
+     *    echo $value.',';
+     *    return Signal::CONTINUE;
+     * }, limit: 2);
+     *
+     * $collection->each(fn($value, $key) => print($value.','), limit: 2);
+     *
+     * // 'John,Jane,'
+     * </code>
+     *
+     * You can also stop at any time with returning Signal::BREAK:
+     * <code>
+     * use FireHub\Core\Support\DataStructures\Collection;
+     * use FireHub\Core\Shared\Enums\ControlFlow\Signal;
+     *
+     * $collection = new Collection(['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     *
+     * $collection->each(
+     *    function ($value, $key):Signal {
+     *    if ($value === 'Richard') return Signal::BREAK;
+     *    echo $value.',';
+     *    return Signal::CONTINUE;
+     * });
+     *
+     * // 'John,Jane,Jane,Jane,'
+     * </code>
+     *
+     * @since 1.0.0
+     */
+    public function each (callable $callback, int $limit = MAX):static {
+
+        $counter = 0;
+
+        foreach ($this as $key => $value) {
+
+            if ($counter >= $limit) break;
+
+            $signal = $callback($value, $key);
+
+            $counter++;
+
+            if ($signal === Signal::BREAK) break;
+            if ($signal === Signal::CONTINUE) continue;
+            throw WrongReturnTypeException::builder()
+                ->withContext([
+                    'type' => $signal
+                ])
+                ->build();
+
+        }
+
+        return $this;
 
     }
 

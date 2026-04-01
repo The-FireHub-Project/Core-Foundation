@@ -15,14 +15,7 @@
 
 namespace FireHub\Core\Support\DataStructure;
 
-use FireHub\Core\Support\DataStructure\Contracts\Collection as CollectionContract;
-use FireHub\Core\Shared\Contracts\ {
-    Magic\SerializableConvertable, ArrayConvertable, JsonSerializableConvertable
-};
-use FireHub\Core\Support\DataStructure\Traits\ {
-    Convertable, Enumerable, Shared
-};
-use Traversable;
+use FireHub\Core\Support\DataStructure\Abstract\Collection as AbstractCollection;
 
 /**
  * ### Collection – High-level, Eager Array-based Data Structure
@@ -38,38 +31,9 @@ use Traversable;
  * @template TKey of array-key
  * @template TValue
  *
- * @implements \FireHub\Core\Support\DataStructure\Contracts\Collection<TKey, TValue>
- * @implements \FireHub\Core\Shared\Contracts\ArrayConvertable<TKey, TValue>
- * @implements \FireHub\Core\Shared\Contracts\JsonSerializableConvertable<TKey, TValue>
- * @implements \FireHub\Core\Shared\Contracts\Magic\SerializableConvertable<TKey, TValue>
- *
- * @phpstan-consistent-constructor
+ * @extends \FireHub\Core\Support\DataStructure\Abstract\Collection<TKey, TValue>
  */
-class Collection implements CollectionContract, ArrayConvertable, JsonSerializableConvertable, SerializableConvertable {
-
-    /**
-     * ### Shared Operations for All Data Structures
-     * @since 1.0.0
-     *
-     * @use \FireHub\Core\Support\DataStructure\Traits\Shared<TKey, TValue>
-     */
-    use Shared;
-
-    /**
-     * ### Enumerable – Shared Iteration and Transformation Behavior
-     * @since 1.0.0
-     *
-     * @use \FireHub\Core\Support\DataStructure\Traits\Enumerable<TKey, TValue>
-     */
-    use Enumerable;
-
-    /**
-     * ### Convertable Trait
-     * @since 1.0.0
-     *
-     * @use \FireHub\Core\Support\DataStructure\Traits\Convertable<TKey, TValue>
-     */
-    use Convertable;
+class Collection extends AbstractCollection {
 
     /**
      * ### Constructor
@@ -81,9 +45,13 @@ class Collection implements CollectionContract, ArrayConvertable, JsonSerializab
      *
      * @retrun void
      */
-    public function __construct (
-        protected(set) array $storage = []
-    ) {}
+    final public function __construct (
+        array $storage = []
+    ) {
+
+        parent::__construct($storage);
+
+    }
 
     /**
      * {@inheritDoc}
@@ -109,78 +77,6 @@ class Collection implements CollectionContract, ArrayConvertable, JsonSerializab
     public static function fromArray (array $array):static {
 
         return new static($array);
-
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <code>
-     * use FireHub\Core\Support\DataStructures\Collection;
-     *
-     * $collection = new Collection(['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
-     *
-     * $collection->toArray();
-     *
-     * // ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']
-     * </code>
-     *
-     * @since 1.0.0
-     */
-    public function toArray ():array {
-
-        return $this->storage;
-
-    }
-
-    /**
-     * @inheritDoc
-     *
-     * @since 1.0.0
-     */
-    public function jsonSerialize ():array {
-
-        return $this->storage;
-
-    }
-
-    /**
-     * @inheritDoc
-     *
-     * @since 1.0.0
-     */
-    public function getIterator ():Traversable {
-
-        yield from $this->storage;
-
-    }
-
-    /**
-     * @inheritDoc
-     *
-     * @since 1.0.0
-     *
-     * @return array<TKey, TValue> An associative array of key/value pairs that represent the serialized form
-     * of the object.
-     */
-    public function __serialize ():array {
-
-        return $this->storage;
-
-    }
-
-    /**
-     * @inheritDoc
-     *
-     * @since 1.0.0
-     *
-     * @param array<TKey, TValue> $data <p>
-     * Serialized data.
-     * </p>
-     */
-    public function __unserialize (array $data):void {
-
-        $this->storage = $data;
 
     }
 

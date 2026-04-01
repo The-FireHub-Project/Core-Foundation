@@ -10,8 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Introduce foundational contracts, shared traits, and high-level abstractions for data structures (issue: [#11](https://github.com/The-FireHub-Project/Core-Foundation/issues/11), pr: [#13](https://github.com/The-FireHub-Project/Core-Foundation/pull/13), commit: [`4f809d5`](https://github.com/The-FireHub-Project/Core-Foundation/commit/4f809d5))
 - Introduce foundational contracts, traits, and high-level data structure implementations (issue: [#11](https://github.com/The-FireHub-Project/Core-Foundation/issues/11), pr: [#13](https://github.com/The-FireHub-Project/Core-Foundation/pull/13), commit: [`ee02c60`](https://github.com/The-FireHub-Project/Core-Foundation/commit/ee02c60))
-- Enhance core abstractions with new contracts, exception handling improvements, and serialization capabilities
-  (issue: [#11](https://github.com/The-FireHub-Project/Core-Foundation/issues/11), pr: [#13](https://github.com/The-FireHub-Project/Core-Foundation/pull/13), commit: [`4071f34`](https://github.com/The-FireHub-Project/Core-Foundation/commit/4071f34))
+- Enhance core abstractions with new contracts, exception handling improvements, and serialization capabilities (issue: [#11](https://github.com/The-FireHub-Project/Core-Foundation/issues/11), pr: [#13](https://github.com/The-FireHub-Project/Core-Foundation/pull/13), commit: [`4071f34`](https://github.com/The-FireHub-Project/Core-Foundation/commit/4071f34))
+- Add Convertable Trait, Enhance Collection Class, and Update Classmap (issue: [#11](https://github.com/The-FireHub-Project/Core-Foundation/issues/11), pr: [#13](https://github.com/The-FireHub-Project/Core-Foundation/pull/13), commit: [`734f088`](https://github.com/The-FireHub-Project/Core-Foundation/commit/734f088))
 
 ## [v0.2.0](https://github.com/The-FireHub-Project/Core-Foundation/compare/v0.1.1...v0.2.0) – 2026-03-23
 

@@ -26,9 +26,10 @@ use FireHub\Core\Support\Bootstrap\FireHubConfigurator;
  * ### Let there be light
  * @since 1.0.0
  *
- * @throws \FireHub\Core\Throwable\Exception\Bootstrap\FailedToLoadBootloaderException If a bootloader fails to
- * load.
- * @throws \FireHub\Core\Throwable\Exception\Bootstrap\NotBootloaderException If a bootloader is not a bootloader.
+ * @throws \FireHub\Core\Throwable\Exception\Support\Bootstrap\FailedToLoadBootloaderException If a bootloader
+ * fails to load.
+ * @throws \FireHub\Core\Throwable\Exception\Support\Bootstrap\NotBootloaderException If a bootloader is not
+ * a bootloader.
  *
  * @return \FireHub\Core\FireHub
  */

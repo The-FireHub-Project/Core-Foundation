@@ -29,6 +29,8 @@ namespace FireHub\Core\Support\Autoload;
  * @return array<class-string, non-empty-string>
  */
 return [
+    \Collection2::class => __DIR__.'/../../index.php',
+    \Collection3::class => __DIR__.'/../../index.php',
     \FireHub\Core\Domain\Autoload\Handle::class => __DIR__.'/../../domain/autoload/firehub.Handle.php',
     \FireHub\Core\FireHub::class => __DIR__.'/../../firehub.FireHub.php',
     \FireHub\Core\Shared\Contracts\ArrayConvertable::class => __DIR__.'/../../shared/contracts/firehub.ArrayConvertable.php',
@@ -44,6 +46,7 @@ return [
     \FireHub\Core\Shared\Contracts\Throwable::class => __DIR__.'/../../shared/contracts/firehub.Throwable.php',
     \FireHub\Core\Shared\Contracts\Traversable::class => __DIR__.'/../../shared/contracts/firehub.Traversable.php',
     \FireHub\Core\Shared\Enums\Comparison::class => __DIR__.'/../../shared/enums/firehub.Comparison.php',
+    \FireHub\Core\Shared\Enums\ControlFlow\Signal::class => __DIR__.'/../../shared/enums/controlflow/firehub.Signal.php',
     \FireHub\Core\Shared\Enums\Data\Category::class => __DIR__.'/../../shared/enums/data/firehub.Category.php',
     \FireHub\Core\Shared\Enums\Data\ResourceType::class => __DIR__.'/../../shared/enums/data/firehub.ResourceType.php',
     \FireHub\Core\Shared\Enums\Data\Type::class => __DIR__.'/../../shared/enums/data/firehub.Type.php',
@@ -79,6 +82,7 @@ return [
     \FireHub\Core\Support\Bootstrap\Bootloader\RegisterHelpers::class => __DIR__.'/../../support/bootstrap/bootloader/firehub.RegisterHelpers.php',
     \FireHub\Core\Support\Bootstrap\FireHubConfigurator::class => __DIR__.'/../../support/bootstrap/firehub.FireHubConfigurator.php',
     \FireHub\Core\Support\Contracts\DataStructure::class => __DIR__.'/../../support/contracts/firehub.DataStructure.php',
+    \FireHub\Core\Support\DataStructure\Abstract\Collection::class => __DIR__.'/../../support/datastructure/abstract/firehub.Collection.php',
     \FireHub\Core\Support\DataStructure\Collection::class => __DIR__.'/../../support/datastructure/firehub.Collection.php',
     \FireHub\Core\Support\DataStructure\Contracts\Collection::class => __DIR__.'/../../support/datastructure/contracts/firehub.Collection.php',
     \FireHub\Core\Support\DataStructure\Traits\Convertable::class => __DIR__.'/../../support/datastructure/traits/firehub.Convertable.php',
@@ -193,12 +197,13 @@ return [
     \FireHub\Core\Throwable\Error\LowLevel\SystemRuntime\SleepTimeInvalidError::class => __DIR__.'/../../throwable/error/lowlevel/systemruntime/firehub.SleepTimeInvalidError.php',
     \FireHub\Core\Throwable\Exception::class => __DIR__.'/../../throwable/firehub.Exception.php',
     \FireHub\Core\Throwable\ExceptionBuilder::class => __DIR__.'/../../throwable/firehub.ExceptionBuilder.php',
-    \FireHub\Core\Throwable\Exception\Bootstrap\FailedToLoadBootloaderException::class => __DIR__.'/../../throwable/exception/bootstrap/firehub.FailedToLoadBootloaderException.php',
-    \FireHub\Core\Throwable\Exception\Bootstrap\NotBootloaderException::class => __DIR__.'/../../throwable/exception/bootstrap/firehub.NotBootloaderException.php',
+    \FireHub\Core\Throwable\Exception\DataStructure\WrongReturnTypeException::class => __DIR__.'/../../throwable/exception/datastructure/firehub.WrongReturnTypeException.php',
     \FireHub\Core\Throwable\Exception\Domain\Autoload\ImplementationException::class => __DIR__.'/../../throwable/exception/domain/autoload/firehub.ImplementationException.php',
     \FireHub\Core\Throwable\Exception\Domain\Autoload\InvalidFolderException::class => __DIR__.'/../../throwable/exception/domain/autoload/firehub.InvalidFolderException.php',
     \FireHub\Core\Throwable\Exception\Domain\Autoload\InvalidHandleException::class => __DIR__.'/../../throwable/exception/domain/autoload/firehub.InvalidHandleException.php',
     \FireHub\Core\Throwable\Exception\Domain\Autoload\InvalidNamespaceException::class => __DIR__.'/../../throwable/exception/domain/autoload/firehub.InvalidNamespaceException.php',
+    \FireHub\Core\Throwable\Exception\Support\Bootstrap\FailedToLoadBootloaderException::class => __DIR__.'/../../throwable/exception/support/bootstrap/firehub.FailedToLoadBootloaderException.php',
+    \FireHub\Core\Throwable\Exception\Support\Bootstrap\NotBootloaderException::class => __DIR__.'/../../throwable/exception/support/bootstrap/firehub.NotBootloaderException.php',
     \FireHub\Core\Throwable\Throwable::class => __DIR__.'/../../throwable/firehub.Throwable.php',
     \FireHub\Core\Throwable\ValueObject\Code::class => __DIR__.'/../../throwable/valueobject/firehub.Code.php',
 ];
