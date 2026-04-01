@@ -246,12 +246,16 @@ final readonly class CompiledClassmap implements Loader {
                 require __DIR__.'/../../../support/contracts/firehub.DataStructure.php';
                 return;
 
-            case \FireHub\Core\Support\DataStructure\Abstract\Collection::class:
-                require __DIR__.'/../../../support/datastructure/abstract/firehub.Collection.php';
+            case \FireHub\Core\Support\DataStructure\Abstract\ArrayCollection::class:
+                require __DIR__.'/../../../support/datastructure/abstract/firehub.ArrayCollection.php';
                 return;
 
-            case \FireHub\Core\Support\DataStructure\Collection::class:
-                require __DIR__.'/../../../support/datastructure/firehub.Collection.php';
+            case \FireHub\Core\Support\DataStructure\ArrayCollection::class:
+                require __DIR__.'/../../../support/datastructure/firehub.ArrayCollection.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Contracts\Capability\Transformable::class:
+                require __DIR__.'/../../../support/datastructure/contracts/capability/firehub.Transformable.php';
                 return;
 
             case \FireHub\Core\Support\DataStructure\Contracts\Collection::class:

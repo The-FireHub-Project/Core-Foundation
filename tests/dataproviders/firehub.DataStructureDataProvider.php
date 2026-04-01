@@ -14,7 +14,7 @@
 
 namespace FireHub\Tests\DataProviders;
 
-use FireHub\Core\Support\DataStructure\Collection;
+use FireHub\Core\Support\DataStructure\ArrayCollection;
 
 /**
  * ### Datastructure data provider
@@ -30,7 +30,7 @@ final class DataStructureDataProvider {
     public static function collection ():array {
 
         return [
-            [new Collection(['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard'])]
+            [new ArrayCollection(['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard'])]
         ];
 
     }

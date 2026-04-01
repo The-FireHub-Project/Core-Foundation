@@ -40,11 +40,11 @@ trait Shared {
      * <code>
      * use FireHub\Core\Support\DataStructures\Collection;
      *
-     * $collection = new Collection(['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     * $collection = new ArrayCollection(['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
      * $collection->count();
      *
-     * // 6
+     * // 4
      * </code>
      *
      * @since 1.0.0
@@ -61,43 +61,48 @@ trait Shared {
      * {@inheritDoc}
      *
      * <code>
-     * use FireHub\Core\Support\DataStructures\Collection;
+     * use FireHub\Core\Support\DataStructures\ArrayCollection;
      *
-     * $collection = new Collection(['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     * $collection = new ArrayCollection(['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
      *
+     * $called = [];
      * $collection->each(
      *    function ($value, $key):Signal {
-     *    echo $value.',';
+     *    $called[] = $value;
      *    return Signal::CONTINUE;
      * });
      *
-     * // 'John,Jane,Jane,Jane,Richard,Richard,'
+     * print $called;
+     *
+     * // ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']
      * </code>
      *
      * You can limit the number of elements:
      * <code>
-     * use FireHub\Core\Support\DataStructures\Collection;
+     * use FireHub\Core\Support\DataStructures\ArrayCollection;
      *
-     * $collection = new Collection(['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     * $collection = new ArrayCollection(['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
      *
+     * $called = [];
      * $collection->each(
      *    function ($value, $key):Signal {
-     *    echo $value.',';
+     *    $called[] = $value;
      *    return Signal::CONTINUE;
      * }, limit: 2);
      *
-     * $collection->each(fn($value, $key) => print($value.','), limit: 2);
+     * print $called;
      *
-     * // 'John,Jane,'
+     * // ['John', 'Jane']
      * </code>
      *
      * You can also stop at any time with returning Signal::BREAK:
      * <code>
-     * use FireHub\Core\Support\DataStructures\Collection;
+     * use FireHub\Core\Support\DataStructures\ArrayCollection;
      * use FireHub\Core\Shared\Enums\ControlFlow\Signal;
      *
-     * $collection = new Collection(['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     * $collection = new ArrayCollection(['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
      *
+     * $called = [];
      * $collection->each(
      *    function ($value, $key):Signal {
      *    if ($value === 'Richard') return Signal::BREAK;
@@ -105,7 +110,9 @@ trait Shared {
      *    return Signal::CONTINUE;
      * });
      *
-     * // 'John,Jane,Jane,Jane,'
+     * print $called;
+     *
+     * // ['John', 'Jane', 'Jane', 'Jane']
      * </code>
      *
      * @throws \FireHub\Core\Shared\Contracts\Throwable

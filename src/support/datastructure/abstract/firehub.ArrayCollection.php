@@ -15,7 +15,8 @@
 
 namespace FireHub\Core\Support\DataStructure\Abstract;
 
-use FireHub\Core\Support\DataStructure\Contracts\Collection as CollectionContract;
+use FireHub\Core\Support\DataStructure\Contracts\Collection;
+use FireHub\Core\Support\DataStructure\Contracts\Capability\Transformable;
 use FireHub\Core\Shared\Contracts\ {
     Magic\SerializableConvertable, ArrayConvertable, JsonSerializableConvertable
 };
@@ -25,14 +26,14 @@ use FireHub\Core\Support\DataStructure\Traits\ {
 use Traversable;
 
 /**
- * ### Abstract collection base
+ * ### Abstract Array-Backed Collection Base
  *
- * Serves as the foundational implementation for all high-level collection types within the FireHub framework.<br>
- * Defines shared behavior such as iteration, reduction, and transformation while delegating structural rules and
- * constraints to concrete implementations.
+ * Provides a base implementation for collections backed by a native array storage. It defines the core behavior for
+ * iteration, internal storage handling, and shared collection operations, while leaving concrete instantiation
+ * details to child classes.
  *
- * Enables extensibility and consistency across generic and specialized data structures without imposing specific key
- * or value semantics.
+ * This abstract class serves as the foundational layer for array-based data structures within the FireHub ecosystem,
+ * enabling consistent behavior across derived implementations such as lists, maps, and specialized collections.
  * @since 1.0.0
  *
  * @template TKey of array-key
@@ -42,8 +43,12 @@ use Traversable;
  * @implements \FireHub\Core\Shared\Contracts\ArrayConvertable<TKey, TValue>
  * @implements \FireHub\Core\Shared\Contracts\JsonSerializableConvertable<TKey, TValue>
  * @implements \FireHub\Core\Shared\Contracts\Magic\SerializableConvertable<TKey, TValue>
+ * @implements \FireHub\Core\Support\DataStructure\Contracts\Capability\Transformable<TKey, TValue>
+ *
+ * @phpstan-consistent-constructor
  */
-abstract class Collection implements CollectionContract, ArrayConvertable, JsonSerializableConvertable, SerializableConvertable {
+abstract class ArrayCollection implements Collection, ArrayConvertable, JsonSerializableConvertable,
+    SerializableConvertable, Transformable {
 
     /**
      * ### Shared Operations for All Data Structures
@@ -102,13 +107,13 @@ abstract class Collection implements CollectionContract, ArrayConvertable, JsonS
      * {@inheritDoc}
      *
      * <code>
-     * use FireHub\Core\Support\DataStructures\Collection;
+     * use FireHub\Core\Support\DataStructures\ArrayCollection;
      *
-     * $collection = new Collection(['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']);
+     * $collection = new ArrayCollection(['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]);
      *
      * $collection->toArray();
      *
-     * // ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']
+     * // ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]
      * </code>
      *
      * @since 1.0.0
@@ -116,6 +121,21 @@ abstract class Collection implements CollectionContract, ArrayConvertable, JsonS
     public function toArray ():array {
 
         return $this->storage;
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     */
+    public function map (callable $callback):static {
+
+        $storage = [];
+
+        foreach ($this->storage as $key => $value) $storage[$key] = $callback($value, $key);
+
+        return new static($storage);
 
     }
 
