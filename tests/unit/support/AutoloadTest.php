@@ -12,7 +12,7 @@
  * @version GIT: $Id$ Blob checksum.
  */
 
-namespace FireHub\Tests\Unit\Domain\Autoload;
+namespace FireHub\Tests\Unit\Support;
 
 use FireHub\Core\Testing\Base;
 use FireHub\Core\Support\Autoload;

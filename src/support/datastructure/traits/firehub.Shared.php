@@ -108,6 +108,10 @@ trait Shared {
      * // 'John,Jane,Jane,Jane,'
      * </code>
      *
+     * @throws \FireHub\Core\Shared\Contracts\Throwable
+     * @throws \FireHub\Core\Throwable\Exception\DataStructure\WrongReturnTypeException If the callback returns
+     * an invalid signal.
+     *
      * @since 1.0.0
      */
     public function each (callable $callback, int $limit = MAX):static {

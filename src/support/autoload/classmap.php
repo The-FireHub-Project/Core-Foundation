@@ -29,8 +29,6 @@ namespace FireHub\Core\Support\Autoload;
  * @return array<class-string, non-empty-string>
  */
 return [
-    \Collection2::class => __DIR__.'/../../index.php',
-    \Collection3::class => __DIR__.'/../../index.php',
     \FireHub\Core\Domain\Autoload\Handle::class => __DIR__.'/../../domain/autoload/firehub.Handle.php',
     \FireHub\Core\FireHub::class => __DIR__.'/../../firehub.FireHub.php',
     \FireHub\Core\Shared\Contracts\ArrayConvertable::class => __DIR__.'/../../shared/contracts/firehub.ArrayConvertable.php',

@@ -42,14 +42,6 @@ final readonly class CompiledClassmap implements Loader {
 
         switch ($class) {
 
-            case \Collection2::class:
-                require __DIR__.'/../../../index.php';
-                return;
-
-            case \Collection3::class:
-                require __DIR__.'/../../../index.php';
-                return;
-
             case \FireHub\Core\Domain\Autoload\Handle::class:
                 require __DIR__.'/../../../domain/autoload/firehub.Handle.php';
                 return;
