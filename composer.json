@@ -58,7 +58,7 @@
     "archive-dir": ".",
     "bin-dir": "vendor/bin",
     "bin-compat": "auto",
-    "prepend-autoloader": false,
+    "prepend-autoloader": true,
     "autoloader-suffix": "null",
     "optimize-autoloader": false,
     "classmap-authoritative": false,
