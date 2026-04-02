@@ -21,6 +21,19 @@
 ## High-level API for Low-level proxy – Development Branch
 
 <p>
+  <a href="https://github.com/The-FireHub-Project/Core-Foundation/actions/workflows/PHPStan.yml?query=branch%3Afeature%2Fsupport-high-level-api"> 
+    <img
+      src="https://github.com/The-FireHub-Project/Core-Foundation/actions/workflows/PHPStan.yml/badge.svg?branch=feature%2Fsupport-high-level-api"
+      alt="PHPStan"
+  /></a>
+  <a href="https://github.com/The-FireHub-Project/Core-Foundation/actions/workflows/PHPUnit.yml?query=branch%3Afeature%2Fsupport-high-level-api"> 
+    <img
+      src="https://github.com/The-FireHub-Project/Core-Foundation/actions/workflows/PHPUnit.yml/badge.svg?branch=feature%2Fsupport-high-level-api"
+      alt="PHPUnit"
+  /></a>
+</p>
+
+<p>
   <a href="https://github.com/The-FireHub-Project/Core-Foundation/commits/feature/support-high-level-api/">
     <img
       src="https://img.shields.io/github/last-commit/The-FireHub-Project/Core-Foundation/feature%2Fsupport-high-level-api?style=flat&logo=github&logoColor=959da5&label=last%20commit%20(branch)&labelColor=31373e"
