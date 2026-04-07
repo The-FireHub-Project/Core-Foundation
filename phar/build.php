@@ -144,7 +144,7 @@ readonly class Build {
      */
     private function sign ():void {
 
-        $private_key = file_get_contents(__DIR__.'\private.pem');
+        $private_key = file_get_contents(__DIR__.'/private.pem');
         $this->phar->setSignatureAlgorithm(Phar::OPENSSL_SHA512, $private_key);
         $this->phar->stopBuffering();
 

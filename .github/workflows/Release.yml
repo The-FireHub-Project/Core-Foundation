@@ -22,7 +22,7 @@ jobs:
       - name: Install composer dependencies
         run: composer install --no-interaction --no-progress --prefer-dist
       - name: Load PRIVATE key
-        run: echo "${{ secrets.FIREHUB_PRIVATE_KEY }}" > private.pem
+        run: echo "${{ secrets.FIREHUB_PRIVATE_KEY }}" > phar/private.pem
       - name: Build PHAR
         run: php -d phar.readonly=0 phar/build.php
       - name: Upload artifact
