@@ -42,7 +42,7 @@
 *.ico    binary
 *.pdf    binary
 *.zip    binary
-*.phar   binary
+*.phar   binary -diff -merge -text -ident
 
 # GitHub-specific files
 .gitattributes text
