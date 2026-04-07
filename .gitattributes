@@ -42,9 +42,7 @@
 *.ico    binary
 *.pdf    binary
 *.zip    binary
-
-# Phar archives (strict binary integrity – no normalization, no diff)
-*.phar -text -diff -merge
+*.phar   binary
 
 # GitHub-specific files
 .gitattributes text
