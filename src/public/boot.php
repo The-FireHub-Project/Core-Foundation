@@ -16,7 +16,7 @@
  * @version GIT: $Id$ Blob checksum.
  */
 
-namespace FireHub\Public;
+namespace FireHub\Core\Public;
 
 require __DIR__ . '/index.php';
 
