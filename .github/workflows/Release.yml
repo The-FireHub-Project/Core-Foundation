@@ -25,7 +25,7 @@ jobs:
       - name: Load PRIVATE key
         run: echo "${{ secrets.FIREHUB_PRIVATE_KEY }}" > private.pem
       - name: Build PHAR
-        run: php phar/build.php
+        run: php -d phar.readonly=0 phar/build.php
       - name: Upload artifact
         uses: actions/upload-artifact@v7
         with:
