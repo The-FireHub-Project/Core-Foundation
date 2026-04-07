@@ -505,7 +505,7 @@ $build = new Build(
     'core-foundation',
     'v0.3.0',
     'core.phar',
-    '..'.DIRECTORY_SEPARATOR .'src',
+    __DIR__ . '/../src',
     '..\..\skeleton\vendor\firehub\core-foundation\phar\\',
     '/public/index.php',
     false
@@ -529,7 +529,7 @@ $build = new Build(
     'core-foundation',
     'v0.3.0',
     'core.min.phar',
-    '..'.DIRECTORY_SEPARATOR .'src',
+    __DIR__ . '/../src',
     '..\..\skeleton\vendor\firehub\core-foundation\phar\\',
     '/public/index.php',
     true
