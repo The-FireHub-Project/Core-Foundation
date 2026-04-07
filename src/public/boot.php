@@ -18,6 +18,9 @@
 
 namespace FireHub\Core\Public;
 
+/** ### Register the Composer autoloader */
+require __DIR__.'/../../vendor/autoload.php';
+
 require __DIR__ . '/index.php';
 
 use FireHub\Core\Support\Bootstrap\FireHubConfigurator;
