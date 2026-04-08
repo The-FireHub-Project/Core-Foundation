@@ -9,6 +9,8 @@
  *
  * @php-version 7.3
  * @package Core\Support
+ *
+ * @version GIT: $Id$ Blob checksum.
  */
 
 namespace FireHub\Core\Support\LowLevel;

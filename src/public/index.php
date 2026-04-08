@@ -12,6 +12,8 @@
  *
  * @php-version 7.0
  * @package Core\Public
+ *
+ * @version GIT: $Id$ Blob checksum.
  */
 
 namespace FireHub\Core\Public;

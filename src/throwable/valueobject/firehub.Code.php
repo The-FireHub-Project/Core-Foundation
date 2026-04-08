@@ -9,6 +9,8 @@
  *
  * @php-version 8.2
  * @package Core\Throwable
+ *
+ * @version GIT: $Id$ Blob checksum.
  */
 
 namespace FireHub\Core\Throwable\ValueObject;

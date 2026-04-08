@@ -9,6 +9,8 @@
  *
  * @php-version 7.0
  * @package Core\Support
+ *
+ * @version GIT: $Id$ Blob checksum.
  */
 
 namespace FireHub\Core\Shared\Constants\Path;

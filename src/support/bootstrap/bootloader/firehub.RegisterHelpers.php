@@ -9,6 +9,8 @@
  *
  * @php-version 7.0
  * @package Core
+ *
+ * @version GIT: $Id$ Blob checksum.
  */
 
 namespace FireHub\Core\Support\Bootstrap\Bootloader;

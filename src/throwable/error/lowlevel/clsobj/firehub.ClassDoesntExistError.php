@@ -11,6 +11,8 @@ declare(strict_types = 1);
  *
  * @php-version 8.3
  * @package Core\Throwable
+ *
+ * @version GIT: $Id$ Blob checksum.
  */
 
 namespace FireHub\Core\Throwable\Error\LowLevel\ClsObj;
