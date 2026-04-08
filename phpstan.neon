@@ -1,8 +1,8 @@
 includes:
   - phar://phpstan.phar/conf/bleedingEdge.neon
   - vendor/phpstan/phpstan-strict-rules/rules.neon
-  - vendor/firehub/phpstan-rules/src/rule.neon
-  - vendor/firehub/phpstan-rules/src/type.neon
+  - vendor/firehub/phpstan-rules/rule.neon
+  - vendor/firehub/phpstan-rules/type.neon
 
 parameters:
   level: max
