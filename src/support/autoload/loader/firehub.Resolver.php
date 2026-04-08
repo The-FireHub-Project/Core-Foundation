@@ -9,8 +9,6 @@
  *
  * @php-version 8.2
  * @package Core\Support
- *
- * @version GIT: $Id$ Blob checksum.
  */
 
 namespace FireHub\Core\Support\Autoload\Loader;
