@@ -8,8 +8,6 @@
  * @license https://opensource.org/license/Apache-2-0 Apache License, Version 2.0
  *
  * @package Core\Test
- *
- * @version GIT: $Id$ Blob checksum.
  */
 
 namespace FireHub\Tests\DataProviders;
