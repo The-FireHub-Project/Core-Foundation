@@ -12,10 +12,10 @@ Thumbs.db
 # Composer dependencies resolver
 composer.lock
 
-# PHAR artifacts
-/phar/**
-!/phar/*.phar
-!/phar/*.phar.pubkey
+# Distribution artifacts
+/dist/**
+!/dist/*.phar
+!/dist/*.phar.pubkey
 
 # Storage folder for runtime-generated files
 /storage/
