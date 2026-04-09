@@ -244,32 +244,28 @@ final readonly class CompiledClassmap implements Loader {
                 require __DIR__.'/../../../support/contracts/firehub.DataStructure.php';
                 return;
 
-            case \FireHub\Core\Support\DataStructure\Abstract\ArrayCollection::class:
-                require __DIR__.'/../../../support/datastructure/abstract/firehub.ArrayCollection.php';
+            case \FireHub\Core\Support\DataStructure\Behavior\Countable::class:
+                require __DIR__.'/../../../support/datastructure/behavior/firehub.Countable.php';
                 return;
 
-            case \FireHub\Core\Support\DataStructure\ArrayCollection::class:
-                require __DIR__.'/../../../support/datastructure/firehub.ArrayCollection.php';
+            case \FireHub\Core\Support\DataStructure\Behavior\Enumerable::class:
+                require __DIR__.'/../../../support/datastructure/behavior/firehub.Enumerable.php';
                 return;
 
-            case \FireHub\Core\Support\DataStructure\Contracts\Capability\Transformable::class:
-                require __DIR__.'/../../../support/datastructure/contracts/capability/firehub.Transformable.php';
+            case \FireHub\Core\Support\DataStructure\Linear::class:
+                require __DIR__.'/../../../support/datastructure/firehub.Linear.php';
                 return;
 
-            case \FireHub\Core\Support\DataStructure\Contracts\Collection::class:
-                require __DIR__.'/../../../support/datastructure/contracts/firehub.Collection.php';
+            case \FireHub\Core\Support\DataStructure\Linear\Sequence::class:
+                require __DIR__.'/../../../support/datastructure/linear/firehub.Sequence.php';
                 return;
 
-            case \FireHub\Core\Support\DataStructure\Traits\Convertable::class:
-                require __DIR__.'/../../../support/datastructure/traits/firehub.Convertable.php';
+            case \FireHub\Core\Support\DataStructure\Storage::class:
+                require __DIR__.'/../../../support/datastructure/firehub.Storage.php';
                 return;
 
-            case \FireHub\Core\Support\DataStructure\Traits\Enumerable::class:
-                require __DIR__.'/../../../support/datastructure/traits/firehub.Enumerable.php';
-                return;
-
-            case \FireHub\Core\Support\DataStructure\Traits\Shared::class:
-                require __DIR__.'/../../../support/datastructure/traits/firehub.Shared.php';
+            case \FireHub\Core\Support\DataStructure\Storage\ArrStorage::class:
+                require __DIR__.'/../../../support/datastructure/storage/firehub.ArrStorage.php';
                 return;
 
             case \FireHub\Core\Support\LowLevel::class:
