@@ -19,6 +19,7 @@ use FireHub\Core\Support\DataStructure\ {
 use FireHub\Core\Support\DataStructure\Behavior\ {
     Countable, Enumerable
 };
+use FireHub\Core\Support\LowLevel\Iterator;
 use Traversable;
 
 /**
@@ -31,7 +32,7 @@ use Traversable;
  * @template TValue
  *
  * @implements \FireHub\Core\Support\DataStructure\Linear<TValue>
- * @implements \FireHub\Core\Support\DataStructure\Behavior\Enumerable<mixed, TValue>
+ * @implements \FireHub\Core\Support\DataStructure\Behavior\Enumerable<int, TValue>
  */
 class Sequence implements Linear, Countable, Enumerable {
 
@@ -41,7 +42,7 @@ class Sequence implements Linear, Countable, Enumerable {
      *
      * @uses \FireHub\Core\Support\DataStructure\Storage As parameter.
      *
-     * @param \FireHub\Core\Support\DataStructure\Storage<mixed, TValue> $storage <p>
+     * @param \FireHub\Core\Support\DataStructure\Storage<covariant mixed, TValue> $storage <p>
      * Underlying storage data.
      * </p>
      *
@@ -60,16 +61,17 @@ class Sequence implements Linear, Countable, Enumerable {
      *
      * $collection = new Sequence(new ArrStorage(['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']));
      *
-     * // ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]
+     * // 6
      * </code>
      *
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\DataStructure\Storage::count() To count the number of elements in the sequence.
+     * @uses \FireHub\Core\Support\LowLevel\Iterator::count() To count the number of elements in the sequence.
+     * @uses \FireHub\Core\Support\DataStructure\Storage::entries() To get the entries of the storage for counting.
      */
     public function count ():int {
 
-        return $this->storage->count();
+        return Iterator::count($this->storage->entries());
 
     }
 
@@ -77,10 +79,12 @@ class Sequence implements Linear, Countable, Enumerable {
      * @inheritDoc
      *
      * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\DataStructure\Storage::values() To get the values of the storage for iteration.
      */
     public function getIterator ():Traversable {
 
-        return $this->storage;
+        yield from $this->storage->values();
 
     }
 

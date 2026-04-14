@@ -13,10 +13,6 @@
 
 namespace FireHub\Core\Support\DataStructure;
 
-use FireHub\Core\Support\DataStructure\Behavior\ {
-    Countable, Enumerable
-};
-
 /**
  * ### Storage Abstraction Layer
  *
@@ -26,7 +22,31 @@ use FireHub\Core\Support\DataStructure\Behavior\ {
  *
  * @template TKey
  * @template TValue
- *
- * @extends \FireHub\Core\Support\DataStructure\Behavior\Enumerable<TKey, TValue>
  */
-interface Storage extends Countable, Enumerable {}
+interface Storage {
+
+    /**
+     * ### Get all entries from the storage
+     * @since 1.0.0
+     *
+     * @return iterable<TKey, TValue>
+     */
+    public function entries ():iterable;
+
+    /**
+     * ### Get all keys from the storage
+     * @since 1.0.0
+     *
+     * @return iterable<int, TKey>
+     */
+    public function keys ():iterable;
+
+    /**
+     * ### Get all values from the storage
+     * @since 1.0.0
+     *
+     * @return iterable<int, TValue>
+     */
+    public function values ():iterable;
+
+}

@@ -15,7 +15,6 @@ namespace FireHub\Core\Support\DataStructure\Storage;
 
 use FireHub\Core\Support\DataStructure\Storage;
 use FireHub\Core\Support\LowLevel\Arr;
-use Traversable;
 
 /**
  * ### Array-Based Storage
@@ -49,12 +48,10 @@ class ArrStorage implements Storage {
      * @inheritDoc
      *
      * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Support\LowLevel\Arr::count() To count the number of elements in the array.
      */
-    public function count ():int {
+    public function entries ():iterable {
 
-        return Arr::count($this->data);
+        return $this->data;
 
     }
 
@@ -62,10 +59,25 @@ class ArrStorage implements Storage {
      * @inheritDoc
      *
      * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::keys() For efficient key retrieval.
      */
-    public function getIterator ():Traversable {
+    public function keys ():iterable {
 
-        yield from $this->data;
+        return Arr::keys($this->data);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::values() For efficient value retrieval.
+     */
+    public function values ():iterable {
+
+        return Arr::values($this->data);
 
     }
 

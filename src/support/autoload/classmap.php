@@ -84,6 +84,7 @@ return [
     \FireHub\Core\Support\DataStructure\Linear\Sequence::class => __DIR__.'/../../support/datastructure/linear/firehub.Sequence.php',
     \FireHub\Core\Support\DataStructure\Storage::class => __DIR__.'/../../support/datastructure/firehub.Storage.php',
     \FireHub\Core\Support\DataStructure\Storage\ArrStorage::class => __DIR__.'/../../support/datastructure/storage/firehub.ArrStorage.php',
+    \FireHub\Core\Support\DataStructure\Storage\GeneratorStorage::class => __DIR__.'/../../support/datastructure/storage/firehub.GeneratorStorage.php',
     \FireHub\Core\Support\LowLevel::class => __DIR__.'/../../support/firehub.LowLevel.php',
     \FireHub\Core\Support\LowLevel\Arr::class => __DIR__.'/../../support/lowlevel/firehub.Arr.php',
     \FireHub\Core\Support\LowLevel\CharMB::class => __DIR__.'/../../support/lowlevel/firehub.CharMB.php',

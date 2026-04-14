@@ -25,6 +25,6 @@ use FireHub\Core\Support\Contracts\DataStructure;
  *
  * @template TValue
  *
- * @extends \FireHub\Core\Support\Contracts\DataStructure<mixed, TValue>
+ * @extends \FireHub\Core\Support\Contracts\DataStructure<int, TValue>
  */
 interface Linear extends DataStructure {}
