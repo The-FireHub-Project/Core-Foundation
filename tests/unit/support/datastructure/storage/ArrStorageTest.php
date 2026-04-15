@@ -42,4 +42,18 @@ final class ArrStorageTest extends Base {
 
     }
 
+    /**
+     * @since 1.0.0
+     *
+     * @param array $array
+     *
+     * @return void
+     */
+    #[TestWith([['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']])]
+    public function testEntries (array $array):void {
+
+        self::assertSame($array, new ArrStorage($array)->entries());
+
+    }
+
 }

@@ -14,6 +14,7 @@ namespace FireHub\Tests\Unit\Support\DataStructure\Storage;
 
 use FireHub\Core\Testing\Base;
 use FireHub\Core\Support\DataStructure\Storage\GeneratorStorage;
+use FireHub\Core\Support\LowLevel\Iterator;
 use PHPUnit\Framework\Attributes\ {
     CoversClass, Group, Small, TestWith
 };
@@ -41,6 +42,23 @@ final class GeneratorStorageTest extends Base {
         self::assertSame(
             $expected,
             new GeneratorStorage(static fn() => yield from $array)->count()
+        );
+
+    }
+
+    /**
+     * @since 1.0.0
+     *
+     * @param array $array
+     *
+     * @return void
+     */
+    #[TestWith([['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']])]
+    public function testEntries (array $array):void {
+
+        self::assertSame(
+            $array,
+            Iterator::toArray(new GeneratorStorage(static fn() => yield from $array)->entries())
         );
 
     }

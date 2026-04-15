@@ -27,6 +27,4 @@ namespace FireHub\Core\Support\DataStructure\Abstraction;
  *
  * @extends \FireHub\Core\Support\DataStructure\Abstraction\Enumerable<TKey, TValue>
  */
-interface Collection extends Enumerable {
-
-}
+interface Collection extends Enumerable {}

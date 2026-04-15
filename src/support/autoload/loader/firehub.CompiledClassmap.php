@@ -296,6 +296,10 @@ final readonly class CompiledClassmap implements Loader {
                 require __DIR__.'/../../../support/datastructure/storage/firehub.GeneratorStorage.php';
                 return;
 
+            case \FireHub\Core\Support\DataStructure\Trait\EnumerableBehavior::class:
+                require __DIR__.'/../../../support/datastructure/trait/firehub.EnumerableBehavior.php';
+                return;
+
             case \FireHub\Core\Support\DataStructure\Type\Linear::class:
                 require __DIR__.'/../../../support/datastructure/type/firehub.Linear.php';
                 return;

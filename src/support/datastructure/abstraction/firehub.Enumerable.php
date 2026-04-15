@@ -31,4 +31,33 @@ use FireHub\Core\Shared\Contracts\IteratorAggregate;
  */
 interface Enumerable extends DataStructure, IteratorAggregate {
 
+    /**
+     * ### Tap into the enumerable for side effects
+     * @since 1.0.0
+     *
+     * @param callable(TValue, TKey):void $callback <p>
+     * Function to call on each item in a data structure.
+     * </p>
+     *
+     * @return $this
+     */
+    public function tap (callable $callback):static;
+
+    /**
+     * ### Call a user-generated function on each item in the data structure
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Shared\Enums\ControlFlow\Signal::BREAK As signal.
+     * @uses \FireHub\Core\Shared\Enums\ControlFlow\Signal::CONTINUE As signal.
+     *
+     * @param callable(TValue, TKey):(\FireHub\Core\Shared\Enums\ControlFlow\Signal::BREAK|\FireHub\Core\Shared\Enums\ControlFlow\Signal::CONTINUE) $callback <p>
+     * Function to call on each item in a data structure.<br>
+     * Return `Signal::BREAK` to stop iteration early.<br>
+     * Return `Signal::CONTINUE` to continue iteration.
+     * </p>
+     *
+     * @return void
+     */
+    public function each (callable $callback):void;
+
 }

@@ -19,6 +19,7 @@ use FireHub\Core\Support\DataStructure\Capability\ {
     Access\SequentialAccess, Behavior\Countable
 };
 use FireHub\Core\Support\DataStructure\Storage;
+use FireHub\Core\Support\DataStructure\Trait\EnumerableBehavior;
 use Traversable;
 
 /**
@@ -35,6 +36,14 @@ use Traversable;
  * @phpstan-type StorageType = (\FireHub\Core\Support\DataStructure\Storage<int, TValue>&\FireHub\Core\Support\DataStructure\Capability\Access\SequentialAccess)
  */
 class Sequence implements Collection, Linear, Countable {
+
+    /**
+     * ### Enumerable Behavior Trait
+     * @since 1.0.0
+     *
+     * @use \FireHub\Core\Support\DataStructure\Trait\EnumerableBehavior<int, TValue>
+     */
+    use EnumerableBehavior;
 
     /**
      * ### Constructor
@@ -79,10 +88,12 @@ class Sequence implements Collection, Linear, Countable {
      * @inheritDoc
      *
      * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\DataStructure\Storage::entries() To get the entries of the storage for iteration.
      */
     public function getIterator ():Traversable {
 
-        yield from [];
+        yield from $this->storage->entries();
 
     }
 
