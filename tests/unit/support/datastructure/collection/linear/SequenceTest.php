@@ -10,11 +10,12 @@
  * @package Core\Test
  */
 
-namespace FireHub\Tests\Unit\Support\DataStructure\Linear;
+namespace FireHub\Tests\Unit\Support\DataStructure\Collection\Linear;
 
 use FireHub\Core\Testing\Base;
-use FireHub\Core\Support\DataStructure\Linear\Sequence;
-use FireHub\Core\Support\DataStructure\Storage\ArrStorage;
+use FireHub\Core\Support\DataStructure\DS;
+use FireHub\Core\Support\DataStructure\Builder\SequenceBuilder;
+use FireHub\Core\Support\DataStructure\Collection\Linear\Sequence;
 use PHPUnit\Framework\Attributes\ {
     CoversClass, Group, Small, TestWith
 };
@@ -25,6 +26,8 @@ use PHPUnit\Framework\Attributes\ {
  */
 #[Small]
 #[Group('support')]
+#[CoversClass(DS::class)]
+#[CoversClass(SequenceBuilder::class)]
 #[CoversClass(Sequence::class)]
 final class SequenceTest extends Base {
 
@@ -39,7 +42,7 @@ final class SequenceTest extends Base {
     #[TestWith([6, ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']])]
     public function testCount (int $expected, array $array):void {
 
-        self::assertSame($expected, new Sequence(new ArrStorage($array))->count());
+        self::assertSame($expected, DS::sequence()->fromArray($array)->count());
 
     }
 

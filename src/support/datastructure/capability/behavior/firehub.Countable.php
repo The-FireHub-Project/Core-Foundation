@@ -11,7 +11,7 @@
  * @package Core\Support
  */
 
-namespace FireHub\Core\Support\DataStructure\Behavior;
+namespace FireHub\Core\Support\DataStructure\Capability\Behavior;
 
 use FireHub\Core\Shared\Contracts\Countable as CountableContract;
 

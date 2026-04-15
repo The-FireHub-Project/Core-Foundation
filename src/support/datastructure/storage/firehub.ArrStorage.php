@@ -14,6 +14,9 @@
 namespace FireHub\Core\Support\DataStructure\Storage;
 
 use FireHub\Core\Support\DataStructure\Storage;
+use FireHub\Core\Support\DataStructure\Capability\Access\ {
+    RandomAccess, SequentialAccess
+};
 use FireHub\Core\Support\LowLevel\Arr;
 
 /**
@@ -28,7 +31,7 @@ use FireHub\Core\Support\LowLevel\Arr;
  *
  * @implements \FireHub\Core\Support\DataStructure\Storage<TKey, TValue>
  */
-class ArrStorage implements Storage {
+class ArrStorage implements Storage, RandomAccess, SequentialAccess {
 
     /**
      * ### Constructor
@@ -48,6 +51,19 @@ class ArrStorage implements Storage {
      * @inheritDoc
      *
      * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\LowLevel\Arr::count() To count the number of elements in the storage.
+     */
+    public function count ():int {
+
+        return Arr::count($this->data);
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
      */
     public function entries ():iterable {
 
@@ -55,30 +71,5 @@ class ArrStorage implements Storage {
 
     }
 
-    /**
-     * @inheritDoc
-     *
-     * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Support\LowLevel\Arr::keys() For efficient key retrieval.
-     */
-    public function keys ():iterable {
-
-        return Arr::keys($this->data);
-
-    }
-
-    /**
-     * @inheritDoc
-     *
-     * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Support\LowLevel\Arr::values() For efficient value retrieval.
-     */
-    public function values ():iterable {
-
-        return Arr::values($this->data);
-
-    }
 
 }

@@ -30,50 +30,15 @@ final class ArrStorageTest extends Base {
     /**
      * @since 1.0.0
      *
+     * @param int $expected
      * @param array $array
      *
      * @return void
      */
-    #[TestWith([['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']])]
-    public function testEntries (array $array):void {
+    #[TestWith([6, ['John', 'Jane', 'Jane', 'Jane', 'Richard', 'Richard']])]
+    public function testCount (int $expected, array $array):void {
 
-        self::assertSame($array, new ArrStorage($array)->entries());
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @param array $expected
-     * @param array $array
-     *
-     * @return void
-     */
-    #[TestWith([
-        ['firstname', 'lastname', 'age', 10],
-        ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]
-    ])]
-    public function testKeys (array $expected, array $array):void {
-
-        self::assertSame($expected, new ArrStorage($array)->keys());
-
-    }
-
-    /**
-     * @since 1.0.0
-     *
-     * @param array $expected
-     * @param array $array
-     *
-     * @return void
-     */
-    #[TestWith([
-        ['John', 'Doe', 25, 2],
-        ['firstname' => 'John', 'lastname' => 'Doe', 'age' => 25, 10 => 2]
-    ])]
-    public function testValues (array $expected, array $array):void {
-
-        self::assertSame($expected, new ArrStorage($array)->values());
+        self::assertSame($expected, new ArrStorage($array)->count());
 
     }
 

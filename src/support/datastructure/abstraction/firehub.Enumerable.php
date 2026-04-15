@@ -11,12 +11,13 @@
  * @package Core\Support
  */
 
-namespace FireHub\Core\Support\DataStructure\Behavior;
+namespace FireHub\Core\Support\DataStructure\Abstraction;
 
+use FireHub\Core\Support\Contracts\DataStructure;
 use FireHub\Core\Shared\Contracts\IteratorAggregate;
 
 /**
- * ### Enumerable Behavior Contract
+ * ### Enumerable Contract
  *
  * Defines the ability to iterate over all elements in a structure. Provides higher-level traversal operations such
  * as mapping, filtering, and transformation, typically built on top of a traversal mechanism.
@@ -25,6 +26,9 @@ use FireHub\Core\Shared\Contracts\IteratorAggregate;
  * @template TKey
  * @template TValue
  *
+ * @extends \FireHub\Core\Support\Contracts\DataStructure<TKey, TValue>
  * @extends \FireHub\Core\Shared\Contracts\IteratorAggregate<TKey, TValue>
  */
-interface Enumerable extends IteratorAggregate {}
+interface Enumerable extends DataStructure, IteratorAggregate {
+
+}

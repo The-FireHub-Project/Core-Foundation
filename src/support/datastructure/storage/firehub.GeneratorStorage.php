@@ -14,6 +14,8 @@
 namespace FireHub\Core\Support\DataStructure\Storage;
 
 use FireHub\Core\Support\DataStructure\Storage;
+use FireHub\Core\Support\DataStructure\Capability\Access\StreamingAccess;
+use FireHub\Core\Support\LowLevel\Iterator;
 use Closure, Generator;
 
 /**
@@ -28,7 +30,7 @@ use Closure, Generator;
  *
  * @implements \FireHub\Core\Support\DataStructure\Storage<TKey, TValue>
  */
-class GeneratorStorage implements Storage {
+class GeneratorStorage implements Storage, StreamingAccess {
 
     /**
      * ### Constructor
@@ -49,42 +51,11 @@ class GeneratorStorage implements Storage {
      *
      * @since 1.0.0
      *
-     * @uses \FireHub\Core\Support\DataStructure\Storage\GeneratorStorage::create() To produce the generator for
-     * entries.
+     * @uses \FireHub\Core\Support\LowLevel\Iterator::count() To count the number of elements in the storage.
      */
-    public function entries ():iterable {
+    public function count ():int {
 
-        return $this->create();
-
-    }
-
-    /**
-     * @inheritDoc
-     *
-     * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Support\DataStructure\Storage\GeneratorStorage::create() To produce the generator for
-     * values.
-     */
-    public function keys ():iterable {
-
-        foreach ($this->create() as $key => $value)
-            yield $key;
-
-    }
-
-    /**
-     * @inheritDoc
-     *
-     * @since 1.0.0
-     *
-     * @uses \FireHub\Core\Support\DataStructure\Storage\GeneratorStorage::create() To produce the generator for
-     * keys.
-     */
-    public function values ():iterable {
-
-        foreach ($this->create() as $value)
-            yield $value;
+        return Iterator::count($this->create());
 
     }
 
@@ -97,6 +68,20 @@ class GeneratorStorage implements Storage {
     private function create ():Generator {
 
         yield from ($this->callable)();
+
+    }
+
+    /**
+     * @inheritDoc
+     *
+     * @since 1.0.0
+     *
+     * @uses \FireHub\Core\Support\DataStructure\Storage\GeneratorStorage::create() To produce the generator for
+     * entries.
+     */
+    public function entries ():iterable {
+
+        return $this->create();
 
     }
 
