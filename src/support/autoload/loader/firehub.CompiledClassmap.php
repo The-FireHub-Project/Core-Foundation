@@ -244,66 +244,6 @@ final readonly class CompiledClassmap implements Loader {
                 require __DIR__.'/../../../support/contracts/firehub.DataStructure.php';
                 return;
 
-            case \FireHub\Core\Support\DataStructure\Abstraction\Collection::class:
-                require __DIR__.'/../../../support/datastructure/abstraction/firehub.Collection.php';
-                return;
-
-            case \FireHub\Core\Support\DataStructure\Abstraction\Enumerable::class:
-                require __DIR__.'/../../../support/datastructure/abstraction/firehub.Enumerable.php';
-                return;
-
-            case \FireHub\Core\Support\DataStructure\Abstraction\Stream::class:
-                require __DIR__.'/../../../support/datastructure/abstraction/firehub.Stream.php';
-                return;
-
-            case \FireHub\Core\Support\DataStructure\Builder\SequenceBuilder::class:
-                require __DIR__.'/../../../support/datastructure/builder/firehub.SequenceBuilder.php';
-                return;
-
-            case \FireHub\Core\Support\DataStructure\Capability\Access\RandomAccess::class:
-                require __DIR__.'/../../../support/datastructure/capability/access/firehub.RandomAccess.php';
-                return;
-
-            case \FireHub\Core\Support\DataStructure\Capability\Access\SequentialAccess::class:
-                require __DIR__.'/../../../support/datastructure/capability/access/firehub.SequentialAccess.php';
-                return;
-
-            case \FireHub\Core\Support\DataStructure\Capability\Access\StreamingAccess::class:
-                require __DIR__.'/../../../support/datastructure/capability/access/firehub.StreamingAccess.php';
-                return;
-
-            case \FireHub\Core\Support\DataStructure\Capability\Behavior\Countable::class:
-                require __DIR__.'/../../../support/datastructure/capability/behavior/firehub.Countable.php';
-                return;
-
-            case \FireHub\Core\Support\DataStructure\Collection\Linear\Sequence::class:
-                require __DIR__.'/../../../support/datastructure/collection/linear/firehub.Sequence.php';
-                return;
-
-            case \FireHub\Core\Support\DataStructure\DS::class:
-                require __DIR__.'/../../../support/datastructure/firehub.DS.php';
-                return;
-
-            case \FireHub\Core\Support\DataStructure\Storage::class:
-                require __DIR__.'/../../../support/datastructure/firehub.Storage.php';
-                return;
-
-            case \FireHub\Core\Support\DataStructure\Storage\ArrStorage::class:
-                require __DIR__.'/../../../support/datastructure/storage/firehub.ArrStorage.php';
-                return;
-
-            case \FireHub\Core\Support\DataStructure\Storage\GeneratorStorage::class:
-                require __DIR__.'/../../../support/datastructure/storage/firehub.GeneratorStorage.php';
-                return;
-
-            case \FireHub\Core\Support\DataStructure\Trait\EnumerableBehavior::class:
-                require __DIR__.'/../../../support/datastructure/trait/firehub.EnumerableBehavior.php';
-                return;
-
-            case \FireHub\Core\Support\DataStructure\Type\Linear::class:
-                require __DIR__.'/../../../support/datastructure/type/firehub.Linear.php';
-                return;
-
             case \FireHub\Core\Support\LowLevel::class:
                 require __DIR__.'/../../../support/firehub.LowLevel.php';
                 return;
