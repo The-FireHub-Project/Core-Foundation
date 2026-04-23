@@ -9,8 +9,6 @@
  *
  * @php-version 8.1
  * @package Core\Shared
- *
- * @version GIT: $Id$ Blob checksum.
  */
 
 namespace FireHub\Core\Shared\Enums\SystemRuntime;

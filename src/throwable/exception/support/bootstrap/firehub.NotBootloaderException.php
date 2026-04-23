@@ -9,25 +9,23 @@
  *
  * @php-version 8.3
  * @package Core\Throwable
- *
- * @version GIT: $Id$ Blob checksum.
  */
 
-namespace FireHub\Core\Throwable\Exception\Bootstrap;
+namespace FireHub\Core\Throwable\Exception\Support\Bootstrap;
 
 use FireHub\Core\Throwable\Exception;
 
 /**
- * ### Failed zo load bootloader exception
+ * ### Not bootloader exception
  * @since 1.0.0
  */
-class FailedToLoadBootloaderException extends Exception {
+class NotBootloaderException extends Exception {
 
     /**
      * @inheritdoc
      *
      * @since 1.0.0
      */
-    protected const string DEFAULT_MESSAGE = 'Failed to load bootloader.';
+    protected const string DEFAULT_MESSAGE = 'Not bootloader.';
 
 }

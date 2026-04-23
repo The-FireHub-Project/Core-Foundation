@@ -9,8 +9,6 @@
  *
  * @php-version 8.1
  * @package Core\Throwable
- *
- * @version GIT: $Id$ Blob checksum.
  */
 
 namespace FireHub\Core\Throwable;
@@ -150,16 +148,16 @@ abstract class Builder {
     }
 
     /**
-     * ### Build and throw the object
+     * ### Build the Throwable object
      * @since 1.0.0
      *
      * @uses \FireHub\Core\Shared\Contracts\Throwable To build the object.
      *
      * @return TThrowable The built object.
      */
-    public function throw ():Throwable {
+    public function build ():Throwable {
 
-        return throw new $this->exception(
+        return new $this->exception(
             $this->message,
             $this->code,
             $this->context,

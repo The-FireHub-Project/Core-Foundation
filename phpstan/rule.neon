@@ -1,4 +1,0 @@
-services:
-  - class: FireHub\PHPStan\Rule\NoNativeFunctionsRule
-    tags:
-      - phpstan.rules.rule

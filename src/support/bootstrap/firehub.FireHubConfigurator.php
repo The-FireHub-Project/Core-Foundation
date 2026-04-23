@@ -9,8 +9,6 @@
  *
  * @php-version 8.4
  * @package Core
- *
- * @version GIT: $Id$ Blob checksum.
  */
 
 namespace FireHub\Core\Support\Bootstrap;
@@ -64,9 +62,10 @@ final class FireHubConfigurator {
      *
      * @uses \FireHub\Core\FireHub As return.
      *
-     * @throws \FireHub\Core\Throwable\Exception\Bootstrap\FailedToLoadBootloaderException If a bootloader fails to
-     * load.
-     * @throws \FireHub\Core\Throwable\Exception\Bootstrap\NotBootloaderException If a bootloader is not a bootloader.
+     * @throws \FireHub\Core\Throwable\Exception\Support\Bootstrap\FailedToLoadBootloaderException If a bootloader
+     * fails to load.
+     * @throws \FireHub\Core\Throwable\Exception\Support\Bootstrap\NotBootloaderException If a bootloader is not
+     * a bootloader.
      *
      * @return \FireHub\Core\FireHub New Firehub Framework application.
      */

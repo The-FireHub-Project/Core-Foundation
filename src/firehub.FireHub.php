@@ -9,15 +9,13 @@
  *
  * @php-version 8.4
  * @package Core
- *
- * @version GIT: $Id$ Blob checksum.
  */
 
 namespace FireHub\Core;
 
 use FireHub\Core\Support\Bootstrap\FireHubConfigurator;
 use FireHub\Core\Support\Bootstrap\Bootloader;
-use FireHub\Core\Throwable\Exception\Bootstrap\ {
+use FireHub\Core\Throwable\Exception\Support\Bootstrap\ {
     FailedToLoadBootloaderException, NotBootloaderException
 };
 use FireHub\Core\Support\LowLevel\ {
@@ -59,9 +57,10 @@ final class FireHub {
      * FireHub configurator.
      * </p>
      *
-     * @throws \FireHub\Core\Throwable\Exception\Bootstrap\FailedToLoadBootloaderException If a bootloader fails to
-     * load.
-     * @throws \FireHub\Core\Throwable\Exception\Bootstrap\NotBootloaderException If a bootloader is not a bootloader.
+     * @throws \FireHub\Core\Throwable\Exception\Support\Bootstrap\FailedToLoadBootloaderException If a bootloader
+     * fails to load.
+     * @throws \FireHub\Core\Throwable\Exception\Support\Bootstrap\NotBootloaderException If a bootloader is not
+     * a bootloader.
      *
      * @return void
      */
@@ -96,9 +95,11 @@ final class FireHub {
      * @uses \FireHub\Core\Support\LowLevel\ClsObj::ofClass() To check if the $value is a bootloader.
      * @uses \FireHub\Core\Support\Bootstrap\Bootloader::boot() To boot a bootloader.
      *
-     * @throws \FireHub\Core\Throwable\Exception\Bootstrap\FailedToLoadBootloaderException If a bootloader fails to
-     * load.
-     * @throws \FireHub\Core\Throwable\Exception\Bootstrap\NotBootloaderException If a bootloader is not a bootloader.
+     * @throws \FireHub\Core\Shared\Contracts\Throwable
+     * @throws \FireHub\Core\Throwable\Exception\Support\Bootstrap\FailedToLoadBootloaderException If a bootloader
+     * fails to load.
+     * @throws \FireHub\Core\Throwable\Exception\Support\Bootstrap\NotBootloaderException If a bootloader is not
+     * a bootloader.
      *
      * @return void
      */
@@ -108,17 +109,20 @@ final class FireHub {
             match (true) {
                 DataIs::string($key) && DataIs::array($value) && ClsObj::ofClass($key, Bootloader::class)
                     => new $key(...$value)->boot()
-                        ?: FailedToLoadBootloaderException::builder()
+                        ?: throw FailedToLoadBootloaderException::builder()
                             ->withContext(['class' => $key])
-                            ->throw(),
+                            ->build(),
                 DataIs::string($value) && ClsObj::ofClass($value, Bootloader::class)
                     => new $value()->boot()
-                        ?: FailedToLoadBootloaderException::builder()
+                        ?: throw FailedToLoadBootloaderException::builder()
                             ->withContext(['class' => $value])
-                            ->throw(),
-                default => NotBootloaderException::builder()
-                            ->withContext(['bootloader' => ''])
-                            ->throw()
+                            ->build(),
+                default => throw NotBootloaderException::builder()
+                            ->withContext([
+                                'key' => $key,
+                                'value' => $value
+                            ])
+                            ->build()
             };
 
     }

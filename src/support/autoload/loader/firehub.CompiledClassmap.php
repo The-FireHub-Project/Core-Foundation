@@ -9,8 +9,6 @@
  *
  * @php-version 7.0
  * @package Core\Support
- *
- * @version GIT: $Id$ Blob checksum.
  */
 
 namespace FireHub\Core\Support\Autoload\Loader;
@@ -50,6 +48,42 @@ final readonly class CompiledClassmap implements Loader {
                 require __DIR__.'/../../../firehub.FireHub.php';
                 return;
 
+            case \FireHub\Core\Shared\Contracts\ArrayConvertable::class:
+                require __DIR__.'/../../../shared/contracts/firehub.ArrayConvertable.php';
+                return;
+
+            case \FireHub\Core\Shared\Contracts\Arrayable::class:
+                require __DIR__.'/../../../shared/contracts/firehub.Arrayable.php';
+                return;
+
+            case \FireHub\Core\Shared\Contracts\Countable::class:
+                require __DIR__.'/../../../shared/contracts/firehub.Countable.php';
+                return;
+
+            case \FireHub\Core\Shared\Contracts\Iterator::class:
+                require __DIR__.'/../../../shared/contracts/firehub.Iterator.php';
+                return;
+
+            case \FireHub\Core\Shared\Contracts\IteratorAggregate::class:
+                require __DIR__.'/../../../shared/contracts/firehub.IteratorAggregate.php';
+                return;
+
+            case \FireHub\Core\Shared\Contracts\JsonSerializable::class:
+                require __DIR__.'/../../../shared/contracts/firehub.JsonSerializable.php';
+                return;
+
+            case \FireHub\Core\Shared\Contracts\JsonSerializableConvertable::class:
+                require __DIR__.'/../../../shared/contracts/firehub.JsonSerializableConvertable.php';
+                return;
+
+            case \FireHub\Core\Shared\Contracts\Magic\Serializable::class:
+                require __DIR__.'/../../../shared/contracts/magic/firehub.Serializable.php';
+                return;
+
+            case \FireHub\Core\Shared\Contracts\Magic\SerializableConvertable::class:
+                require __DIR__.'/../../../shared/contracts/magic/firehub.SerializableConvertable.php';
+                return;
+
             case \FireHub\Core\Shared\Contracts\Magic\Stringable::class:
                 require __DIR__.'/../../../shared/contracts/magic/firehub.Stringable.php';
                 return;
@@ -58,8 +92,16 @@ final readonly class CompiledClassmap implements Loader {
                 require __DIR__.'/../../../shared/contracts/firehub.Throwable.php';
                 return;
 
+            case \FireHub\Core\Shared\Contracts\Traversable::class:
+                require __DIR__.'/../../../shared/contracts/firehub.Traversable.php';
+                return;
+
             case \FireHub\Core\Shared\Enums\Comparison::class:
                 require __DIR__.'/../../../shared/enums/firehub.Comparison.php';
+                return;
+
+            case \FireHub\Core\Shared\Enums\ControlFlow\Signal::class:
+                require __DIR__.'/../../../shared/enums/controlflow/firehub.Signal.php';
                 return;
 
             case \FireHub\Core\Shared\Enums\Data\Category::class:
@@ -196,6 +238,10 @@ final readonly class CompiledClassmap implements Loader {
 
             case \FireHub\Core\Support\Bootstrap\FireHubConfigurator::class:
                 require __DIR__.'/../../../support/bootstrap/firehub.FireHubConfigurator.php';
+                return;
+
+            case \FireHub\Core\Support\Contracts\DataStructure::class:
+                require __DIR__.'/../../../support/contracts/firehub.DataStructure.php';
                 return;
 
             case \FireHub\Core\Support\LowLevel::class:
@@ -634,12 +680,8 @@ final readonly class CompiledClassmap implements Loader {
                 require __DIR__.'/../../../throwable/firehub.ExceptionBuilder.php';
                 return;
 
-            case \FireHub\Core\Throwable\Exception\Bootstrap\FailedToLoadBootloaderException::class:
-                require __DIR__.'/../../../throwable/exception/bootstrap/firehub.FailedToLoadBootloaderException.php';
-                return;
-
-            case \FireHub\Core\Throwable\Exception\Bootstrap\NotBootloaderException::class:
-                require __DIR__.'/../../../throwable/exception/bootstrap/firehub.NotBootloaderException.php';
+            case \FireHub\Core\Throwable\Exception\DataStructure\WrongReturnTypeException::class:
+                require __DIR__.'/../../../throwable/exception/datastructure/firehub.WrongReturnTypeException.php';
                 return;
 
             case \FireHub\Core\Throwable\Exception\Domain\Autoload\ImplementationException::class:
@@ -656,6 +698,14 @@ final readonly class CompiledClassmap implements Loader {
 
             case \FireHub\Core\Throwable\Exception\Domain\Autoload\InvalidNamespaceException::class:
                 require __DIR__.'/../../../throwable/exception/domain/autoload/firehub.InvalidNamespaceException.php';
+                return;
+
+            case \FireHub\Core\Throwable\Exception\Support\Bootstrap\FailedToLoadBootloaderException::class:
+                require __DIR__.'/../../../throwable/exception/support/bootstrap/firehub.FailedToLoadBootloaderException.php';
+                return;
+
+            case \FireHub\Core\Throwable\Exception\Support\Bootstrap\NotBootloaderException::class:
+                require __DIR__.'/../../../throwable/exception/support/bootstrap/firehub.NotBootloaderException.php';
                 return;
 
             case \FireHub\Core\Throwable\Throwable::class:

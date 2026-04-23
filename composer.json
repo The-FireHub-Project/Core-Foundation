@@ -7,17 +7,14 @@
   "license": "Apache-2.0",
   "require": {
     "php": "^8.5",
+    "ext-openssl": "*",
     "ext-mbstring": "*"
   },
   "require-dev": {
     "phpstan/phpstan": "^2.0",
     "phpstan/phpstan-strict-rules": "^2.0",
+    "firehub/phpstan-rules": "^1.0",
     "phpunit/phpunit": "^13.0"
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "FireHub\\PHPStan\\": "phpstan/"
-    }
   },
   "minimum-stability": "dev",
   "prefer-stable": true,

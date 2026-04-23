@@ -8,11 +8,9 @@
  * @license https://opensource.org/license/Apache-2-0 Apache License, Version 2.0
  *
  * @package Core\Test
- *
- * @version GIT: $Id$ Blob checksum.
  */
 
-namespace FireHub\Tests\Unit\Domain\Autoload;
+namespace FireHub\Tests\Unit\Support;
 
 use FireHub\Core\Testing\Base;
 use FireHub\Core\Support\Autoload;
