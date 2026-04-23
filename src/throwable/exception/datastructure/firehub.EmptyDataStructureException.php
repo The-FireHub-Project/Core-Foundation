@@ -19,7 +19,7 @@ use FireHub\Core\Throwable\Exception;
  * ### DataStructure is empty
  * @since 1.0.0
  */
-class EmptyStructureException extends Exception {
+class EmptyDataStructureException extends Exception {
 
     /**
      * @inheritdoc
