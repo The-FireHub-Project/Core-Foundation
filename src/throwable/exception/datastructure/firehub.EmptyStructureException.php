@@ -16,16 +16,16 @@ namespace FireHub\Core\Throwable\Exception\DataStructure;
 use FireHub\Core\Throwable\Exception;
 
 /**
- * ### DataStructure returns the wrong type
+ * ### DataStructure is empty
  * @since 1.0.0
  */
-class WrongReturnTypeException extends Exception {
+class EmptyStructureException extends Exception {
 
     /**
      * @inheritdoc
      *
      * @since 1.0.0
      */
-    protected const string DEFAULT_MESSAGE = 'DataStructure has retuned the wrong type.';
+    protected const string DEFAULT_MESSAGE = 'DataStructure is empty.';
 
 }
