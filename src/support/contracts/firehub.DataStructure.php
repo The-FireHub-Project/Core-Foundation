@@ -16,9 +16,13 @@ namespace FireHub\Core\Support\Contracts;
 /**
  * ### Data structure Contract
  *
- * Defines a generic, type-safe contract for all high-level data structures in FireHub.<br>
- * Supports iteration, array conversion, serialization, and common utility operations, ensuring consistency across
- * collections, lazy collections, and other linear or dynamic data containers.
+ * Represents the root abstraction for all data structures within the system.
+ * A data structure defines the semantic interpretation and usage model of data, independent of its underlying storage
+ * mechanism.<br>
+ * It serves as a type identity and architectural boundary, enabling consistent classification, composition, and
+ * interaction across different structural paradigms.<br>
+ * This interface does not define behavior or operations but establishes a common contract for all structures that
+ * organize and expose data meaningfully.
  * @since 1.0.0
  *
  * @template TKey

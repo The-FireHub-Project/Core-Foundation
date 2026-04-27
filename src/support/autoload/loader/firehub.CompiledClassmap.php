@@ -244,6 +244,14 @@ final readonly class CompiledClassmap implements Loader {
                 require __DIR__.'/../../../support/contracts/firehub.DataStructure.php';
                 return;
 
+            case \FireHub\Core\Support\DataStructure\Contracts\Collection::class:
+                require __DIR__.'/../../../support/datastructure/contracts/firehub.Collection.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Enumerable::class:
+                require __DIR__.'/../../../support/datastructure/firehub.Enumerable.php';
+                return;
+
             case \FireHub\Core\Support\LowLevel::class:
                 require __DIR__.'/../../../support/firehub.LowLevel.php';
                 return;
@@ -678,6 +686,10 @@ final readonly class CompiledClassmap implements Loader {
 
             case \FireHub\Core\Throwable\ExceptionBuilder::class:
                 require __DIR__.'/../../../throwable/firehub.ExceptionBuilder.php';
+                return;
+
+            case \FireHub\Core\Throwable\Exception\DataStructure\EmptyDataStructureException::class:
+                require __DIR__.'/../../../throwable/exception/datastructure/firehub.EmptyDataStructureException.php';
                 return;
 
             case \FireHub\Core\Throwable\Exception\DataStructure\WrongReturnTypeException::class:
