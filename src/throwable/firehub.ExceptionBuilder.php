@@ -25,5 +25,7 @@ namespace FireHub\Core\Throwable;
  * @template TThrowable of \FireHub\Core\Throwable\Exception
  *
  * @extends \FireHub\Core\Throwable\Builder<TThrowable>
+ *
+ * @internal
  */
 final class ExceptionBuilder extends Builder {}

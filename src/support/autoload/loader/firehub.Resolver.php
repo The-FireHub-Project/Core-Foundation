@@ -35,7 +35,7 @@ use const FireHub\Core\Shared\Constants\Path\DS;
 final class Resolver implements Loader {
 
     /**
-     * ### List of namespaces prefixes with its folders
+     * ### List of namespace prefixes with its folders
      *
      * An associative array where the key is a namespace prefix, and the value is an array of base folders for classes
      * in that namespace.

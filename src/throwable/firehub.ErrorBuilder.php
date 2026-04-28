@@ -24,5 +24,7 @@ namespace FireHub\Core\Throwable;
  * @template TThrowable of \FireHub\Core\Throwable\Error
  *
  * @extends \FireHub\Core\Throwable\Builder<TThrowable>
+ *
+ * @internal
  */
 final class ErrorBuilder extends Builder {}
