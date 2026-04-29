@@ -11,7 +11,7 @@
  * @package Core\Throwable
  */
 
-namespace FireHub\Core\Throwable\Error\LowLevel;
+namespace FireHub\Core\Throwable\Error\ValueObject;
 
 use FireHub\Core\Throwable\Error;
 

@@ -35,7 +35,7 @@ final readonly class Code extends ValueObject {
      * The error code.
      * </p>
      *
-     * @throws \FireHub\Core\Throwable\Error\LowLevel\InvalidValueObjectError If the code is negative.
+     * @throws \FireHub\Core\Throwable\Error\ValueObject\InvalidValueObjectError If the code is negative.
      *
      * @return void
      */

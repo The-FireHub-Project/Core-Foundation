@@ -11,21 +11,21 @@
  * @package Core\Throwable
  */
 
-namespace FireHub\Core\Throwable\Exception\DataStructure;
+namespace FireHub\Core\Throwable\Exception\Support\DataStructure;
 
 use FireHub\Core\Throwable\Exception;
 
 /**
- * ### DataStructure size
+ * ### DataStructure is empty
  * @since 1.0.0
  */
-class SizeException extends Exception {
+class EmptyDataStructureException extends Exception {
 
     /**
      * @inheritdoc
      *
      * @since 1.0.0
      */
-    protected const string DEFAULT_MESSAGE = 'DataStructure size iz wrong.';
+    protected const string DEFAULT_MESSAGE = 'DataStructure is empty.';
 
 }

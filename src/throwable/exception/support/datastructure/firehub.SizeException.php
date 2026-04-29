@@ -11,21 +11,21 @@
  * @package Core\Throwable
  */
 
-namespace FireHub\Core\Throwable\Exception\DataStructure;
+namespace FireHub\Core\Throwable\Exception\Support\DataStructure;
 
 use FireHub\Core\Throwable\Exception;
 
 /**
- * ### DataStructure returns the wrong type
+ * ### DataStructure size
  * @since 1.0.0
  */
-class WrongReturnTypeException extends Exception {
+class SizeException extends Exception {
 
     /**
      * @inheritdoc
      *
      * @since 1.0.0
      */
-    protected const string DEFAULT_MESSAGE = 'DataStructure has retuned the wrong type.';
+    protected const string DEFAULT_MESSAGE = 'DataStructure size iz wrong.';
 
 }
