@@ -174,9 +174,7 @@ final class Arr extends LowLevel {
      * Key can be any value possible for an array index.
      * @since 1.0.0
      *
-     * @template TKey of array-key
-     *
-     * @param TKey $key <p>
+     * @param array-key $key <p>
      * Key to check.
      * </p>
      * @param array<array-key, mixed> $array <p>
