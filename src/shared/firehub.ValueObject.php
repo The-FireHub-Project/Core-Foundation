@@ -13,7 +13,7 @@
 
 namespace FireHub\Core\Shared;
 
-use FireHub\Core\Throwable\Error\LowLevel\InvalidValueObjectError;
+use FireHub\Core\Throwable\Error\ValueObject\InvalidValueObjectError;
 
 /**
  * ### Base Value Object
@@ -62,7 +62,7 @@ abstract readonly class ValueObject {
      * Exception message.
      * </p>
      *
-     * @throws \FireHub\Core\Throwable\Error\LowLevel\InvalidValueObjectError If the condition is not met.
+     * @throws \FireHub\Core\Throwable\Error\ValueObject\InvalidValueObjectError If the condition is not met.
      *
      * @return void
      */

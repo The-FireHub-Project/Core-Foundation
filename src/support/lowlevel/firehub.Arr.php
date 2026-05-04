@@ -183,14 +183,12 @@ final class Arr extends LowLevel {
      * An array with keys to check.
      * </p>
      *
-     * @phpstan-assert-if-true array<TKey, mixed> $array
-     *
      * @return bool True if the key exists in an array, false otherwise.
      *
      * @note Method will search for the keys in the first dimension only.
      * Nested keys in multidimensional arrays will not be found.
      */
-    public static function keyExist (int|string $key, array $array):bool {
+    public static function keyExists (int|string $key, array $array):bool {
 
         return array_key_exists($key, $array);
 
