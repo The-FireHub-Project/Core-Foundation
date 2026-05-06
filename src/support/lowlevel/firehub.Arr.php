@@ -1575,7 +1575,7 @@ final class Arr extends LowLevel {
      *
      * @throws \FireHub\Core\Throwable\Error\LowLevel\Arr\OutOfRangeError If $step is 0, $start, $end, or $step is not
      * finite, or $step is negative, but the produced range is increasing (in other words, $start <= $end), or if one
-     * is string, bu not both.
+     * is string, but not both.
      *
      * @return (TStart is string
      *  ? array<int, string>
