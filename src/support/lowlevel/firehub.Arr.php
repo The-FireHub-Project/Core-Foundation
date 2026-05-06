@@ -1466,8 +1466,7 @@ final class Arr extends LowLevel {
      * You can change this behavior by setting preserve_keys to true.
      * </p>
      *
-     * @return (
-     *  $preserve_keys is true
+     * @return ( $preserve_keys is true
      *  ? array<TKey, TValue>
      *  : ($array is list
      *    ? list<TValue>
@@ -1557,27 +1556,50 @@ final class Arr extends LowLevel {
      * ### Create an array containing a range of elements
      * @since 1.0.0
      *
-     * @param int|float|string $start <p>
+     * @uses \FireHub\Core\Support\LowLevel\DataIs::string() To determine if the $start and $end values are strings.
+     *
+     * @template TStart of int|float|string
+     * @template TEnd of int|float|string
+     * @template TStep of int|float
+     *
+     * @param TStart $start <p>
      * First value of the sequence.
      * </p>
-     * @param int|float|string $end <p>
+     * @param TEnd $end <p>
      * The sequence is ended upon reaching the end value.
      * </p>
-     * @param positive-int|float $step [optional] <p>
+     * @param TStep $step [optional] <p>
      * If a step value is given, it will be used as the increment between elements in the sequence.<br>
      * Step should be given as a positive number. If not specified, a step will default to 1.
      * </p>
      *
      * @throws \FireHub\Core\Throwable\Error\LowLevel\Arr\OutOfRangeError If $step is 0, $start, $end, or $step is not
-     * finite, or $step is negative, but the produced range is increasing (in other words, $start <= $end).
+     * finite, or $step is negative, but the produced range is increasing (in other words, $start <= $end), or if one
+     * is string, bu not both.
      *
-     * @return list<int|float|string> Sequence of elements as an array with the first element being start going up to
-     * end, with each value of the sequence being step values apart.
+     * @return (TStart is string
+     *  ? list<string>
+     *    : (TEnd is string
+     *      ? list<string>
+     *      : (TStart is float
+     *        ? list<float>
+     *        : (TEnd is float
+     *          ? list<float>
+     *          : (TStep is float
+     *            ? list<float>
+     *            : list<int>))))
+     * ) Sequence of elements as an array with the first element being start going up to end, with each value of the
+     * sequence being step values apart.
      *
      * @note Character sequence values are limited to a length of one.<br>
      * If a length greater than one is entered only the first character is used.
      */
     public static function range (int|float|string $start, int|float|string $end, int|float $step = 1):array {
+
+        if (DataIs::string($start) xor DataIs::string($end))
+            throw new OutOfRangeError(
+                'Start and end must be of the same type. If one is string, both must be string.'
+            );
 
         try {
 
