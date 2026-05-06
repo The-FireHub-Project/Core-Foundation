@@ -1578,16 +1578,16 @@ final class Arr extends LowLevel {
      * is string, bu not both.
      *
      * @return (TStart is string
-     *  ? list<string>
+     *  ? array<int, string>
      *    : (TEnd is string
-     *      ? list<string>
+     *      ? array<int, string>
      *      : (TStart is float
-     *        ? list<float>
+     *        ? array<int, float>
      *        : (TEnd is float
-     *          ? list<float>
+     *          ? array<int, float>
      *          : (TStep is float
-     *            ? list<float>
-     *            : list<int>))))
+     *            ? array<int, float>
+     *            : array<int, int>))))
      * ) Sequence of elements as an array with the first element being start going up to end, with each value of the
      * sequence being step values apart.
      *
