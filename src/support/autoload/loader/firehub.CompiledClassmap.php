@@ -148,6 +148,10 @@ final readonly class CompiledClassmap implements Loader {
                 require __DIR__.'/../../../shared/enums/json/flag/firehub.Validate.php';
                 return;
 
+            case \FireHub\Core\Shared\Enums\MutationOutcome::class:
+                require __DIR__.'/../../../shared/enums/firehub.MutationOutcome.php';
+                return;
+
             case \FireHub\Core\Shared\Enums\Number\LogBase::class:
                 require __DIR__.'/../../../shared/enums/number/firehub.LogBase.php';
                 return;
@@ -194,6 +198,10 @@ final readonly class CompiledClassmap implements Loader {
 
             case \FireHub\Core\Shared\Enums\SystemRuntime\PhpExtension::class:
                 require __DIR__.'/../../../shared/enums/systemruntime/firehub.PhpExtension.php';
+                return;
+
+            case \FireHub\Core\Shared\Type\Maybe::class:
+                require __DIR__.'/../../../shared/type/Maybe.php';
                 return;
 
             case \FireHub\Core\Shared\ValueObject::class:
@@ -244,12 +252,136 @@ final readonly class CompiledClassmap implements Loader {
                 require __DIR__.'/../../../support/contracts/firehub.DataStructure.php';
                 return;
 
-            case \FireHub\Core\Support\DataStructure\Contracts\Collection::class:
-                require __DIR__.'/../../../support/datastructure/contracts/firehub.Collection.php';
+            case \FireHub\Core\Support\DataStructure\Storage::class:
+                require __DIR__.'/../../../support/datastructure/interface.Storage.php';
                 return;
 
-            case \FireHub\Core\Support\DataStructure\Enumerable::class:
-                require __DIR__.'/../../../support/datastructure/firehub.Enumerable.php';
+            case \FireHub\Core\Support\DataStructure\Storage\ArrListStorage::class:
+                require __DIR__.'/../../../support/datastructure/storage/firehub.ArrListStorage.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Storage\ArrMapStorage::class:
+                require __DIR__.'/../../../support/datastructure/storage/firehub.ArrMapStorage.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Storage\Capability\BackInsertion::class:
+                require __DIR__.'/../../../support/datastructure/storage/capability/firehub.BackInsertion.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Storage\Capability\BackMutation::class:
+                require __DIR__.'/../../../support/datastructure/storage/capability/firehub.BackMutation.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Storage\Capability\BackRemoval::class:
+                require __DIR__.'/../../../support/datastructure/storage/capability/firehub.BackRemoval.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Storage\Capability\Cloneable::class:
+                require __DIR__.'/../../../support/datastructure/storage/capability/firehub.Cloneable.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Storage\Capability\CyclicTraversal::class:
+                require __DIR__.'/../../../support/datastructure/storage/capability/firehub.CyclicTraversal.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Storage\Capability\DequeMutation::class:
+                require __DIR__.'/../../../support/datastructure/storage/capability/firehub.DequeMutation.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Storage\Capability\FrontInsertion::class:
+                require __DIR__.'/../../../support/datastructure/storage/capability/firehub.FrontInsertion.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Storage\Capability\FrontMutation::class:
+                require __DIR__.'/../../../support/datastructure/storage/capability/firehub.FrontMutation.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Storage\Capability\FrontRemoval::class:
+                require __DIR__.'/../../../support/datastructure/storage/capability/firehub.FrontRemoval.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Storage\Capability\IndexAccess::class:
+                require __DIR__.'/../../../support/datastructure/storage/capability/firehub.IndexAccess.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Storage\Capability\IndexMutation::class:
+                require __DIR__.'/../../../support/datastructure/storage/capability/firehub.IndexMutation.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Storage\Capability\KeyAccess::class:
+                require __DIR__.'/../../../support/datastructure/storage/capability/firehub.KeyAccess.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Storage\Capability\KeyMutation::class:
+                require __DIR__.'/../../../support/datastructure/storage/capability/firehub.KeyMutation.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Storage\Capability\LinearBoundaryAccess::class:
+                require __DIR__.'/../../../support/datastructure/storage/capability/firehub.LinearBoundaryAccess.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Storage\Capability\NodeAccess::class:
+                require __DIR__.'/../../../support/datastructure/storage/capability/firehub.NodeAccess.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Storage\Capability\NodeBidirectionalInsert::class:
+                require __DIR__.'/../../../support/datastructure/storage/capability/firehub.NodeBidirectionalInsert.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Storage\Capability\NodeInsertAfter::class:
+                require __DIR__.'/../../../support/datastructure/storage/capability/firehub.NodeInsertAfter.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Storage\Capability\NodeInsertBefore::class:
+                require __DIR__.'/../../../support/datastructure/storage/capability/firehub.NodeInsertBefore.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Storage\Capability\NodeMutation::class:
+                require __DIR__.'/../../../support/datastructure/storage/capability/firehub.NodeMutation.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Storage\Capability\NodeRemoval::class:
+                require __DIR__.'/../../../support/datastructure/storage/capability/firehub.NodeRemoval.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Storage\Capability\StorageMetricsAware::class:
+                require __DIR__.'/../../../support/datastructure/storage/capability/firehub.StorageMetricsAware.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Storage\GeneratorStorage::class:
+                require __DIR__.'/../../../support/datastructure/storage/firehub.GeneratorStorage.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Storage\Handle\NodeHandle::class:
+                require __DIR__.'/../../../support/datastructure/storage/handle/firehub.NodeHandle.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Storage\Initialization\ArrStorageInitializer::class:
+                require __DIR__.'/../../../support/datastructure/storage/initialization/firehub.ArrStorageInitializer.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Storage\Initialization\GeneratorStorageInitializer::class:
+                require __DIR__.'/../../../support/datastructure/storage/initialization/firehub.GeneratorStorageInitializer.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Storage\Initialization\Strategy\ArrCallbackInitializer::class:
+                require __DIR__.'/../../../support/datastructure/storage/initialization/strategy/firehub.ArrCallbackInitializer.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Storage\Initialization\Strategy\ArrFillInitializer::class:
+                require __DIR__.'/../../../support/datastructure/storage/initialization/strategy/firehub.ArrFillInitializer.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Storage\Initialization\Strategy\ArrRangeInitializer::class:
+                require __DIR__.'/../../../support/datastructure/storage/initialization/strategy/firehub.ArrRangeInitializer.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Storage\Initialization\Strategy\GeneratorCallbackInitializer::class:
+                require __DIR__.'/../../../support/datastructure/storage/initialization/strategy/firehub.GeneratorCallbackInitializer.php';
+                return;
+
+            case \FireHub\Core\Support\DataStructure\Storage\Node::class:
+                require __DIR__.'/../../../support/datastructure/storage/firehub.Node.php';
                 return;
 
             case \FireHub\Core\Support\LowLevel::class:
@@ -588,10 +720,6 @@ final readonly class CompiledClassmap implements Loader {
                 require __DIR__.'/../../../throwable/error/lowlevel/func/firehub.RegisterTickFailedError.php';
                 return;
 
-            case \FireHub\Core\Throwable\Error\LowLevel\InvalidValueObjectError::class:
-                require __DIR__.'/../../../throwable/error/valueobject/firehub.InvalidValueObjectError.php';
-                return;
-
             case \FireHub\Core\Throwable\Error\LowLevel\Json\DecodeError::class:
                 require __DIR__.'/../../../throwable/error/lowlevel/json/firehub.DecodeError.php';
                 return;
@@ -680,20 +808,16 @@ final readonly class CompiledClassmap implements Loader {
                 require __DIR__.'/../../../throwable/error/lowlevel/systemruntime/firehub.SleepTimeInvalidError.php';
                 return;
 
+            case \FireHub\Core\Throwable\Error\ValueObject\InvalidValueObjectError::class:
+                require __DIR__.'/../../../throwable/error/valueobject/firehub.InvalidValueObjectError.php';
+                return;
+
             case \FireHub\Core\Throwable\Exception::class:
                 require __DIR__.'/../../../throwable/firehub.Exception.php';
                 return;
 
             case \FireHub\Core\Throwable\ExceptionBuilder::class:
                 require __DIR__.'/../../../throwable/firehub.ExceptionBuilder.php';
-                return;
-
-            case \FireHub\Core\Throwable\Exception\DataStructure\EmptyDataStructureException::class:
-                require __DIR__.'/../../../throwable/exception/datastructure/firehub.EmptyDataStructureException.php';
-                return;
-
-            case \FireHub\Core\Throwable\Exception\DataStructure\WrongReturnTypeException::class:
-                require __DIR__.'/../../../throwable/exception/datastructure/firehub.WrongReturnTypeException.php';
                 return;
 
             case \FireHub\Core\Throwable\Exception\Domain\Autoload\ImplementationException::class:
@@ -712,12 +836,40 @@ final readonly class CompiledClassmap implements Loader {
                 require __DIR__.'/../../../throwable/exception/domain/autoload/firehub.InvalidNamespaceException.php';
                 return;
 
+            case \FireHub\Core\Throwable\Exception\Shared\Type\NoValueException::class:
+                require __DIR__.'/../../../throwable/exception/shared/type/firehub.NoValueException.php';
+                return;
+
             case \FireHub\Core\Throwable\Exception\Support\Bootstrap\FailedToLoadBootloaderException::class:
                 require __DIR__.'/../../../throwable/exception/support/bootstrap/firehub.FailedToLoadBootloaderException.php';
                 return;
 
             case \FireHub\Core\Throwable\Exception\Support\Bootstrap\NotBootloaderException::class:
                 require __DIR__.'/../../../throwable/exception/support/bootstrap/firehub.NotBootloaderException.php';
+                return;
+
+            case \FireHub\Core\Throwable\Exception\Support\DataStructure\EmptyDataStructureException::class:
+                require __DIR__.'/../../../throwable/exception/support/datastructure/firehub.EmptyDataStructureException.php';
+                return;
+
+            case \FireHub\Core\Throwable\Exception\Support\DataStructure\InvalidBufferException::class:
+                require __DIR__.'/../../../throwable/exception/support/datastructure/firehub.InvalidBufferException.php';
+                return;
+
+            case \FireHub\Core\Throwable\Exception\Support\DataStructure\NodeOwnershipException::class:
+                require __DIR__.'/../../../throwable/exception/support/datastructure/firehub.NodeOwnershipException.php';
+                return;
+
+            case \FireHub\Core\Throwable\Exception\Support\DataStructure\OutOfBoundsException::class:
+                require __DIR__.'/../../../throwable/exception/support/datastructure/firehub.OutOfBoundsException.php';
+                return;
+
+            case \FireHub\Core\Throwable\Exception\Support\DataStructure\SizeException::class:
+                require __DIR__.'/../../../throwable/exception/support/datastructure/firehub.SizeException.php';
+                return;
+
+            case \FireHub\Core\Throwable\Exception\Support\DataStructure\WrongReturnTypeException::class:
+                require __DIR__.'/../../../throwable/exception/support/datastructure/firehub.WrongReturnTypeException.php';
                 return;
 
             case \FireHub\Core\Throwable\Throwable::class:
