@@ -16,11 +16,6 @@
     "firehub/phpstan-rules": "^1.0",
     "phpunit/phpunit": "^13.0"
   },
-  "autoload": {
-    "files": [
-      "dist/core.phar"
-    ]
-  },
   "minimum-stability": "dev",
   "prefer-stable": true,
   "authors": [
