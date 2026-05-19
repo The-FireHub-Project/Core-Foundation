@@ -87,9 +87,9 @@ final class ArrTest extends Base {
     #[TestWith([true, 2, [1, 2, 3]])]
     #[TestWith([false, 3, [1, 2, 3]])]
     #[TestWith([false, 'x', [null, 2, 3]])]
-    public function testKeyExist (bool $expected, int|string $key, array $array):void {
+    public function testKeyExists (bool $expected, int|string $key, array $array):void {
 
-        self::assertSame($expected, Arr::keyExist($key, $array));
+        self::assertSame($expected, Arr::keyExists($key, $array));
 
     }
 
